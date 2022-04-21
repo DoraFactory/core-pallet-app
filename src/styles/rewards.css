@@ -1,0 +1,121 @@
+.claim-btn{
+    /* button */
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content:   center;
+    align-items: center;
+    padding: 6px 18px;
+
+    position: static;
+    width: 141px;
+    height: 36px;
+    right: 0px;
+    top: calc(50% - 36px/2);
+
+    /* accent/accent-primary */
+
+    background: #FF6500;
+    border-radius: 999px;
+
+}
+
+.reward-stat{
+    /* stat */
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    position: absolute;
+    width: 1176px;
+    height: 120px;
+    left: calc(50% - 1174px/2);
+    top: 176px;
+
+    /* basic/bg-primary */
+
+    background: #FFFFFF;
+    /* elevation/elevation-1 */
+
+    box-shadow: 0px 3px 8px rgba(33, 33, 44, 0.06), 0px 1.5px 4px rgba(33, 33, 44, 0.06), 0px 1px 2px rgba(33, 33, 44, 0.06), 0px 0.5px 1px rgba(33, 33, 44, 0.06), 0px 0px 0.5px rgba(33, 33, 44, 0.08);
+    border-radius: 8px;
+}
+
+
+.reward-grid{
+    /* grid */
+    /* Auto layout */
+    display: grid;
+    align-items: flex-start;
+    grid-template-columns: repeat(3, 360px);
+    grid-gap: 20px;
+    grid-template-rows: 72px 72px 72px;
+    padding: 24px;
+
+    position: static;
+    width: 1126px;
+    height: 72px;
+    left: 24px;
+    top: 24px;
+}
+
+.block-body{
+    /* blocks */
+    /* display: flex;
+    flex-direction: column;
+    align-items: flex-start; */
+
+    display: grid;
+    align-items: flex-start;
+    grid-template-columns: repeat(49, 16px);
+    grid-gap: 8px;
+    grid-template-rows: 16px ;
+    position: absolute;
+    width: 1176px;
+    height: 160px;
+    left: 174px;
+    top: 320px;
+
+}
+
+.block-gone{
+    /* block-day */
+    width: 16px;
+    height: 16px;
+    /* accent/accent-secondary */
+    background: #FFCC00;
+    border-radius: 2px;
+}
+
+.block-coming{
+    position: static;
+    width: 16px;
+    height: 16px;
+    /* line/line-secondary */
+    background: #E8E8EE;
+    border-radius: 2px;
+}
+
+.content-info{
+    /* desc */
+    position: absolute;
+    width: 456px;
+    height: 60px;
+    left: 186px;
+    top: 500px;
+
+    /* regular/type-note */
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    /* or 143% */
+
+
+    /* basic/ink-secondary */
+
+    color: #7B7B9D;
+}
