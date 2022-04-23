@@ -7,15 +7,15 @@ import TransDoc from '../components/assets/transfer-doc';
 import Footer from '../components/footer';
 import '../styles/assets.css';
 const Assets = () => {
-    return(
+    return (
         <div className="App">
-            <Header></Header>
             <div className="text-default">
                 <p className="font1">Your Assets</p>
-                {/* TODO：文字页上脚*/}
                 <a className="explorer-sty">View Dora-KSM Parachain Stats</a>
             </div>
-            <TableSingleLine className="tb"></TableSingleLine>
+            <div className="tb-line">
+                <TableSingleLine className="tb"></TableSingleLine>
+            </div>
             <TransDoc></TransDoc>
             <Footer></Footer>
         </div>

@@ -7,7 +7,9 @@ const TransDoc = () => {
                 <span className="noacc-p"> Transfer assets between parachains</span>
                 <span className="p2">Please check out the Substrate documentation to learn more information about the HRMP pallet.</span>
             </div>
-            <button className="get-account">Documention</button>
+            <button className="doc">
+                <span className="doc-sty">Documention</span>
+            </button>
         </div>
     )
 }

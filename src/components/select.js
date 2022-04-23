@@ -11,12 +11,12 @@ document.head.appendChild(styleLink);
 <br />;
 
 const selectOptions = [
-    { key: 'af', value: 'af', text: '0x5wfwy2g3r23hrv123hgrvgh', },
-    { key: 'ax', value: 'ax', text: '0xr32rb23jrbh23jrb43j2hbr' },
+    { key: 'af', value: 'af', text: '0xdfhghsfshdfhsdfh'},
+    { key: 'ax', value: 'ax', text: '0x3rbh23jrb43j2hbr'},
 ]
 
 const Selecting = () => (
-    <Select placeholder='Select your accountId' options={selectOptions} className='select-bw'></Select>
+    <Select placeholder='Select your accountId' options={selectOptions} style={{width: '141px'}}></Select>
 )
 
 export default Selecting;

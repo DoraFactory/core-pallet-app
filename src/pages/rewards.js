@@ -7,7 +7,7 @@ import Block from '../components/rewards/block'
 const Reward = () => {
     return (
         <div>
-            <Header></Header>
+            {/* <Header></Header> */}
             <div className="text-default">
                 <p className="font1">Dora-KSM crowdloan rewards</p>
                 {/* TODO：文字页上脚*/}

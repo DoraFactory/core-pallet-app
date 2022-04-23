@@ -30,7 +30,7 @@
     position: absolute;
     width: 1176px;
     height: 120px;
-    left: calc(50% - 1174px/2);
+    left: calc(50% - 1080px/2);
     top: 176px;
 
     /* basic/bg-primary */
@@ -74,7 +74,7 @@
     position: absolute;
     width: 1176px;
     height: 160px;
-    left: 174px;
+    left: calc(50% - 1080px/2);
     top: 320px;
 
 }
@@ -102,7 +102,7 @@
     position: absolute;
     width: 456px;
     height: 60px;
-    left: 186px;
+    left: calc(50% - 1080px/2);
     top: 500px;
 
     /* regular/type-note */
