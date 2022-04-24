@@ -4,6 +4,7 @@
 import '../styles/page-default.css';
 import LeaseInfo from '../components/defaults/default-networks';
 import NoAccount from "../components/defaults/no-accounts";
+import Icons from "../resources/index";
 import Footer from "../components/footer";
 
 const DefaultPage = () => {
@@ -20,11 +21,21 @@ const DefaultPage = () => {
             <div className="text-default">
                 <p className="font1">Dora-KSM Parachain</p>
                 {/* TODO：文字页上脚*/}
-                <a className="explorer-sty">View Dora-KSM Parachain Explorer</a>
+                <div className="icon-link">
+                    <a className="explorer-sty">View Dora-KSM Parachain Explorer</a>
+                    <img src={Icons.Arrow} className="icon-sty"></img>
+                </div>
+
             </div>
             <LeaseInfo />
             <NoAccount />
-            <Footer></Footer>
+            {/* <Footer></Footer>
+             */}
+            <div className="foot-default">
+                <span className="foot-font">© 2022 Dora Factory</span>
+                <span className="foot-font">·</span>
+                <a className="foot-font">Feedback</a>
+            </div>
         </div>
     );
 }

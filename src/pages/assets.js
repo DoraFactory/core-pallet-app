@@ -10,7 +10,7 @@ const Assets = () => {
     return (
         <div className="App">
             <div className="text-default">
-                <p className="font1">Your Assets</p>
+                <p className="font1">Your assets</p>
                 <a className="explorer-sty">View Dora-KSM Parachain Stats</a>
             </div>
             <div className="tb-line">

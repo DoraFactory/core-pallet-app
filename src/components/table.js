@@ -30,7 +30,10 @@ const TableSingleLine = () => (
                 <Table.Cell>
                     <div className="pd-body">
                         <img src={Icons.Dora} className="pic"></img>
-                        <span className="lg-p">Dora-KSM Parachain</span>
+                        <div className="icon-body2">
+                            <span className="lg-p">Dora-KSM Parachain</span>
+                            <img src={Icons.Arrow} className="icon-link2"></img>
+                        </div>
                     </div>
                 </Table.Cell>
                 <Table.Cell>
@@ -46,7 +49,10 @@ const TableSingleLine = () => (
                 <Table.Cell>
                     <div className="pd-body">
                         <img src={Icons.Kusama} className="pic"></img>
-                        <span className="lg-p">kusama</span>
+                        <div>
+                            <span className="lg-p">kusama</span>
+                            <img src={Icons.Arrow} className="icon-link3"></img>
+                        </div>
                     </div>
                 </Table.Cell>
                 <Table.Cell>
@@ -62,7 +68,10 @@ const TableSingleLine = () => (
                 <Table.Cell>
                     <div className="pd-body">
                         <img src={Icons.Litmus} className="pic"></img>
-                        <span className="lg-p">Litmus</span>
+                        <div>
+                            <span className="lg-p">Litmus</span>
+                            <img src={Icons.Arrow} className="icon-link4"></img>
+                        </div>
                     </div>
                 </Table.Cell>
                 <Table.Cell>

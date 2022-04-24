@@ -5,7 +5,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 24px;
+    padding: 0px 49px;
     position: absolute;
     height: 56px;
     left: 0px;
@@ -55,6 +55,7 @@
     font: Public Sans;
     font-size: 16px;
     font-weight: 600;
+    border: 0px;
     color: #FFFFFF;
 }
 
@@ -69,7 +70,6 @@
     height: 32px;
     left: calc(50% - 1050px/2);
     top: 104px;
-    font: Public Sans;
 }
 
 .font1{
@@ -182,9 +182,7 @@
     font-weight: 600;
     font-size: 24px;
     line-height: 48px;
-    /* identical to box height, or 200% */
     font-feature-settings: 'tnum' on, 'lnum' on;
-    /* basic/ink-secondary */
     color: #7B7B9D;
 
 }
@@ -199,7 +197,7 @@
     position: absolute;
     width: 1176px;
     height: 144px;
-    left: calc(50% - 1176px/2);
+    left: calc(50% - 1080px/2);
     top: 416px;
     /* basic/bg-primary */
     background: #FFFFFF;
@@ -241,8 +239,6 @@
     font-weight: 800;
     font-size: 24px;
     line-height: 32px;
-    /* identical to box height, or 133% */
-    /* basic/ink-primary */
     color: #21212C;
 }
 
@@ -260,7 +256,6 @@
     line-height: 24px;
     /* basic/ink-primary */
     color: #21212C;
-    /* Inside auto layout */
     flex: none;
     order: 1;
     flex-grow: 0;
@@ -282,6 +277,107 @@
     /* accent/accent-primary */
     background: #FF6500;
     border-radius: 999px;
+    /* semibold/type-body-sb */
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    /* basic/bg-primary */
+    border: 0px;
+    color: #FFFFFF;
+}
+
+.icon-link{
+    /* link */
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    position: absolute;
+    width: 280px;
+    height: 24px;
+    left: 120px;
+    top: 4px;
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 733px;
+}
+
+.icon-body2{
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    position: static;
+    width: 185px;
+    height: 24px;
+    left: 56px;
+    top: 4px;
+}
+
+.icon-link2{
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    left: 265px;
+    top:80px;
+}
+
+.icon-link3{
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    left: 165px;
+    top:165px;
+}
+
+.icon-link4{
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    left: 155px;
+    top:250px;
+}
+
+
+.icon-sty{
+    /* icon-external */
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px 0px 6px;
+    position: static;
+    width: 6px;
+    height: 12px;
+    left: 270px;
+    top: 6px;
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 4px;
+}
+
+.btn-link{
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 18px;
+
+    position: static;
+    width: 251px;
+    height: 36px;
+    right: 24px;
+    top: calc(50% - 36px/2);
 }
 
 .foot{
@@ -313,12 +409,28 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
-    /* identical to box height, or 143% */
     color: #7B7B9D;
     flex: none;
     order: 0;
     flex-grow: 0;
     margin: 0px 14px;
+}
+
+.foot-default{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    position: absolute;
+    width: 1520px;
+    height: 56px;
+    left:0px;
+    top: 460px;
+    /* footer */
+    height: 56px;
+    top: 744px;
+    background: #F6F6F8;
 }
 
 .tb-row{
@@ -332,9 +444,7 @@
     height: 56px;
     left: 1000px;
     top: 0px;
-
     /* Inside auto layout */
-
     flex: none;
     order: 1;
     flex-grow: 0;
@@ -342,7 +452,6 @@
 }
 
 .select-bd{
-
     display: flex;
     /* nav-account */
     position: static;
@@ -361,7 +470,6 @@
 
 .select-dw{
     /* connect-wallet */
-    /* Auto layout */
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -377,7 +485,6 @@
 
 .btn-bd{
     /* tabs */
-    /* Auto layout */
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -420,7 +527,6 @@
 
 .Tabs {
     /* tabs */
-    /* Auto layout */
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -445,8 +551,6 @@
     height: 56px;
     left: 84px;
     top: 0px;
-    /* Inside auto layout */
-
     flex: none;
     order: 1;
     flex-grow: 0;
@@ -465,7 +569,6 @@
     height: 56px;
     left: 181px;
     top: 0px;
-    /* Inside auto layout */
     flex: none;
     order: 2;
     flex-grow: 0;
@@ -473,13 +576,11 @@
 }
 
 .tab-font{
-    /* semibold/type-body-sb */
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
-    /* identical to box height, or 150% */
     text-align: center;
     /* accent/accent-primary */
     color: #FF6500;
@@ -492,7 +593,6 @@
     height: 2px;
     left: 0px;
     top: 54px;
-    /* accent/accent-primary */
     background: #FF6500;
     /* Inside auto layout */
     flex: none;
@@ -509,7 +609,6 @@
         height: 2px;
         left: 0px;
         top: 54px;
-        /* accent/accent-primary */
         background: #FF6500;
         /* Inside auto layout */
         flex: none;
@@ -556,4 +655,22 @@
     text-align: center;
     /* basic/ink-primary */
     color: #21212C;
+}
+
+.downdrop{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 14px 2px 18px;
+    position: absolute;
+    width: 141px;
+    height: 36px;
+    right: 0px;
+    top: calc(50% - 36px/2);
+
+    /* line/line-secondary */
+    border: 1px solid #E8E8EE;
+    box-sizing: border-box;
+    border-radius: 999px;
 }

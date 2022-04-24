@@ -8,16 +8,26 @@
     padding: 6px 18px;
 
     position: static;
-    width: 141px;
+    width: 150px;
     height: 36px;
     right: 0px;
     top: calc(50% - 36px/2);
 
     /* accent/accent-primary */
-
+    border:0px;
     background: #FF6500;
     border-radius: 999px;
 
+    /* semibold/type-body-sb */
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+    text-align: center;
+    /* basic/bg-primary */
+    color: #FFFFFF;
 }
 
 .reward-stat{
@@ -85,6 +95,15 @@
     height: 16px;
     /* accent/accent-secondary */
     background: #FFCC00;
+    border-radius: 2px;
+}
+
+.block-view{
+    position: static;
+    width: 16px;
+    height: 16px;
+    /* line/line-secondary */
+    background: #FF6500;
     border-radius: 2px;
 }
 

@@ -6,12 +6,20 @@ import DoraTabs from "./tab/doratab";
 
 const options = [
     { value: 'chocolate', label: '0xq42342342' },
-    { value: 'strawberry', label: '0x3erfw342' },
-    { value: 'vanilla', label: '0x3w44g3543t3' },
+    { value: 'strawbero', label: '0x3erfw3422' },
+    { value: 'vanilla00', label: '0x3w44g3t33' },
 ];
+
+const classname = "downdrop";
 
 const Header = () => {
     const [selectedOption, setSelectedOption] = useState(null);
+
+
+    const styles = {
+        fontSize: 14,
+        color: 'blue',
+    }
 
     return (
         <div className="header-default" >
@@ -24,10 +32,12 @@ const Header = () => {
                     defaultValue={selectedOption}
                     onChange={setSelectedOption}
                     options={options}
+                    style={styles.Select}
                 />
             </div>
-        </div>
+        </div >
     );
 }
+
 
 export default Header;

@@ -5,11 +5,11 @@ const TabNavItem = ({ id, title, activeTab, setActiveTab }) => {
         setActiveTab(id);
     };
 
-    const sty = 'tab-line' + {title};
+    const sty = 'tab-line' + title;
     return (
         <div className={activeTab == id ? "asset-tab tab-font" : "tab-fontdefault default-tab"} onClick={handleClick}>
             <span>{title}</span>
-            <div className={sty}></div>
+            <div className={ activeTab == id ? sty : null}></div>
         </div>
 
     );

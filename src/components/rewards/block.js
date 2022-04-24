@@ -23,7 +23,7 @@ const Block = () => {
                 <div className="block-gone"></div>
                 <div className="block-gone"></div>
                 <div className="block-gone"></div>
-                <div className="block-gone"></div>
+                <div className="block-view"></div>
                 <div className="block-gone"></div>
                 <div className="block-gone"></div>
                 <div className="block-gone"></div>
