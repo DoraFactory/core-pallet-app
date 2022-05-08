@@ -6,20 +6,12 @@ import Footer from "../components/footer";
 const Network = () => {
     return(
         <div className="App" >
-            {/* <div className="header-default" >
-                <div className="nav-brand">
-                    CORE Pallet
-                </div>
-                <div className="nav-account">
-                    <button className="wallet">Connect Wallet</button>
-                </div>
-            </div> */}
             <div className="text-default">
                 <p className="font1">Dora-KSM Parachain</p>
                 {/* TODO：文字页上脚*/}
                 <a className="explorer-sty">View Dora-KSM Parachain Explorer</a>
             </div>
-            <LeaseInfo />
+            <LeaseInfo/>
             <Footer></Footer>
         </div>
     )

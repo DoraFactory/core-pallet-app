@@ -1,6 +1,5 @@
 import configCommon from './common.json'
 // Using `require` as `import` does not support dynamic loading (yet).
-import types from './types.json'
 const configEnv = require(`./${process.env.NODE_ENV}.json`)
 
 // Accepting React env vars and aggregating them into `config` object.
@@ -11,5 +10,5 @@ const envVars = envVarNames.reduce((mem, n) => {
   return mem
 }, {})
 
-const config = { ...configCommon, ...configEnv, ...envVars, types }
+const config = { ...configCommon, ...configEnv, ...envVars }
 export default config

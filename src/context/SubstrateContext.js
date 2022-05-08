@@ -7,8 +7,9 @@ import { keyring as Keyring } from '@polkadot/ui-keyring'
 import { isTestChain } from '@polkadot/util'
 import { TypeRegistry } from '@polkadot/types/create'
 
-import config from '../config'
+import config from "./config"
 
+// get the socket address
 const parsedQuery = new URLSearchParams(window.location.search)
 const connectedSocket = parsedQuery.get('rpc') || config.PROVIDER_SOCKET
 
@@ -26,9 +27,8 @@ const initialState = {
 
 const registry = new TypeRegistry()
 
-///
+//////////////////////////////////////////////////////////
 // Reducer function for `useReducer`
-
 const reducer = (state, action) => {
   switch (action.type) {
     case 'CONNECT_INIT':
@@ -52,9 +52,8 @@ const reducer = (state, action) => {
   }
 }
 
-///
+///////////////////////////////////////////////////////////
 // Connecting to the Substrate node
-
 const connect = (state, dispatch) => {
   const { apiState, socket, jsonrpc } = state
   // We only want this function to be performed once
@@ -79,6 +78,9 @@ const connect = (state, dispatch) => {
   _api.on('error', err => dispatch({ type: 'CONNECT_ERROR', payload: err }))
 }
 
+/////////////////////////////////////////////////////////
+// achieve chain's info: chain type
+// mianly using the substrate rpc call
 const retrieveChainInfo = async api => {
   const [systemChain, systemChainType] = await Promise.all([
     api.rpc.system.chain(),
@@ -93,7 +95,7 @@ const retrieveChainInfo = async api => {
   }
 }
 
-///
+////////////////////////////////////////////////////////
 // Loading accounts from dev and polkadot-js extension
 const loadAccounts = (state, dispatch) => {
   const { api } = state
@@ -128,24 +130,31 @@ const loadAccounts = (state, dispatch) => {
   asyncLoadAccounts()
 }
 
+// create substrate context
 const SubstrateContext = React.createContext()
 
 let keyringLoadAll = false
 
+////////////////////////////////////////////////////////
+// substrate context provider
 const SubstrateContextProvider = props => {
+  // get the socket.
   const neededPropNames = ['socket']
   neededPropNames.forEach(key => {
     initialState[key] =
       typeof props[key] === 'undefined' ? initialState[key] : props[key]
   })
 
+  // 1. filter and get the connect state
   const [state, dispatch] = useReducer(reducer, initialState)
+  // 2. connect to the chain by the state
   connect(state, dispatch)
 
   useEffect(() => {
     const { apiState, keyringState } = state
     if (apiState === 'READY' && !keyringState && !keyringLoadAll) {
       keyringLoadAll = true
+      // 3. load all accounts
       loadAccounts(state, dispatch)
     }
   }, [state, dispatch])
@@ -155,18 +164,23 @@ const SubstrateContextProvider = props => {
   }
 
   return (
+    // pass value to child component for using
     <SubstrateContext.Provider value={{ state, setCurrentAccount }}>
+      {/* get f other component */}
       {props.children}
     </SubstrateContext.Provider>
   )
 }
 
+///////////////////////////////////////////////////////
 // prop typechecking
 SubstrateContextProvider.propTypes = {
   socket: PropTypes.string,
 }
 
+// provide the child component using the context
 const useSubstrate = () => useContext(SubstrateContext)
+// provide the child component using the context  `state`
 const useSubstrateState = () => useContext(SubstrateContext).state
 
 export { SubstrateContextProvider, useSubstrate, useSubstrateState }

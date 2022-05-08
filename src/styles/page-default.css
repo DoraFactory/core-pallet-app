@@ -657,7 +657,9 @@
     color: #21212C;
 }
 
-.downdrop{
+.connect-wallet{
+    /* connect-wallet */
+    /* Auto layout */
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -668,9 +670,38 @@
     height: 36px;
     right: 0px;
     top: calc(50% - 36px/2);
+    margin-right: 24px;
 
-    /* line/line-secondary */
-    border: 1px solid #E8E8EE;
+    /* accent/accent-bg */
+
+    background: #FFF6F0;
+    /* accent/accent-primary */
+
+    border: 1px solid #FF6500;
     box-sizing: border-box;
     border-radius: 999px;
+}
+
+
+.account-id{
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+
+    position: static;
+    height: 56px;
+    left: 0px;
+    right: 0px;
+    top: 16px;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 0px;
 }
