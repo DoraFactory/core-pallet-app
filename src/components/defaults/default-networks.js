@@ -1,7 +1,7 @@
 /// default lease info
 
 import React, {useState, useEffect} from "react";
-import '../../styles/page-default.css';
+// import '../../styles/page-default.css';
 import { useSubstrateState } from "../../context";
 
 const LeaseInfo = (props) => {

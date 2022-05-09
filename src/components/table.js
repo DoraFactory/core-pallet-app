@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Icon, Table } from 'semantic-ui-react'
-import '../styles/assets.css'
-import '../styles/page-default.css'
 import Icons from '../resources'
-import { useSubstrate, useSubstrateState } from '../context'
+import {useSubstrateState, useSubstrate} from '../context'
+import { formatBalance } from '@polkadot/util'
 
 const styleLink = document.createElement("link");
 styleLink.rel = "stylesheet";
@@ -17,17 +16,16 @@ const TableSingleLine = () => {
     const [accBalance, setaccBalance] = useState(0);
 
     useEffect(() => {
-        if (currentAccount){
+        if (currentAccount) {
             let current_address = currentAccount.address;
             let unsubscribeAll = null
             api.query.system.account(current_address, balance_info => {
-                setaccBalance(balance_info.data.free.toHuman());
+                setaccBalance(formatBalance(balance_info.data.free, true, 12));
             })
                 .then(unsub => {
                     unsubscribeAll = unsub
                 })
                 .catch(console.error)
-    
             return () => unsubscribeAll && unsubscribeAll()
         }
     }, [api, accBalance, currentAccount, setaccBalance])

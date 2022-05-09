@@ -1,5 +1,5 @@
 import {React, useEffect} from 'react';
-import "../styles/page-default.css"
+import "../styles/page-default.scss"
 import {useSubstrate ,useSubstrateState} from '../context';
 
 const styleLink = document.createElement("link");

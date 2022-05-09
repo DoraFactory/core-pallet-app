@@ -1,7 +1,7 @@
 /// show the Dora-KSM Parachain Network Info.
-import '../styles/page-default.css';
+///
+
 import LeaseInfo from '../components/defaults/default-networks';
-import NoAccount from "../components/defaults/no-accounts";
 import Footer from "../components/footer";
 const Network = () => {
     return(

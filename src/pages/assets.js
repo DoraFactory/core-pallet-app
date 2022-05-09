@@ -1,11 +1,9 @@
 /// show different network's assets,eg: Dora-KSM Parchain, Kusama, Listmus, Parallel, etc...
-
 import react from 'react';
 import Header from '../components/header';
 import TableSingleLine from '../components/table';
 import TransDoc from '../components/assets/transfer-doc';
 import Footer from '../components/footer';
-import '../styles/assets.css';
 const Assets = () => {
     return (
         <div className="App">

@@ -1,13 +1,13 @@
+/// page reward for contributors to claim
+///
 
-import React, { useState, useEffect } from 'react';
-import Header from '../components/header';
+import React, { useState } from 'react';
 import Footer from '../components/footer';
-import '../styles/assets.css';
+import '../styles/assets.scss';
 import RewardInfo from '../components/rewards/rewards-info'
 import Block from '../components/rewards/block'
 import { useSubstrateState } from '../context';
 import { web3FromSource } from '@polkadot/extension-dapp'
-
 
 const Reward = () => {
     const { api, currentAccount } = useSubstrateState();

@@ -1,5 +1,5 @@
 /// no accounts
-import '../../styles/page-default.css';
+// import '../../styles/page-default.css';
 import Icons from "../../resources/index";
 
 const polkadot = "polkadot{.js}";

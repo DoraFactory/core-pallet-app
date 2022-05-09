@@ -1,4 +1,4 @@
-import '../../styles/rewards.css'
+import '../../styles/rewards.scss'
 
 const Block = () => {
     return (

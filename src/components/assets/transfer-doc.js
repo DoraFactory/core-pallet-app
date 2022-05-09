@@ -1,4 +1,4 @@
-import '../../styles/assets.css';
+// import '../../styles/assets.css';
 
 const TransDoc = () => {
     return(

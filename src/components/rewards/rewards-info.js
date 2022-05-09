@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import "../../styles/rewards.css";
-import '../../styles/page-default.css';
 import { useSubstrateState } from '../../context';
 
 const RewardInfo = () => {
@@ -21,11 +19,12 @@ const RewardInfo = () => {
                     console.log(reward);
                     console.log(reward.totalReward.toNumber());
                     console.log(`claimed reward is `+reward.claimedReward.toNumber());
-                    let total_rewad = reward.totalReward.toNumber() / 1000000000000;
-                    let claimed_reward = reward.claimedReward.toNumber() / 1000000000000;
-                    settotalReawrd(total_rewad);
-                    setclaimable(total_rewad - claimed_reward);
-                    setcontribution(total_rewad / 3);
+                    let total_reward = (reward.totalReward.toNumber() / 1000000000000);
+                    let claimed_reward = (reward.claimedReward.toNumber() / 1000000000000);
+                    let claimable_reward = ((total_reward - claimed_reward)/1000000000000).toFixed(2)
+                    settotalReawrd(total_reward.toFixed(2));
+                    setclaimable(claimable_reward);
+                    setcontribution((total_reward / 3).toFixed(2));
                 }else{
                     settotalReawrd(0);
                     setclaimable(0);

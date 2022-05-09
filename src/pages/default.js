@@ -1,11 +1,10 @@
-
 /// default page(unlogged pages)
+///
 
-import '../styles/page-default.css';
+import '../styles/page-default.scss';
 import LeaseInfo from '../components/defaults/default-networks';
 import NoAccount from "../components/defaults/no-accounts";
 import Icons from "../resources/index";
-import Footer from "../components/footer";
 
 const DefaultPage = () => {
     return (
@@ -22,10 +21,9 @@ const DefaultPage = () => {
                 <p className="font1">Dora-KSM Parachain</p>
                 {/* TODO：文字页上脚*/}
                 <div className="icon-link">
-                    <a className="explorer-sty">View Dora-KSM Parachain Explorer</a>
+                    <a href="http://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama-rpc.dwellir.com#/accounts" className="explorer-sty">View Dora-KSM Parachain Explorer</a>
                     <img src={Icons.Arrow} className="icon-sty"></img>
                 </div>
-
             </div>
             <LeaseInfo />
             <NoAccount />

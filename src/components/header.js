@@ -1,8 +1,7 @@
 import React from 'react';
-import "../styles/page-default.css";
+import "../styles/page-default.scss";
 import DoraTabs from "./tab/doratab";
 import Downdrop from "./downdrop";
-import { SubstrateContextProvider, useSubstrateState } from '../context';
 const Header = () => {
     
     return (

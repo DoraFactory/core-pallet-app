@@ -3,7 +3,7 @@ import React from 'react';
 // ReactDOM:  渲染
 import ReactDOM from 'react-dom/client';
 // app global style file
-import './index.css';
+// import './index.scss';
 // import root component
 import App from './App';
 

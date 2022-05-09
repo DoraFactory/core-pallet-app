@@ -1,22 +1,12 @@
-import Reward from "./pages/rewards";
-import Network from "./pages/network";
-import Assets from "./pages/assets";
-import DefaultPage from "./pages/default";
-import Icons from "./resources";
-import img from './resources/icons/dora.png'
 import Header from "./components/header";
-import Downdrop from "./components/downdrop";
 import {
-    Container,
     Dimmer,
     Loader,
     Grid,
     Sticky,
     Message,
 } from 'semantic-ui-react'
-// import 'semantic-ui-css/semantic.min.css'
 import { SubstrateContextProvider, useSubstrateState } from "./context";
-
 
 function Main () {
     // get substrate context
@@ -66,5 +56,3 @@ export default function App () {
         </SubstrateContextProvider>
     )
 };
-
-// export default App();

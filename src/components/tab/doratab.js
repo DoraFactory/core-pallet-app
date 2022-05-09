@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import '../../styles/assets.css'
 import Network from '../../pages/network';
 import Rewards from '../../pages/rewards';
 import Assets from "../../pages/assets";
