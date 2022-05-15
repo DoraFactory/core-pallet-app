@@ -1,6 +1,9 @@
 import '../../styles/rewards.scss'
 
 const Block = () => {
+
+    
+
     return (
         <div className="block-body">
                 <div className="block-gone"></div>

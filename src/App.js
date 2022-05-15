@@ -1,4 +1,5 @@
 import Header from "./components/header";
+import DefaultPage from "./pages/default";
 import {
     Dimmer,
     Loader,
@@ -19,7 +20,7 @@ function Main () {
         </Dimmer>
     )
     // some message to handle error
-    const message = errObj => (
+    const connect_failed = errObj => (
         <Grid centered columns={2} padded>
             <Grid.Column>
                 <Message
@@ -34,7 +35,7 @@ function Main () {
     )
 
     // 
-    if (apiState === 'ERROR') return message(apiError)
+    if (apiState === 'ERROR') return connect_failed(apiError)
     else if (apiState !== 'READY') return loader('Connecting to Substrate')
 
     if (keyringState !== 'READY') {

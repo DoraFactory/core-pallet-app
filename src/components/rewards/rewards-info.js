@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSubstrateState } from '../../context';
+import { formatBalance } from '@polkadot/util'
 
 const RewardInfo = () => {
 
@@ -22,8 +23,10 @@ const RewardInfo = () => {
                     let total_reward = (reward.totalReward.toNumber() / 1000000000000);
                     let claimed_reward = (reward.claimedReward.toNumber() / 1000000000000);
                     let claimable_reward = ((total_reward - claimed_reward)/1000000000000).toFixed(2)
-                    settotalReawrd(total_reward.toFixed(2));
-                    setclaimable(claimable_reward);
+                    // settotalReawrd(formatBalance(total_reward, true, 15));
+                    settotalReawrd(total_reward);
+                    // setclaimable(claimable_reward);
+                    setclaimable((total_reward - claimed_reward));
                     setcontribution((total_reward / 3).toFixed(2));
                 }else{
                     settotalReawrd(0);

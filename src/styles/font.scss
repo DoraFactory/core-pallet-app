@@ -1,0 +1,61 @@
+.p-font{
+    /* value */
+    position: static;
+    width: 200px;
+    height: 48px;
+    left: calc(50% - 145px/2 - 107.5px);
+    top: 0px;
+    /* tabular figures/type-display-eb--tnum */
+    font: Public Sans;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 48px;
+    /* identical to box height, or 150% */
+    font-feature-settings: 'tnum' on, 'lnum' on;
+    /* basic/ink-primary */
+    color: #21212C;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 0px;
+}
+
+.p-font2{
+    /* key */
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px 0px 0px 2px;
+    position: static;
+    width: 170px;
+    height: 24px;
+    left: 0px;
+    top: 48px;
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 0px;
+    /* regular/type-body */
+    font: Public Sans;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* basic/ink-secondary */
+    color: #7B7B9D;
+
+}
+
+.p-doya{
+    /* tabular figures/type-display-eb--tnum */
+    font: Public Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 48px;
+    font-feature-settings: 'tnum' on, 'lnum' on;
+    color: #7B7B9D;
+
+}

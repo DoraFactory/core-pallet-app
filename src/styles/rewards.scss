@@ -7,7 +7,7 @@
     align-items: center;
     padding: 6px 18px;
 
-    position: static;
+    position: absolute;
     width: 150px;
     height: 36px;
     right: 0px;
@@ -31,44 +31,35 @@
 }
 
 .reward-stat{
-    /* stat */
-    /* Auto layout */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
     position: absolute;
     width: 1176px;
     height: 120px;
     left: calc(50% - 1080px/2);
     top: 176px;
-
-    /* basic/bg-primary */
-
     background: #FFFFFF;
-    /* elevation/elevation-1 */
-
     box-shadow: 0px 3px 8px rgba(33, 33, 44, 0.06), 0px 1.5px 4px rgba(33, 33, 44, 0.06), 0px 1px 2px rgba(33, 33, 44, 0.06), 0px 0.5px 1px rgba(33, 33, 44, 0.06), 0px 0px 0.5px rgba(33, 33, 44, 0.08);
     border-radius: 8px;
+    .reward-grid{
+        display: grid;
+        grid-template-columns: repeat(3, 360px);
+        grid-gap: 20px;
+        grid-template-rows: 72px 72px 72px;
+        padding: 24px;
+        position: static;
+        width: 1126px;
+        height: 72px;
+        left: 24px;
+        top: 24px;
+    }
+
+    @import "font";
 }
 
 
-.reward-grid{
-    /* grid */
-    /* Auto layout */
-    display: grid;
-    align-items: flex-start;
-    grid-template-columns: repeat(3, 360px);
-    grid-gap: 20px;
-    grid-template-rows: 72px 72px 72px;
-    padding: 24px;
 
-    position: static;
-    width: 1126px;
-    height: 72px;
-    left: 24px;
-    top: 24px;
-}
 
 .block-body{
     /* blocks */
@@ -78,7 +69,7 @@
 
     display: grid;
     align-items: flex-start;
-    grid-template-columns: repeat(49, 16px);
+    grid-template-columns: repeat(53, 16px);
     grid-gap: 8px;
     grid-template-rows: 16px ;
     position: absolute;
@@ -137,4 +128,9 @@
     /* basic/ink-secondary */
 
     color: #7B7B9D;
+}
+
+
+.reward-msg{
+    width: 100%;
 }
