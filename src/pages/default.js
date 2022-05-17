@@ -1,12 +1,18 @@
 /// default page(unlogged pages)
 ///
-
+import { React } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/page-default.scss';
 import LeaseInfo from '../components/defaults/default-networks';
 import NoAccount from "../components/defaults/no-accounts";
 import Icons from "../resources/index";
 
 const DefaultPage = () => {
+    const navigate =  useNavigate();
+    
+    const handle_change = () => {
+        navigate("/account")
+    }
     return (
         <div className="App" >
             <div className="header-default" >
@@ -14,7 +20,7 @@ const DefaultPage = () => {
                     CORE Pallet
                 </div>
                 <div className="nav-account">
-                    <button className="wallet">Connect Wallet</button>
+                    <button onClick={() => handle_change()} className="wallet">Connect Wallet</button>
                 </div>
             </div>
             <div className="text-default">
@@ -37,14 +43,5 @@ const DefaultPage = () => {
         </div>
     );
 }
-
-/// message-default
-
-
-/// message-error
-
-
-/// multi-messages
-
 
 export default DefaultPage;

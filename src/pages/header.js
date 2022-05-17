@@ -1,7 +1,7 @@
 import React from 'react';
 import "../styles/page-default.scss";
-import DoraTabs from "./tab/doratab";
-import Downdrop from "./downdrop";
+import DoraTabs from "../components/tab/doratab";
+import Downdrop from "../components/downdrop";
 const Header = () => {
     
     return (

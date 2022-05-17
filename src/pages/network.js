@@ -9,7 +9,7 @@ const Network = () => {
             <div className="text-default">
                 <p className="font1">Dora-KSM Parachain</p>
                 {/* TODO：文字页上脚*/}
-                <a className="explorer-sty">View Dora-KSM Parachain Explorer</a>
+                <a  href="http://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama-rpc.dwellir.com#/accounts"  className="explorer-sty">View Dora-KSM Parachain Explorer</a>
             </div>
             <LeaseInfo/>
             <Footer></Footer>

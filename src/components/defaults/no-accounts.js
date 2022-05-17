@@ -12,7 +12,7 @@ const NoAccount = () => {
                 <span className="noacc-p2">You can create a new account and connect to the Core Pallet with {polkadot} extension.</span>
             </div>
             <div className="btn-link">
-                <button className="get-account">Get {polkadot} Extension</button>
+                <a href="https://polkadot.js.org/extension/" className="get-account">Get {polkadot} Extension</a>
                 <img src={Icons.Arrow}></img>
             </div>
 

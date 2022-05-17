@@ -1,6 +1,5 @@
 /// show different network's assets,eg: Dora-KSM Parchain, Kusama, Listmus, Parallel, etc...
-import react from 'react';
-import Header from '../components/header';
+import "../styles/assets.scss"
 import TableSingleLine from '../components/table';
 import TransDoc from '../components/assets/transfer-doc';
 import Footer from '../components/footer';
@@ -9,7 +8,7 @@ const Assets = () => {
         <div className="App">
             <div className="text-default">
                 <p className="font1">Your assets</p>
-                <a className="explorer-sty">View Dora-KSM Parachain Stats</a>
+                <a href="http://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama-rpc.dwellir.com#/accounts" className="explorer-sty">View Dora-KSM Parachain Stats</a>
             </div>
             <div className="tb-line">
                 <TableSingleLine className="tb"></TableSingleLine>

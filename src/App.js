@@ -1,5 +1,6 @@
-import Header from "./components/header";
+import Header from "./pages/header";
 import DefaultPage from "./pages/default";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
     Dimmer,
     Loader,
@@ -45,8 +46,13 @@ function Main () {
     }
 
     return (
+        // <BrowserRouter>
+        //     <Routes>
+        //         <Route path="/" element={<DefaultPage></DefaultPage>}></Route>
+        //         <Route path="/account" element={<Header></Header>}></Route>
+        //     </Routes>
+        // </BrowserRouter>
         <Header></Header>
-        // <DefaultPage></DefaultPage>
     );
 }
 

@@ -54,7 +54,6 @@
         left: 24px;
         top: 24px;
     }
-
     @import "font";
 }
 
@@ -62,11 +61,6 @@
 
 
 .block-body{
-    /* blocks */
-    /* display: flex;
-    flex-direction: column;
-    align-items: flex-start; */
-
     display: grid;
     align-items: flex-start;
     grid-template-columns: repeat(53, 16px);
@@ -81,10 +75,8 @@
 }
 
 .block-gone{
-    /* block-day */
     width: 16px;
     height: 16px;
-    /* accent/accent-secondary */
     background: #FFCC00;
     border-radius: 2px;
 }
@@ -93,7 +85,6 @@
     position: static;
     width: 16px;
     height: 16px;
-    /* line/line-secondary */
     background: #FF6500;
     border-radius: 2px;
 }
@@ -102,31 +93,21 @@
     position: static;
     width: 16px;
     height: 16px;
-    /* line/line-secondary */
     background: #E8E8EE;
     border-radius: 2px;
 }
 
 .content-info{
-    /* desc */
     position: absolute;
     width: 456px;
     height: 60px;
     left: calc(50% - 1080px/2);
     top: 500px;
-
-    /* regular/type-note */
-
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
-    /* or 143% */
-
-
-    /* basic/ink-secondary */
-
     color: #7B7B9D;
 }
 

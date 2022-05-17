@@ -5,9 +5,9 @@ import { formatBalance } from '@polkadot/util'
 const RewardInfo = () => {
 
     const { api, currentAccount } = useSubstrateState();
-    const [claimable, setclaimable] = useState(0);
-    const [totalReawrd, settotalReawrd] = useState(0);
-    const [contribution, setcontribution] = useState(0);
+    const [claimable, setclaimable] = useState(null);
+    const [totalReawrd, settotalReawrd] = useState(null);
+    const [contribution, setcontribution] = useState(null);
 
     useEffect(() => {
         if (currentAccount) {
@@ -17,17 +17,12 @@ const RewardInfo = () => {
             api.query.doraRewards.contributorsInfo(current_address, reward_info => {
                 if (reward_info.isSome) {
                     let reward = reward_info.unwrap();
-                    console.log(reward);
-                    console.log(reward.totalReward.toNumber());
                     console.log(`claimed reward is `+reward.claimedReward.toNumber());
-                    let total_reward = (reward.totalReward.toNumber() / 1000000000000);
-                    let claimed_reward = (reward.claimedReward.toNumber() / 1000000000000);
-                    let claimable_reward = ((total_reward - claimed_reward)/1000000000000).toFixed(2)
-                    // settotalReawrd(formatBalance(total_reward, true, 15));
-                    settotalReawrd(total_reward);
-                    // setclaimable(claimable_reward);
-                    setclaimable((total_reward - claimed_reward));
-                    setcontribution((total_reward / 3).toFixed(2));
+                    let total_reward = (reward.totalReward.toNumber() / 1000000000);
+                    let claimed_reward = (reward.claimedReward.toNumber() / 1000000000);
+                    settotalReawrd(formatBalance(reward.totalReward,{withSi: true, withUnit: "Unit"}, 12));
+                    setclaimable((total_reward - claimed_reward).toFixed(4) + " mUnit");
+                    setcontribution((total_reward / 3).toFixed(4) + " mUnit");
                 }else{
                     settotalReawrd(0);
                     setclaimable(0);
