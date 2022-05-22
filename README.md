@@ -5,3 +5,16 @@ manage your multi-asset
 
 ## Rewards
 claim reward
+
+
+## prepare your local test network
+> start you chain, serve at port 8844
+
+
+## Using steps
+```javascript
+yarn install
+
+yarn start
+```
+>local test listen localhost:3000
