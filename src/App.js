@@ -46,13 +46,13 @@ function Main () {
     }
 
     return (
-        // <BrowserRouter>
-        //     <Routes>
-        //         <Route path="/" element={<DefaultPage></DefaultPage>}></Route>
-        //         <Route path="/account" element={<Header></Header>}></Route>
-        //     </Routes>
-        // </BrowserRouter>
-        <Header></Header>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<DefaultPage></DefaultPage>}></Route>
+                <Route path="/account" element={<Header></Header>}></Route>
+            </Routes>
+        </BrowserRouter>
+        // <Header></Header>
     );
 }
 

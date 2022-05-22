@@ -1,19 +1,35 @@
-.header-default {
-    /* nav */
-    /* Auto layout */
+@import "colors";
+@import "font";
+@import "icon";
+@import "tab";
+@import "common";
+
+
+@mixin dis-dir-ali{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
-    padding: 0px 49px;
+}
+
+@mixin dis-dir-ali-center{
+    @include dis-dir-ali;
+    justify-content: center;
+}
+
+@mixin dispaly-sty {
+    @include dis-dir-ali;
+    justify-content: space-between;
     position: absolute;
+}
+
+.header-default {
+    @include dispaly-sty;
+    padding: 0px 49px;
     height: 56px;
     left: 0px;
     right: 0px;
     top: 0px;
-    /* basic/bg-primary */
-    background: #ffffff;
-    /* elevation/elevation-3 */
+    background: $doc-bd-color;
     box-shadow: 0px 16px 24px rgba(33, 33, 44, 0.02), 0px 8px 12px rgba(33, 33, 44, 0.02), 0px 6px 8px rgba(33, 33, 44, 0.02), 0px 4px 6px rgba(33, 33, 44, 0.03), 0px 0px 0.5px rgba(33, 33, 44, 0.08);
     .nav-brand{
         position: absolute;
@@ -22,7 +38,7 @@
         left: 24px;
         text-align: center;
         line-height: 56px;
-        Font: Public Sans;
+        Font: $pub-font;
         font-weight: 800;
         font-size: 16px;
         letter-spacing: 0.0625em;
@@ -37,24 +53,19 @@
 }
 
 .text-default{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    @include dispaly-sty;
     padding: 0px;
-    position: absolute;
     width: 1128px;
     height: 32px;
     left: calc(50% - 1050px/2);
     top: 104px;
 
     .font1{
-        font: Public Sans;
-        font-style: normal;
+        @include sty-font;
         font-weight: 100px;
         font-size: 24px;
         line-height: 32px;
-        color: #21212C;
+        color: $p-color;
     }
 
     .icon-link{
@@ -84,19 +95,16 @@
     margin: 0px 4px;
 }
 
-
 .explorer-sty{
-    color: #FF6500;
+    color: $dora-color;
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
 }
 
 .foot-default{
-    display: flex;
-    flex-direction: row;
+    @include dis-dir-ali;
     justify-content: center;
-    align-items: center;
     padding: 24px;
     position: absolute;
     width: 1520px;
@@ -105,29 +113,25 @@
     top: 460px;
     height: 56px;
     top: 744px;
-    background: #F6F6F8;
+    background: $font-df;
 
 }
-
 
 .foot-font{
     position: static;
     height: 20px;
     left: 0px;  
     top: 0px;
-    font-family: 'Public Sans';
-    font-style: normal;
+    @include sty-font;
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
-    color: #7B7B9D;
+    color: $dora-grey;
     flex: none;
     order: 0;
     flex-grow: 0;
     margin: 0px 14px;
 }
-
-
 
 .wallet{
     position: absolute;
@@ -135,17 +139,14 @@
     height: 36px;
     right: 0px;
     top: calc(50% - 36px/2);
-    background: #FF6500;
+    background: $dora-color;
     border-radius: 999px;
-    /*font*/
     font: Public Sans;
     font-size: 16px;
     font-weight: 600;
     border: 0px;
-    color: #FFFFFF;
+    color: $doc-bd-color;
 }
-
-
 
 .body{
     display: flex;
@@ -156,9 +157,7 @@
     height: 216px;
     left: calc(50% - 1080px/2);
     top: 176px;
-    background: #FFFFFF;
-    box-shadow: 0px 3px 8px rgba(33, 33, 44, 0.06), 0px 1.5px 4px rgba(33, 33, 44, 0.06), 0px 1px 2px rgba(33, 33, 44, 0.06), 0px 0.5px 1px rgba(33, 33, 44, 0.06), 0px 0px 0.5px rgba(33, 33, 44, 0.08);
-    border-radius: 8px;
+    @include shadow;
 }
 
 .body-default{
@@ -175,23 +174,13 @@
     padding: 24px;
 }
 
-// network info font styles
-@import "font";
-
-
 .body-noacc{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    position: absolute;
+    @include dispaly-sty;
     width: 1176px;
     height: 144px;
     left: calc(50% - 1080px/2);
     top: 416px;
-    background: #FFFFFF;
-    box-shadow: 0px 3px 8px rgba(33, 33, 44, 0.06), 0px 1.5px 4px rgba(33, 33, 44, 0.06), 0px 1px 2px rgba(33, 33, 44, 0.06), 0px 0.5px 1px rgba(33, 33, 44, 0.06), 0px 0px 0.5px rgba(33, 33, 44, 0.08);
-    border-radius: 8px;
+    @include shadow;
 }
 
 .noacc-div{
@@ -204,7 +193,6 @@
     height: 72px;
     left: 24px;
     top: 24px;
-    /* Inside auto layout */
     flex: none;
     order: 0;
     flex-grow: 0;
@@ -217,12 +205,11 @@
     height: 32px;
     left: 24px;
     top: 24px;
-    font-family: 'Public Sans';
-    font-style: normal;
+    @include sty-font;
     font-weight: 800;
     font-size: 24px;
     line-height: 32px;
-    color: #21212C;
+    color: $p-color;
 }
 
 .noacc-p2{
@@ -231,12 +218,8 @@
     height: 48px;
     left: 24px;
     top: 72px;
-    font-family: 'Public Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    color: #21212C;
+    @include com-font;
+    color: $p-color;
     flex: none;
     order: 1;
     flex-grow: 0;
@@ -244,76 +227,23 @@
 }
 
 .get-account{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    @include com-font;
+    @include dis-dir-ali-center;
     position: absolute;
     width: 251px;
     height: 36px;
     right: 24px;
     top: calc(50% - 36px/2);
-    background: #FF6500;
+    background: $dora-color;
     border-radius: 999px;
-    font-family: 'Public Sans';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
     text-align: center;
     border: 0px;
-    color: #FFFFFF;
+    color: $doc-bd-color;
 }
-
-
-
-.icon-body2{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0px;
-    position: static;
-    width: 185px;
-    height: 24px;
-    left: 56px;
-    top: 4px;
-}
-
-.icon-link2{
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    left: 265px;
-    top:80px;
-}
-
-.icon-link3{
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    left: 165px;
-    top:165px;
-}
-
-.icon-link4{
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    left: 155px;
-    top:250px;
-}
-
-
-
 
 .btn-link{
-    /* Auto layout */
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    @include dis-dir-ali-center;
     padding: 6px 18px;
-
     position: static;
     width: 251px;
     height: 36px;
@@ -322,26 +252,21 @@
 }
 
 .foot{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    @include dis-dir-ali-center;
     padding: 24px;
     position: absolute;
     width: 1520px;
     height: 56px;
     left:-580px;
     top: 460px;
-    /* footer */
     height: 56px;
     top: 744px;
-    /* basic/bg-secondary */
-    background: #F6F6F8;
+    background: $font-df;
 }
 
 .tb-row{
     height: 48px;
-    background-color: #FF6500
+    background-color: $dora-color
 }
 
 .tab-sty{
@@ -350,7 +275,6 @@
     height: 56px;
     left: 1000px;
     top: 0px;
-    /* Inside auto layout */
     flex: none;
     order: 1;
     flex-grow: 0;
@@ -359,13 +283,11 @@
 
 .select-bd{
     display: flex;
-    /* nav-account */
     position: static;
     width: 200px;
     height: 56px;
     left: 10px;
     text-align: center;
-    /* Inside auto layout */
     flex: none;
     order: 2;
     flex-grow: 0;
@@ -375,11 +297,7 @@
 }
 
 .select-dw{
-    /* connect-wallet */
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    @include dis-dir-ali-center;
     padding: 2px 14px 2px 18px;
     position: static;
     width: 141px;
@@ -390,7 +308,6 @@
 }
 
 .btn-bd{
-    /* tabs */
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -399,7 +316,6 @@
     height: 56px;
     left: 340px;
     top: 0px;
-    /* Inside auto layout */
     flex: none;
     order: 1;
     flex-grow: 0;
@@ -418,158 +334,18 @@
     position: static;
     width: 155px;
     height: 24px;
-    font-family: 'Public Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    color: #FF6500;
-    /* Inside auto layout */
+    @include com-font;
+    color: $dora-color;
     flex: none;
     order: 0;
     flex-grow: 0;
     margin: 0px 25px;
 }
 
-.Tabs {
-    /* tabs */
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
 
-    position: absolute;
-    width: 247px;
-    height: 56px;
-    left: calc(50% - 350px/2);
-    top: 0px;
-}
-
-.network-tab{
-    /* tab */
-    /* Auto layout */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 16px 0px 0px;
-    position: static;
-    width: 65px;
-    height: 56px;
-    left: 84px;
-    top: 0px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-    margin: 0px 32px;
-}
-
-.rewards-tab{
-    /* tab */
-    /* Auto layout */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 16px 0px 0px;
-    position: static;
-    width: 66px;
-    height: 56px;
-    left: 181px;
-    top: 0px;
-    flex: none;
-    order: 2;
-    flex-grow: 0;
-    margin: 0px 32px;
-}
-
-.tab-font{
-    font-family: 'Public Sans';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
-    text-align: center;
-    /* accent/accent-primary */
-    color: #FF6500;
-}
-
-.tab-lineAssets{
-    /* active */
-    position: static;
-    width: 52px;
-    height: 2px;
-    left: 0px;
-    top: 54px;
-    background: #FF6500;
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    align-self: stretch;
-    flex-grow: 0;
-    margin: 14px 0px;
-}
-
-.tab-lineNetwork{
-        /* active */
-        position: static;
-        width: 65px;
-        height: 2px;
-        left: 0px;
-        top: 54px;
-        background: #FF6500;
-        /* Inside auto layout */
-        flex: none;
-        order: 1;
-        align-self: stretch;
-        flex-grow: 0;
-        margin: 14px 0px;
-}
-
-.tab-lineRewards{
-        /* active */
-        position: static;
-        width: 66px;
-        height: 2px;
-        left: 0px;
-        top: 54px;
-        /* accent/accent-primary */
-        background: #FF6500;
-        /* Inside auto layout */
-        flex: none;
-        order: 1;
-        align-self: stretch;
-        flex-grow: 0;
-        margin: 14px 0px;
-}
-
-.default-tab{
-        /* tab */
-    /* Auto layout */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 16px 32px 32px 32px;
-}
-
-.tab-fontdefault{
-    /* semibold/type-body-sb */
-    font-family: 'Public Sans';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
-    /* identical to box height, or 150% */
-    text-align: center;
-    /* basic/ink-primary */
-    color: #21212C;
-}
 
 .connect-wallet{
-    /* connect-wallet */
-    /* Auto layout */
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    @include dis-dir-ali-center;
     padding: 2px 14px 2px 18px;
     position: absolute;
     width: 141px;
@@ -577,35 +353,21 @@
     right: 0px;
     top: calc(50% - 36px/2);
     margin-right: 24px;
-
-    /* accent/accent-bg */
-
-    background: #FFF6F0;
-    /* accent/accent-primary */
-
-    border: 1px solid #FF6500;
+    background: $wall-bg;
+    border: 1px solid $dora-color;
     box-sizing: border-box;
     border-radius: 999px;
 }
 
-
 .account-id{
-    /* Auto layout */
-    display: flex;
-    flex-direction: row;
+    @include dis-dir-ali;
     justify-content: space-between;
-    align-items: center;
     padding: 8px 16px;
-
     position: static;
     height: 56px;
     left: 0px;
     right: 0px;
     top: 16px;
-
-
-    /* Inside auto layout */
-
     flex: none;
     order: 1;
     flex-grow: 0;

@@ -1,28 +1,44 @@
+@import "./colors.scss";
+
 $pub-font:Public Sans;
-
-@mixin size-font {
+@mixin sty-font {
     font: Public Sans;
-    color: #7B7B9D;
     font-style: normal;
+}
 
+@mixin font-other{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+@mixin asset-font{
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+@mixin com-font {
+    @include sty-font;
+    @include font-other;
+}
+
+@mixin spec-font {
+    @include sty-font;
+    @include asset-font;
 }
 
 .p-font{
-    /* value */
     position: static;
     width: 200px;
     height: 48px;
     left: calc(50% - 145px/2 - 107.5px);
-    /* tabular figures/type-display-eb--tnum */
     font: $pub-font;
     font-style: normal;
     font-weight: 800;
     font-size: 32px;
     line-height: 48px;
-    /* identical to box height, or 150% */
-    font-feature-settings: 'tnum' on, 'lnum' on;
-    /* basic/ink-primary */
-    color: #21212C;
+    color: $p-color;
     flex: none;
     order: 0;
     flex-grow: 0;
@@ -30,7 +46,9 @@ $pub-font:Public Sans;
 }
 
 .p-font2{
-    @include size-font;
+    @include sty-font;
+    @include font-other;
+    color: $dora-grey;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -41,16 +59,12 @@ $pub-font:Public Sans;
     top: 48px;
     flex: none;
     order: 1;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
 }
 
 .p-doya{
-    @include size-font;
+    @include sty-font;
+    color: $dora-grey;
     font-weight: 600;
     font-size: 24px;
-    line-height: 48px;
-    font-feature-settings: 'tnum' on, 'lnum' on;
 }
 

@@ -1,3 +1,7 @@
+@import "colors";
+@import "font";
+@import "common";
+
 .tb{
     position: static;
     width: 1176px;
@@ -9,7 +13,6 @@
 }
 
 .docbody-div{
-    /* card-transfer */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -20,16 +23,10 @@
     height: 144px;
     left: calc(50% - 1080px/2);
     top: 504px;
-    /* basic/bg-primary */
-    background: #FFFFFF;
-    /* elevation/elevation-1 */
-    box-shadow: 0px 3px 8px rgba(33, 33, 44, 0.06), 0px 1.5px 4px rgba(33, 33, 44, 0.06), 0px 1px 2px rgba(33, 33, 44, 0.06), 0px 0.5px 1px rgba(33, 33, 44, 0.06), 0px 0px 0.5px rgba(33, 33, 44, 0.08);
-    border-radius: 8px;
+    @include shadow;
 }
 
 .doc-div{
-    /* copy */
-    /* Auto layout */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -42,29 +39,20 @@
 }
 
 .p2{
-        position: absolute;
-        width: 456px;
-        height: 48px;
-        left: 24px;
-        top: 48px;
-        /* regular/type-body */
-        font-family: 'Public Sans';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
-        color: #21212C;
-        /* Inside auto layout */
-        flex: none;
-        order: 1;
-        flex-grow: 0;
-        margin: 16px 0px;
-
+    @include com-font;
+    position: absolute;
+    width: 456px;
+    height: 48px;
+    left: 24px;
+    top: 48px;
+    color: $p-color;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 16px 0px;
 }
 
 .doc{
-    /* button */
-    /* Auto layout */
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -75,31 +63,20 @@
     height: 36px;
     right: 24px;
     top: calc(50% - 36px/2);
-    /* accent/accent-primary */
-    background: #FF6500;
+    background: $dora-color;
     border-radius: 999px;
     border: 0px;
-    /* Inside auto layout */
 }
 
 .doc-sty{
-    /* label */
+    @include com-font;
     position: static;
     width: 116px;
     height: 24px;
     left: 18px;
     top: 6px;
-    /* semibold/type-body-sb */
-    font-family: 'Public Sans';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
-    /* identical to box height, or 150% */
     text-align: center;
-    /* basic/bg-primary */
-    color: #FFFFFF;
-    /* Inside auto layout */
+    color: $doc-bd-color;
     flex: none;
     order: 0;
     flex-grow: 0;
@@ -107,12 +84,9 @@
 }
 
 .pd-body{
-    /* start */
-    /* Auto layout */
     display: flex;
     flex-direction: row;
     align-items: center;
-    /* padding: 0px; */
     position: static;
     width: 221px;
     height: 32px;
@@ -120,7 +94,6 @@
 }
 
 .tb-line{
-    /* Auto layout */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -130,25 +103,18 @@
     height: 304px;
     left: calc(50% - 1080px/2);
     top: 176px;
-    /* elevation/elevation-1 */
     filter: drop-shadow(0px 3px 8px rgba(33, 33, 44, 0.06)) drop-shadow(0px 1.5px 4px rgba(33, 33, 44, 0.06)) drop-shadow(0px 1px 2px rgba(33, 33, 44, 0.06)) drop-shadow(0px 0.5px 1px rgba(33, 33, 44, 0.06)) drop-shadow(0px 0px 0.5px rgba(33, 33, 44, 0.08));
     border-radius: 8px;
 }
 
-.origin{
-    /* Origin */  
-    /* all caps/type-caption-sb--caps */
-    font-family: 'Public Sans';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 16px;
-    /* identical to box height, or 133% */
+@mixin text-sty {
     letter-spacing: 0.0625em;
     text-transform: uppercase;
-    /* basic/ink-secondary */
-    color: #7B7B9D;
-    /* Inside auto layout */
+    color: $dora-grey;
+}
+.origin{
+    @include spec-font;
+    @include text-sty;
     flex: none;
     order: 1;
     flex-grow: 0;
@@ -156,40 +122,20 @@
 }
 
 .balance{
-    /* all caps/type-caption-sb--caps */
-    font-family: 'Public Sans';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 16px;
+    @include spec-font;
+    @include text-sty;
     position: static;
-    /* identical to box height, or 133% */
     text-align: right;
-    letter-spacing: 0.0625em;
-    text-transform: uppercase;
     margin-left: 550px;
-    /* basic/ink-secondary */
-    color: #7B7B9D;
 }
 
 .token{
-    /* all caps/type-caption-sb--caps */
-    font-family: 'Public Sans';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 16px;
-    /* identical to box height, or 133% */
+    @include spec-font;
+    @include text-sty;
     position: static;
-    letter-spacing: 0.0625em;
-    text-transform: uppercase;
-    /* basic/ink-secondary */
-    color: #7B7B9D;
 }
 
 .ba-content{
-    /* end */
-    /* Auto layout */
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -200,7 +146,6 @@
     height: 24px;
     left: 876px;
     top: 20px;
-    /* Inside auto layout */
     flex: none;
     order: 1;
     flex-grow: 0;
@@ -208,21 +153,13 @@
 }
 
 .ba-content1{
-    /* DORA */
+    @include com-font;
+    color: $p-color;
     position: static;
     width: 168px;
     height: 24px;
     left: 108px;
     top: 0px;
-    font: Public Sans;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    /* identical to box height, or 150% */
-    /* basic/ink-primary */
-    color: #21212C;
-    /* Inside auto layout */
     flex: none;
     order: 1;
     flex-grow: 0;
@@ -230,8 +167,6 @@
 }
 
 .asset-tab{
-    /* tab */
-    /* Auto layout */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -241,7 +176,6 @@
     height: 56px;
     left: 0px;
     top: 0px;
-    /* Inside auto layout */
     flex: none;
     order: 0;
     flex-grow: 0;

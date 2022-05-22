@@ -1,33 +1,28 @@
+@import "colors";
+@import "font";
+@import "common";
+
 .claim-btn{
-    /* button */
-    /* Auto layout */
     display: flex;
     flex-direction: row;
     justify-content:   center;
     align-items: center;
     padding: 6px 18px;
-
     position: absolute;
     width: 150px;
     height: 36px;
     right: 0px;
     top: calc(50% - 36px/2);
-
-    /* accent/accent-primary */
     border:0px;
-    background: #FF6500;
+    background: $dora-color;
     border-radius: 999px;
-
-    /* semibold/type-body-sb */
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
-    /* identical to box height, or 150% */
     text-align: center;
-    /* basic/bg-primary */
-    color: #FFFFFF;
+    color: $doc-bd-color;
 }
 
 .reward-stat{
@@ -39,9 +34,7 @@
     height: 120px;
     left: calc(50% - 1080px/2);
     top: 176px;
-    background: #FFFFFF;
-    box-shadow: 0px 3px 8px rgba(33, 33, 44, 0.06), 0px 1.5px 4px rgba(33, 33, 44, 0.06), 0px 1px 2px rgba(33, 33, 44, 0.06), 0px 0.5px 1px rgba(33, 33, 44, 0.06), 0px 0px 0.5px rgba(33, 33, 44, 0.08);
-    border-radius: 8px;
+    @include shadow;
     .reward-grid{
         display: grid;
         grid-template-columns: repeat(3, 360px);
@@ -57,9 +50,6 @@
     @import "font";
 }
 
-
-
-
 .block-body{
     display: grid;
     align-items: flex-start;
@@ -71,30 +61,28 @@
     height: 160px;
     left: calc(50% - 1080px/2);
     top: 320px;
+}
 
+@mixin block-sty{
+    position: static;
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
 }
 
 .block-gone{
-    width: 16px;
-    height: 16px;
-    background: #FFCC00;
-    border-radius: 2px;
+    @include block-sty;
+    background: $block-gone;
 }
 
 .block-view{
-    position: static;
-    width: 16px;
-    height: 16px;
-    background: #FF6500;
-    border-radius: 2px;
+    @include block-sty;
+    background: $dora-color;
 }
 
 .block-coming{
-    position: static;
-    width: 16px;
-    height: 16px;
-    background: #E8E8EE;
-    border-radius: 2px;
+    @include block-sty;
+    background: $block-coming;
 }
 
 .content-info{
@@ -103,14 +91,12 @@
     height: 60px;
     left: calc(50% - 1080px/2);
     top: 500px;
-    font-family: 'Public Sans';
-    font-style: normal;
+    @include sty-font;
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
-    color: #7B7B9D;
+    color: $dora-grey;
 }
-
 
 .reward-msg{
     width: 100%;
