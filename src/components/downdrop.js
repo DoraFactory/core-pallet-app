@@ -48,7 +48,7 @@ const Main = (props) => {
                     }}
                     className="connect-wallet">
                     {keyringOptions.map((option) => (
-                        <option value={option.value} >
+                        <option value={option.value} className = "connect-wallet">
                             <div className="account-id">
                                 {option.text}
                             </div>

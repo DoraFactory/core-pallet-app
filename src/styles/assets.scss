@@ -118,7 +118,16 @@
     flex: none;
     order: 1;
     flex-grow: 0;
-    margin: 0px 88px;
+    margin: 0px 36px;
+}
+
+.blockID{
+    @include spec-font;
+    @include text-sty;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 48px;
 }
 
 .balance{
@@ -127,6 +136,30 @@
     position: static;
     text-align: right;
     margin-left: 550px;
+}
+
+.amount {
+    @include spec-font;
+    @include text-sty;
+    position: static;
+    text-align: right;
+    margin-left: -60px;
+}
+
+.claim_time{
+    @include spec-font;
+    @include text-sty;
+    position: static;
+    text-align: left;
+    margin-left: -30px;
+}
+
+.token-stmbol{
+    @include spec-font;
+    @include text-sty;
+    position: static;
+    text-align: right;
+    margin-left:-52px;
 }
 
 .token{
