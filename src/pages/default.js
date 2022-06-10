@@ -8,8 +8,8 @@ import NoAccount from "../components/defaults/no-accounts";
 import Icons from "../resources/index";
 
 const DefaultPage = () => {
-    const navigate =  useNavigate();
-    
+    const navigate = useNavigate();
+
     const handle_change = () => {
         navigate("/account")
     }

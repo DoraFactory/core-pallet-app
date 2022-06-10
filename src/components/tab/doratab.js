@@ -4,6 +4,7 @@ import Rewards from '../../pages/rewards';
 import Assets from "../../pages/assets";
 import TabContent from "./tabContent";
 import TabNavItem from "./tabNavItem";
+import { ToastProvider } from "react-toast-notifications"
 
 const DoraTabs = () => {
 
@@ -27,17 +28,18 @@ const DoraTabs = () => {
             <TabNavItem title="Network" id="tab2" activeTab={activeTab} setActiveTab={setActiveTab} />
             <TabNavItem title="Rewards" id="tab3" activeTab={activeTab} setActiveTab={setActiveTab} />
             <div id="haha">
-                <TabContent id="tab1" activeTab={activeTab}>
-                    <Assets/>
-                </TabContent>
-                <TabContent id="tab2" activeTab={activeTab}>
-                    <Network/>
-                </TabContent>
-                <TabContent id="tab3" activeTab={activeTab}>
-                    <Rewards/>
-                </TabContent>
+                <ToastProvider>
+                    <TabContent id="tab1" activeTab={activeTab}>
+                        <Assets />
+                    </TabContent>
+                    <TabContent id="tab2" activeTab={activeTab}>
+                        <Network />
+                    </TabContent>
+                    <TabContent id="tab3" activeTab={activeTab}>
+                        <Rewards />
+                    </TabContent>
+                </ToastProvider>
             </div>
-
         </div>
     );
 };

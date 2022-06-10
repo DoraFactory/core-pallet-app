@@ -1,13 +1,12 @@
 /// default lease info
-
-import React, {useState, useEffect} from "react";
-// import '../../styles/page-default.css';
+import React, { useState, useEffect } from "react";
 import { useSubstrateState } from "../../context";
-
+import { formatBalance } from '@polkadot/util'
 const LeaseInfo = (props) => {
     const { api } = useSubstrateState()
     const { finalized } = props
     const [blockNumber, setBlockNumber] = useState(0)
+    const [totalsupply, setTotalSupply] = useState(0)
 
     const bestNumber = finalized
         ? api.derive.chain.bestNumberFinalized
@@ -27,6 +26,22 @@ const LeaseInfo = (props) => {
 
         return () => unsubscribeAll && unsubscribeAll()
     }, [bestNumber])
+
+
+    // DoraFactory has no inflation, so the total supply equals the total issurance
+    useEffect(() => {
+        let unsubscribeAll = null
+        api.query.balances.totalIssuance(total => {
+            // console.log(formatBalance(total));
+            setTotalSupply(formatBalance(total));
+        })
+            .then(unsub => {
+                unsubscribeAll = unsub
+            })
+            .catch(console.error)
+
+        return () => unsubscribeAll && unsubscribeAll()
+    }, [api, setTotalSupply])
 
     return (
         <div className="body">
@@ -52,12 +67,12 @@ const LeaseInfo = (props) => {
 
                 </div>
                 <div>
-                    <span className="p-font">30,000</span>
+                    <span className="p-font">{totalsupply}</span>
                     <p className="p-font2">Current total supply</p>
 
                 </div>
                 <div>
-                    <p className="p-font">12</p>
+                    <p className="p-font">34</p>
                     <p className="p-font2">Connected parachains</p>
 
                 </div>

@@ -3,6 +3,7 @@ import { Icon, Table } from 'semantic-ui-react'
 import Icons from '../resources'
 import {useSubstrateState, useSubstrate} from '../context'
 import { formatBalance } from '@polkadot/util'
+import { FetchBalance } from '../context/utils'
 
 const styleLink = document.createElement("link");
 styleLink.rel = "stylesheet";
@@ -20,7 +21,7 @@ const TableSingleLine = () => {
             let current_address = currentAccount.address;
             let unsubscribeAll = null
             api.query.system.account(current_address, balance_info => {
-                setaccBalance(formatBalance(balance_info.data.free, true, 12));
+                setaccBalance(formatBalance(balance_info.data.free));
             })
                 .then(unsub => {
                     unsubscribeAll = unsub

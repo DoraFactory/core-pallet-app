@@ -52,7 +52,6 @@ function Main () {
                 <Route path="/account" element={<Header></Header>}></Route>
             </Routes>
         </BrowserRouter>
-        // <Header></Header>
     );
 }
 

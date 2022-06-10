@@ -4,6 +4,6 @@ import {
     useSubstrateState,
 } from './SubstrateContext'
 
-import utils from './utils'
+import {Utils} from './utils'
 
-export { SubstrateContextProvider, useSubstrate, useSubstrateState, utils }
+export { SubstrateContextProvider, useSubstrate, useSubstrateState, Utils }
