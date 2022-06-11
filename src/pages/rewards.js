@@ -62,7 +62,7 @@ const Reward = () => {
         if (currentAccount) {
             let current_address = currentAccount.address;
             api.query.system.account(current_address, balance_info => {
-                setAccBalance(balance_info.data.free.toNumber());
+                setAccBalance(BigInt(balance_info.data.free));
             })
             let unsubscribeAll = null
             api.query.doraRewards.contributorsInfo(current_address, reward_info => {
@@ -107,58 +107,55 @@ const Reward = () => {
         let history = new Array();
         const fromAcct = await getFromAcct();
 
-        // ensure the current account have sufficient balance to send tx
-        api.query.system.account(currentAccount.address, balance_info => {
-            if (BigInt(balance_info.data.free) < 5000000) {
-                NosuffcientBalance("Insufficient balance in your current account! Please buy some DORA !");
-                return;
-            } else {
-                // if the current account is in contributor list and not claimed all
-                if (contributor_status && !claimedAll) {
-                    api.query.doraRewards.contributorsInfo(currentAccount.address, reward_info => {
-                        if (reward_info.isSome) {
-                            let reward = reward_info.unwrap();
-                            msg.claimed = reward.claimedReward.toNumber();
-                            console.log(`索取前已经领取了${msg.claimed}`);
-                        }
-                    })
-                    let txExecute = api.tx.doraRewards.claimRewards();
-                    Claiming(" claiming reward, wait at least 6s")
-                    const unsub = txExecute.signAndSend(...fromAcct, async result => {
-                        console.log(`Current status is ${result.status}`);
-                        if (result.status.isInBlock) {
-                            console.log(`Transaction included at blockHash ${result.status.asInBlock}`);
-                        } else if (result.status.isFinalized) {
-                            console.log(`Transaction finalized at blockHash ${result.status.asFinalized}`);
-                            ClaimSuccess(" claim successfully !")
-                            let claim_time = thisTime();
-                            let block = await api.rpc.chain.getBlock(result.status.asFinalized);
-                            msg.block_number = block.block.header.number;
-                            msg.claiming_time = claim_time;
-
-                            let local_storage = localStorage.getItem(currentAccount.address);
-                            console.log(`当前获取的存储为${local_storage}`);
-                            // if there is no localstorage, we push the new array
-                            if (local_storage == null) {
-                                history.push(msg);
-                                localStorage.setItem(currentAccount.address, JSON.stringify(history));
-                            } else {
-                                let new_storage = JSON.parse(local_storage);
-                                // if exists, we push into the new item into the array
-                                console.log(`新增一条索取信息${JSON.stringify(msg)}`);
-                                console.log(`store_obj is ${typeof new_storage}`);
-                                console.log(new_storage);
-                                new_storage.push(msg);
-                                console.log(new_storage);
-                                localStorage.setItem(currentAccount.address, JSON.stringify(new_storage))
-                            }
-
-                        }
-                    })
-                    setUnsub(() => unsub)
+        if(accBalance < 5000000){
+            console.log(`当前账户余额为`+accBalance);
+            NosuffcientBalance("Insufficient balance in your current account! Please buy some DORA !");
+            return;
+        }
+        // if the current account is in contributor list and not claimed all
+        if (contributor_status && !claimedAll) {
+            api.query.doraRewards.contributorsInfo(currentAccount.address, reward_info => {
+                if (reward_info.isSome) {
+                    let reward = reward_info.unwrap();
+                    msg.claimed = reward.claimedReward.toNumber();
+                    console.log(`索取前已经领取了${msg.claimed}`);
                 }
-            }
-        })
+            })
+            let txExecute = api.tx.doraRewards.claimRewards();
+            Claiming(" claiming reward, wait at least 6s")
+            const unsub = txExecute.signAndSend(...fromAcct, async result => {
+                console.log(`Current status is ${result.status}`);
+                if (result.status.isInBlock) {
+                    console.log(`Transaction included at blockHash ${result.status.asInBlock}`);
+                } else if (result.status.isFinalized) {
+                    console.log(`Transaction finalized at blockHash ${result.status.asFinalized}`);
+                    ClaimSuccess(" claim successfully !")
+                    let claim_time = thisTime();
+                    let block = await api.rpc.chain.getBlock(result.status.asFinalized);
+                    msg.block_number = block.block.header.number;
+                    msg.claiming_time = claim_time;
+
+                    let local_storage = localStorage.getItem(currentAccount.address);
+                    console.log(`当前获取的存储为${local_storage}`);
+                    // if there is no localstorage, we push the new array
+                    if (local_storage == null) {
+                        history.push(msg);
+                        localStorage.setItem(currentAccount.address, JSON.stringify(history));
+                    } else {
+                        let new_storage = JSON.parse(local_storage);
+                        // if exists, we push into the new item into the array
+                        console.log(`新增一条索取信息${JSON.stringify(msg)}`);
+                        console.log(`store_obj is ${typeof new_storage}`);
+                        console.log(new_storage);
+                        new_storage.push(msg);
+                        console.log(new_storage);
+                        localStorage.setItem(currentAccount.address, JSON.stringify(new_storage))
+                    }
+
+                }
+            })
+            setUnsub(() => unsub)
+        }
 
         console.log(`已经领取全部奖励${claimedAll}`);
     }
