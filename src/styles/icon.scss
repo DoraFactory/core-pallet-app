@@ -35,9 +35,10 @@
 
 
 .reward-link{
-    position: static;
+    position: relative;
     width: 6px;
     height: 6px;
-    top: 5px;
-    left: -100px;
+    top: -5px;
+    left: -155px;
+    margin: 10px;
 }

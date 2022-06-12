@@ -72,7 +72,7 @@ const RewardInfo = () => {
                 </div>
             </div>
             {rewardsHistory == null ? (
-                <div className = "no-history"> Not having claiming record ! </div>
+                <div className="no-history"> Not having claiming record ! </div>
             ) : (
                 <Table singleLine className="reward-history">
                     <Table.Header>
@@ -104,16 +104,18 @@ const RewardInfo = () => {
                                 </Table.Cell>
                                 <Table.Cell>
                                     <div clasName="ba-content">
-                                        <span className="ba-content1" style={{ textAlign: 'left' }}>{record.claiming_time}</span>
+                                        <span className="ba-content-time">{record.claiming_time}</span>
                                     </div>
                                 </Table.Cell>
                                 <Table.Cell>
                                     <div clasName="ba-content">
-                                        <span>{record.claimed}</span>
+                                        <span className="ba-content-token">{record.claimed} unit</span>
                                     </div>
                                 </Table.Cell>
                                 <Table.Cell>
-                                    <span>DORA</span>
+                                    <div clasName="ba-content">
+                                        <span className="ba-content-symbol">DORA</span>
+                                    </div>
                                 </Table.Cell>
                             </Table.Row>
                         ))}
