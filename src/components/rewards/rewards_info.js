@@ -22,12 +22,10 @@ const RewardInfo = () => {
     useEffect(() => {
         if (currentAccount) {
             let current_address = currentAccount.address;
-            console.log(`当前地址为${current_address}`)
             let unsubscribeAll = null
             api.query.doraRewards.contributorsInfo(current_address, reward_info => {
                 if (reward_info.isSome) {
                     let reward = reward_info.unwrap();
-                    console.log(`索取后claimed reward is ` + reward.claimedReward.toNumber());
                     let total_reward = (reward.totalReward.toNumber() / 1000000000);
                     let claimed_reward = (reward.claimedReward.toNumber() / 1000000000);
                     settotalReawrd(formatBalance(reward.totalReward));
@@ -36,9 +34,7 @@ const RewardInfo = () => {
 
                     // get the reward history records
                     let history = localStorage.getItem(current_address);
-                    console.log("history is " + history);
                     rewardsHistory = JSON.parse(history);
-                    console.log(`rewardsHistory is  ${(rewardsHistory)}`);
                 } else {
                     settotalReawrd(0);
                     setclaimable(0);
