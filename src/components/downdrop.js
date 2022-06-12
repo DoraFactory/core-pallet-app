@@ -15,7 +15,6 @@ const Main = (props) => {
         setCurrentAccount,
     } = useSubstrate()
     const { keyring, currentAccount } = useSubstrateState();
-    const [value, setValue] = useState("");
 
     // Get the list of accounts we possess the private key for
     const keyringOptions = keyring.getPairs().map(account => ({
@@ -34,12 +33,11 @@ const Main = (props) => {
         !currentAccount &&
             initialAddress.length > 0 &&
             setCurrentAccount(keyring.getPair(initialAddress))
-            setValue(initialAddress)
     }, [currentAccount, setCurrentAccount, keyring, initialAddress])
 
     const handleChange = addr => {
         setCurrentAccount(keyring.getPair(addr))
-        setValue(addr)
+        // setValue(addr)
     }
 
     const minimalSelectClasses = useOutlineSelectStyles();
@@ -74,8 +72,7 @@ const Main = (props) => {
                 classes={{ root: minimalSelectClasses.select }}
                 MenuProps={menuProps}
                 IconComponent={iconComponent}
-                value={value}
-                defaultValue={"sjfds"}
+                value={currentAccount ? currentAccount.address : initialAddress}
                 onChange={(dropdown) => {
                     handleChange(dropdown.target.value)
                 }}
