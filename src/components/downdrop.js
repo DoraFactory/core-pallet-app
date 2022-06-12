@@ -13,8 +13,8 @@ const acctAddr = acct => (acct ? acct.address : '')
 const Main = (props) => {
     const {
         setCurrentAccount,
-        state: { keyring, currentAccount },
     } = useSubstrate()
+    const { keyring, currentAccount } = useSubstrateState();
     const [value, setValue] = useState("");
 
     // Get the list of accounts we possess the private key for
@@ -34,6 +34,7 @@ const Main = (props) => {
         !currentAccount &&
             initialAddress.length > 0 &&
             setCurrentAccount(keyring.getPair(initialAddress))
+            setValue(initialAddress)
     }, [currentAccount, setCurrentAccount, keyring, initialAddress])
 
     const handleChange = addr => {
@@ -74,7 +75,7 @@ const Main = (props) => {
                 MenuProps={menuProps}
                 IconComponent={iconComponent}
                 value={value}
-                defaultValue={currentAccount}
+                defaultValue={"sjfds"}
                 onChange={(dropdown) => {
                     handleChange(dropdown.target.value)
                 }}
