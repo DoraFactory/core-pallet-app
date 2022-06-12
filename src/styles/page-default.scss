@@ -259,7 +259,7 @@
     height: 56px;
     left:0px;
     height: 56px;
-    top: 744px;
+    top: 752px;
     background: $font-df;
 }
 
@@ -349,8 +349,8 @@
     position: absolute;
     width: 141px;
     height: 36px;
-    right: 0px;
     top: calc(50% - 36px/2);
+    left: 1250px;
     margin-right: 24px;
     background: $wall-bg;
     border: 1px solid $dora-color;
@@ -363,6 +363,7 @@
     justify-content: space-between;
     padding: 8px 16px;
     position: static;
+    width:228px;
     height: 56px;
     left: 0px;
     right: 0px;
@@ -371,6 +372,10 @@
     order: 1;
     flex-grow: 0;
     margin: 0px 0px;
+}
+
+.account-id:hover{
+    
 }
 
 .message-sty{

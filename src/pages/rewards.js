@@ -35,6 +35,8 @@ const Reward = () => {
     // default the reward is not claimed
     const [claimedAll, setClaimedAll] = useState(false);
     const [unsub, setUnsub] = useState(null)
+    const [curr_claimed, setCurClaimed] = useState(0);
+
     const { addToast } = useToasts()
 
     const NosuffcientBalance = (content) => {
@@ -51,14 +53,16 @@ const Reward = () => {
 
     const Claiming = (content) => {
         addToast(content, {
-            appearance: 'info', autoDismiss: true, TransitionState: "entering"
+            appearance: 'info', autoDismiss: true,
         })
     }
 
     // this msg will be stored in localstorage
     let msg = {};
+
     // set the current account's status
     useEffect(() => {
+
         if (currentAccount) {
             let current_address = currentAccount.address;
             api.query.system.account(current_address, balance_info => {
@@ -72,6 +76,18 @@ const Reward = () => {
                     if (reward.totalReward.toNumber() == reward.claimedReward.toNumber()) {
                         setClaimedAll(true)
                     } else {
+                        // if no storage, that is the first claim
+                        if(reward.claimedReward.toNumber() == 0) {
+                            localStorage.setItem(current_address + "last-claim", 0);
+                        }else{
+                            let last_claimed = localStorage.getItem(current_address + "last-claim");
+                            console.log('之前总共领取啦' +reward.claimedReward.toNumber());
+                            if(reward.claimedReward.toNumber() != last_claimed){
+                                localStorage.setItem(current_address + "last-claim", reward.claimedReward.toNumber());
+                                setCurClaimed(reward.claimedReward.toNumber() - last_claimed)
+                                console.log(`本次领取啦` + (reward.claimedReward.toNumber() - last_claimed));
+                            }
+                        }
                         setClaimedAll(false)
                     }
                     setContributor_status(true);
@@ -86,7 +102,7 @@ const Reward = () => {
                 .catch(console.error)
             return () => unsubscribeAll && unsubscribeAll()
         }
-    }, [api, currentAccount, contributor_status, setContributor_status, claimedAll, setClaimedAll])
+    }, [api, currentAccount, contributor_status, setContributor_status, claimedAll, setClaimedAll, curr_claimed, setCurClaimed])
 
     // get account (include injector accounts)
     const getFromAcct = async () => {
@@ -107,22 +123,14 @@ const Reward = () => {
         let history = new Array();
         const fromAcct = await getFromAcct();
 
-        if(accBalance < 5000000){
-            console.log(`当前账户余额为`+accBalance);
+        if (accBalance < 5000000) {
             NosuffcientBalance("Insufficient balance in your current account! Please buy some DORA !");
             return;
         }
         // if the current account is in contributor list and not claimed all
         if (contributor_status && !claimedAll) {
-            api.query.doraRewards.contributorsInfo(currentAccount.address, reward_info => {
-                if (reward_info.isSome) {
-                    let reward = reward_info.unwrap();
-                    msg.claimed = reward.claimedReward.toNumber();
-                    console.log(`索取前已经领取了${msg.claimed}`);
-                }
-            })
             let txExecute = api.tx.doraRewards.claimRewards();
-            Claiming(" claiming reward, wait at least 6s")
+            Claiming(" claiming reward, wait at least 12s")
             const unsub = txExecute.signAndSend(...fromAcct, async result => {
                 console.log(`Current status is ${result.status}`);
                 if (result.status.isInBlock) {
@@ -134,6 +142,9 @@ const Reward = () => {
                     let block = await api.rpc.chain.getBlock(result.status.asFinalized);
                     msg.block_number = block.block.header.number;
                     msg.claiming_time = claim_time;
+
+                    console.log(`当前当前已经获取的奖励为`+curr_claimed);
+                    msg.claimed = curr_claimed;
 
                     let local_storage = localStorage.getItem(currentAccount.address);
                     console.log(`当前获取的存储为${local_storage}`);

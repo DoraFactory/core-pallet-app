@@ -1,12 +1,12 @@
-import {React, useEffect} from 'react';
+import { React, useEffect, useState } from 'react';
 import "../styles/page-default.scss"
-import {useSubstrate ,useSubstrateState} from '../context';
-
-const styleLink = document.createElement("link");
-styleLink.rel = "stylesheet";
-styleLink.href =
-    "https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.css";
-document.head.appendChild(styleLink);
+import { useSubstrate, useSubstrateState } from '../context';
+import { useMinimalSelectStyles } from '@mui-treasury/styles/select/minimal';
+import { useOutlineSelectStyles } from '@mui-treasury/styles/select/outline';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const acctAddr = acct => (acct ? acct.address : '')
 
@@ -15,6 +15,7 @@ const Main = (props) => {
         setCurrentAccount,
         state: { keyring, currentAccount },
     } = useSubstrate()
+    const [value, setValue] = useState("");
 
     // Get the list of accounts we possess the private key for
     const keyringOptions = keyring.getPairs().map(account => ({
@@ -37,26 +38,56 @@ const Main = (props) => {
 
     const handleChange = addr => {
         setCurrentAccount(keyring.getPair(addr))
+        setValue(addr)
     }
-    
+
+    const minimalSelectClasses = useOutlineSelectStyles();
+
+    const iconComponent = (props) => {
+        return (
+            <ExpandMoreIcon className={props.className + " " + minimalSelectClasses.icon} />
+        )
+    };
+
+    // moves the menu below the select input
+    const menuProps = {
+        classes: {
+            paper: minimalSelectClasses.paper,
+            list: minimalSelectClasses.list
+        },
+        anchorOrigin: {
+            vertical: "bottom",
+            horizontal: "left"
+        },
+        transformOrigin: {
+            vertical: "top",
+            horizontal: "center"
+        },
+        getContentAnchorEl: null
+    };
+
     return (
-        <div>
-            <label>
-                <select
-                    onChange={(dropdown) => {
-                        handleChange(dropdown.target.value)
-                    }}
-                    className="connect-wallet">
-                    {keyringOptions.map((option) => (
-                        <option value={option.value} className = "connect-wallet">
-                            <div className="account-id">
-                                {option.text}
-                            </div>
-                        </option>
-                    ))}
-                </select>
-            </label>
-        </div>
+        <FormControl>
+            <Select
+                disableUnderline
+                classes={{ root: minimalSelectClasses.select }}
+                MenuProps={menuProps}
+                IconComponent={iconComponent}
+                value={value}
+                defaultValue={currentAccount}
+                onChange={(dropdown) => {
+                    handleChange(dropdown.target.value)
+                }}
+                className="connect-wallet"
+            >
+                {keyringOptions.map((option) => {
+                    return (<MenuItem value={option.key}>
+                            {option.text}
+                    </MenuItem>
+                    )
+                })}
+            </Select>
+        </FormControl>
     );
 }
 

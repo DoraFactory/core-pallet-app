@@ -10,6 +10,9 @@
     "polkadot-js"
   ],
   "dependencies": {
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
+    "@mui-treasury/styles": "^1.13.1",
     "@polkadot/api": "^8.1.1",
     "@polkadot/extension-dapp": "^0.43.1",
     "@polkadot/keyring": "^9.0.1",
@@ -23,6 +26,8 @@
     "@testing-library/user-event": "^13.5.0",
     "classnames": "^2.3.1",
     "localStorage": "^1.0.4",
+    "material-ui": "^0.20.2",
+    "mui-treasury": "^0.1.5-alpha.3",
     "prop-types": "^15.8.1",
     "react": "^18.1.0",
     "react-copy-to-clipboard": "^5.1.0",

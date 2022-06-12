@@ -6,7 +6,7 @@ import '../styles/page-default.scss';
 import LeaseInfo from '../components/defaults/default-networks';
 import NoAccount from "../components/defaults/no-accounts";
 import Icons from "../resources/index";
-
+import MinimalSelect from "../components/select"
 const DefaultPage = () => {
     const navigate = useNavigate();
 
@@ -33,6 +33,7 @@ const DefaultPage = () => {
             </div>
             <LeaseInfo />
             <NoAccount />
+            <MinimalSelect></MinimalSelect>
             <div className="foot-default">
                 <span className="foot-font">© 2022 Dora Factory</span>
                 <span className="foot-font">·</span>
