@@ -63,15 +63,16 @@
     .font1{
         @include sty-font;
         font-weight: 100px;
+        width: 422px;
         font-size: 24px;
         line-height: 32px;
         color: $p-color;
     }
 
     .icon-link{
-        width: 680px;
+        width: 580px;
         height: 24px;
-        left: 120px;
+        left: 100px;
         top: 4px;
         flex: none;
         order: 1;

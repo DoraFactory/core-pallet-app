@@ -14,7 +14,7 @@ const DefaultPage = () => {
     }
     return (
         <div className="App" >
-            <div className="header-default" >
+            <div className="header-default">
                 <div className="nav-brand">
                     CORE Pallet
                 </div>
@@ -23,9 +23,9 @@ const DefaultPage = () => {
                 </div>
             </div>
             <div className="text-default">
-                <p className="font1">Dora-KSM Parachain</p>
+                <span className="dora-ksm-font">Dora-KSM Parachain</span>
                 {/* TODO：文字页上脚*/}
-                <div className="icon-link">
+                <div className="defalt-link">
                     <a href="https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.dorafactory.org#/accounts" className="explorer-sty">View Dora-KSM Parachain Explorer</a>
                     <img src={Icons.Arrow} className="icon-sty"></img>
                 </div>

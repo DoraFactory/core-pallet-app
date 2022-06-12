@@ -196,7 +196,7 @@ const Reward = () => {
             )}
 
             <div className="text-default">
-                <p className="font1">Dora-KSM crowdloan rewards</p>
+                <p className="dora-ksm-font">Dora-KSM crowdloan rewards</p>
                 {!contributor_status ? (
                     null
                 ) : (

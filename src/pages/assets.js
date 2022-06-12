@@ -7,7 +7,7 @@ const Assets = () => {
     return (
         <div className="App">
             <div className="text-default">
-                <p className="font1">Your assets</p>
+                <p className="dora-ksm-font">Your assets</p>
                 <a href="http://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama-rpc.dwellir.com#/accounts" className="explorer-sty">View Dora-KSM Parachain Stats</a>
             </div>
             <div className="tb-line">
