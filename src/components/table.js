@@ -3,7 +3,6 @@ import { Icon, Table } from 'semantic-ui-react'
 import Icons from '../resources'
 import {useSubstrateState, useSubstrate} from '../context'
 import { formatBalance } from '@polkadot/util'
-import { FetchBalance } from '../context/utils'
 
 const styleLink = document.createElement("link");
 styleLink.rel = "stylesheet";

@@ -19,22 +19,4 @@ const Utils = {
   },
 }
 
-const FetchBalance = async (address) => {
-  const { api, currentAccount } = useSubstrateState()
-  if (!api || !address) {
-      return '0.00 DOT'
-  }
-  const registry = api.registry
-  const unit = registry.chainTokens[0].toUpperCase()
-  const decimal =  registry.chainDecimals[0]
-  formatBalance.setDefaults(
-    {
-      'decimals': decimal,
-      'unit': unit
-    }
-  )
-  const res = await api.query.system.account(address)
-  return formatBalance(res.data.free)
-}
-
-export {Utils, FetchBalance}
+export {Utils}

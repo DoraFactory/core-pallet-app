@@ -29,8 +29,8 @@ const RewardInfo = () => {
                     let total_reward = (reward.totalReward.toNumber() / 1000000000);
                     let claimed_reward = (reward.claimedReward.toNumber() / 1000000000);
                     settotalReawrd(formatBalance(reward.totalReward));
-                    setclaimable((total_reward - claimed_reward).toFixed(4) + " MUnit");
-                    setcontribution((total_reward / 3).toFixed(4) + " MUnit");
+                    setclaimable((total_reward - claimed_reward).toFixed(4) + " M");
+                    setcontribution((total_reward / 3).toFixed(4) + " M");
 
                     // get the reward history records
                     let history = localStorage.getItem(current_address);
@@ -71,7 +71,7 @@ const RewardInfo = () => {
                     </div>
                 </div>
             </div>
-            {rewardsHistory == null ? (
+            {localStorage.getItem(currentAccount.address) == null || rewardsHistory == null ? (
                 <div className="no-history"> Not having claiming record ! </div>
             ) : (
                 <Table singleLine className="reward-history">
@@ -97,7 +97,7 @@ const RewardInfo = () => {
                                 <Table.Cell>
                                     <div className="pd-body">
                                         <div className="icon-body2">
-                                            <span className="lg-p">{record.block_number}</span>
+                                            <a href={"https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A8844#/explorer/query/" + record.block_number} className="lg-p">{record.block_number}</a>
                                             <img src={Icons.Arrow} className="reward-link"></img>
                                         </div>
                                     </div>
@@ -109,7 +109,7 @@ const RewardInfo = () => {
                                 </Table.Cell>
                                 <Table.Cell>
                                     <div clasName="ba-content">
-                                        <span className="ba-content-token">{record.claimed} unit</span>
+                                        <span className="ba-content-token">{record.claimed}</span>
                                     </div>
                                 </Table.Cell>
                                 <Table.Cell>
