@@ -7,6 +7,7 @@ import RewardInfo from '../components/rewards/rewards_info'
 import Block from '../components/rewards/block'
 import { useSubstrateState } from '../context';
 import { web3FromSource } from '@polkadot/extension-dapp';
+import { formatBalance } from '@polkadot/util'
 import {
     Grid,
     Message,
@@ -38,7 +39,7 @@ const Reward = () => {
     // default the reward is not claimed
     const [claimedAll, setClaimedAll] = useState(false);
     const [unsub, setUnsub] = useState(null)
-    const [currClaimed, setCurrClaimed] = useState(0);
+    const chainDecimals = api.registry.chainDecimals[0];
 
     const { addToast } = useToasts()
 
@@ -74,17 +75,19 @@ const Reward = () => {
             api.query.doraRewards.contributorsInfo(current_address, reward_info => {
                 if (reward_info.isSome) {
                     let reward = reward_info.unwrap();
+                    let tr = formatBalance(reward.totalReward, { withSi: false, forceUnit: '-' }, chainDecimals);
+                    let cr = formatBalance(reward.claimedReward, { withSi: false, forceUnit: '-' }, chainDecimals);
                     // claimed reward ?= total reward
-                    if (reward.totalReward.toNumber() == reward.claimedReward.toNumber()) {
+                    if (tr == cr) {
                         setClaimedAll(true)
                     } else {
                         let last_claimed = localStorage.getItem(current_address + "last-claim");
-                        if (reward.claimedReward.toNumber() != last_claimed) {
-                            current_claimed = reward.claimedReward.toNumber() - Number(last_claimed);
-                            localStorage.setItem(current_address + "last-claim", reward.claimedReward.toNumber());
+                        if (cr != last_claimed) {
+                            current_claimed = cr - last_claimed;
+                            localStorage.setItem(current_address + "last-claim", cr);
                         }
                         if (localStorage.getItem(current_address + "last-claim") == null) {
-                            localStorage.setItem(current_address + "last-claim", reward.claimedReward.toNumber());
+                            localStorage.setItem(current_address + "last-claim", cr);
                         }
                         setClaimedAll(false)
                     }
@@ -100,7 +103,7 @@ const Reward = () => {
                 .catch(console.error)
             return () => unsubscribeAll && unsubscribeAll()
         }
-    }, [api, currentAccount, contributor_status, setContributor_status, claimedAll, setClaimedAll, currClaimed])
+    }, [api, currentAccount, contributor_status, setContributor_status, claimedAll, setClaimedAll])
 
     // get account (include injector accounts)
     const getFromAcct = async () => {
