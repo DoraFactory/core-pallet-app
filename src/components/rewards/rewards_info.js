@@ -18,6 +18,7 @@ const RewardInfo = () => {
     const [claimable, setclaimable] = useState(null);
     const [totalReawrd, settotalReawrd] = useState(null);
     const [contribution, setcontribution] = useState(null);
+    const chainDecimals = api.registry.chainDecimals[0];
 
     useEffect(() => {
         if (currentAccount) {
@@ -26,11 +27,11 @@ const RewardInfo = () => {
             api.query.doraRewards.contributorsInfo(current_address, reward_info => {
                 if (reward_info.isSome) {
                     let reward = reward_info.unwrap();
-                    let total_reward = (reward.totalReward.toNumber() / 1000000000);
-                    let claimed_reward = (reward.claimedReward.toNumber() / 1000000000);
-                    settotalReawrd(formatBalance(reward.totalReward));
-                    setclaimable((total_reward - claimed_reward).toFixed(4) + " M");
-                    setcontribution((total_reward / 3).toFixed(4) + " M");
+                    let total_reward = formatBalance(reward.totalReward, { withSi: false, forceUnit: '-' }, chainDecimals);
+                    let claimed_reward = formatBalance(reward.claimedReward, { withSi: false, forceUnit: '-' }, chainDecimals);
+                    settotalReawrd(total_reward);
+                    setclaimable(total_reward - claimed_reward);
+                    setcontribution((total_reward / 3));
 
                     // get the reward history records
                     let history = localStorage.getItem(current_address);

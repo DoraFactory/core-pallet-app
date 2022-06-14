@@ -7,7 +7,8 @@ const LeaseInfo = (props) => {
     const { finalized } = props
     const [blockNumber, setBlockNumber] = useState(0)
     const [totalsupply, setTotalSupply] = useState(0)
-
+    const chainDecimals = api.registry.chainDecimals[0];
+    formatBalance.setDefaults({ unit: '' });
     const bestNumber = finalized
         ? api.derive.chain.bestNumberFinalized
         : api.derive.chain.bestNumber
@@ -32,8 +33,8 @@ const LeaseInfo = (props) => {
     useEffect(() => {
         let unsubscribeAll = null
         api.query.balances.totalIssuance(total => {
-            // console.log(formatBalance(total));
-            setTotalSupply(formatBalance(total));
+            const free = formatBalance(total, { withSi: false, forceUnit: '-'  }, chainDecimals);
+            setTotalSupply(free);
         })
             .then(unsub => {
                 unsubscribeAll = unsub

@@ -14,13 +14,15 @@ document.head.appendChild(styleLink);
 const TableSingleLine = () => {
     const { api, currentAccount } = useSubstrateState()
     const [accBalance, setaccBalance] = useState(0);
+    const chainDecimals = api.registry.chainDecimals[0];
 
     useEffect(() => {
         if (currentAccount) {
             let current_address = currentAccount.address;
             let unsubscribeAll = null
             api.query.system.account(current_address, balance_info => {
-                setaccBalance(formatBalance(balance_info.data.free));
+                const free = formatBalance(balance_info.data.free, { withSi: false, forceUnit: '-'  }, chainDecimals);
+                setaccBalance(free);
             })
                 .then(unsub => {
                     unsubscribeAll = unsub
