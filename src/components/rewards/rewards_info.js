@@ -35,7 +35,7 @@ const RewardInfo = () => {
                     setclaimable(Number(total_reward - claimed_reward).toFixed(5));
                     setcontribution((total_reward / 3));
                     // get the reward history records
-                    let history = localStorage.getItem(current_address);
+                    let history = localStorage.getItem(current_address + "history-reward");
                     rewardsHistory = JSON.parse(history);
                 } else {
                     settotalReawrd(0);
@@ -73,7 +73,7 @@ const RewardInfo = () => {
                     </div>
                 </div>
             </div>
-            {localStorage.getItem(currentAccount.address) == null || rewardsHistory == null ? (
+            {localStorage.getItem(currentAccount.address + "history-reward") == null || rewardsHistory == null ? (
                 <div>
                     <div className="no-history"> Not having claiming record ! </div>
                     <div className="content-info">

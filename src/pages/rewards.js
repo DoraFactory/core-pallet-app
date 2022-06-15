@@ -148,12 +148,12 @@ const Reward = () => {
                     msg.claiming_time = claim_time;
                     msg.claimed = current_claimed;
 
-                    let local_storage = localStorage.getItem(currentAccount.address);
+                    let local_storage = localStorage.getItem(currentAccount.address + "history-reward");
                     console.log(`当前获取的存储为${local_storage}`);
                     // if there is no localstorage, we push the new array
                     if (local_storage == null) {
                         history.push(msg);
-                        localStorage.setItem(currentAccount.address, JSON.stringify(history));
+                        localStorage.setItem(currentAccount.address + "history-reward", JSON.stringify(history));
                     } else {
                         let new_storage = JSON.parse(local_storage);
                         // if exists, we push into the new item into the array
@@ -162,7 +162,7 @@ const Reward = () => {
                         console.log(new_storage);
                         new_storage.push(msg);
                         console.log(new_storage);
-                        localStorage.setItem(currentAccount.address, JSON.stringify(new_storage))
+                        localStorage.setItem(currentAccount.address + "history-reward", JSON.stringify(new_storage))
                     }
 
                 }
