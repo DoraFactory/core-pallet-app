@@ -4,6 +4,7 @@ import { formatBalance } from '@polkadot/util'
 import { Icon, Table } from 'semantic-ui-react'
 import Icons from '../../resources'
 import localStorage from 'localStorage'
+import config from "../../context/config"
 
 const styleLink = document.createElement("link");
 styleLink.rel = "stylesheet";
@@ -11,6 +12,7 @@ styleLink.href =
     "https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.css";
 document.head.appendChild(styleLink);
 
+const reward_history_url = config.REWARD_QUERY;
 let rewardsHistory = [];
 
 const RewardInfo = () => {
@@ -103,7 +105,7 @@ const RewardInfo = () => {
                                     <Table.Cell>
                                         <div className="pd-body">
                                             <div className="icon-body2">
-                                                <a href={"https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A8844#/explorer/query/" + record.block_number} className="lg-p">{record.block_number}</a>
+                                                <a href={reward_history_url + record.block_number} className="lg-p">{record.block_number}</a>
                                                 <img src={Icons.Arrow} className="reward-link"></img>
                                             </div>
                                         </div>

@@ -8,6 +8,9 @@ import NoAccount from "../components/defaults/no-accounts";
 import Icons from "../resources/index";
 import { web3Enable, web3Accounts } from '@polkadot/extension-dapp';
 import { Message } from 'semantic-ui-react';
+import config from "../context/config"
+
+const dora_ksm_parachain_explore = config.DORA_KSM_PARACHAIN_EXPLORE;
 
 const DefaultPage = () => {
     const navigate = useNavigate();
@@ -77,7 +80,7 @@ const DefaultPage = () => {
                 <span className="dora-ksm-font">Dora-KSM Parachain</span>
                 {/* TODO：文字页上脚*/}
                 <div className="defalt-link">
-                    <a href="https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.dorafactory.org#/accounts" className="explorer-sty">View Dora-KSM Parachain Explorer</a>
+                    <a href={dora_ksm_parachain_explore} className="explorer-sty">View Dora-KSM Parachain Explorer</a>
                     <img src={Icons.Arrow} className="icon-sty"></img>
                 </div>
             </div>

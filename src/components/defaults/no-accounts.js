@@ -1,6 +1,7 @@
 /// no accounts
 // import '../../styles/page-default.css';
 import Icons from "../../resources/index";
+import config from "../../context/config"
 
 const polkadot = "polkadot{.js}";
 
@@ -12,7 +13,7 @@ const NoAccount = () => {
                 <span className="noacc-p2">You can create a new account and connect to the Core Pallet with {polkadot} extension.</span>
             </div>
             <div className="btn-link">
-                <a href="https://polkadot.js.org/extension/" className="get-account">Get {polkadot} Extension</a>
+                <a href={config.POLKADOT_JS_EXTENSION} className="get-account">Get {polkadot} Extension</a>
                 <img src={Icons.Arrow}></img>
             </div>
 

@@ -1,4 +1,4 @@
-// import '../../styles/assets.css';
+import config from "../../context/config"
 
 const TransDoc = () => {
     return(
@@ -8,7 +8,7 @@ const TransDoc = () => {
                 <span className="p2">Please check out the Substrate documentation to learn more information about the HRMP pallet.</span>
             </div>
             <button className="doc">
-                <span className="doc-sty">Documention</span>
+                <a href={config.HRMP_DOC} className="doc-sty">Documention</a>
             </button>
         </div>
     )
