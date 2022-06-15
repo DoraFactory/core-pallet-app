@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Footer from '../components/footer';
 import '../styles/assets.scss';
 import RewardInfo from '../components/rewards/rewards_info'
-import Block from '../components/rewards/block'
+import Block from '../components/rewards/block';
 import { useSubstrateState } from '../context';
 import { web3FromSource } from '@polkadot/extension-dapp';
 import { formatBalance } from '@polkadot/util'
@@ -77,6 +77,8 @@ const Reward = () => {
                     let reward = reward_info.unwrap();
                     let tr = formatBalance(reward.totalReward, { withSi: false, forceUnit: '-' }, chainDecimals);
                     let cr = formatBalance(reward.claimedReward, { withSi: false, forceUnit: '-' }, chainDecimals);
+                    // let tr = formatBalance(reward.totalReward, { withSiFull: true}, chainDecimals);
+                    // let cr = formatBalance(reward.claimedReward, { withSiFull: true }, chainDecimals);
                     // claimed reward ?= total reward
                     if (tr == cr) {
                         setClaimedAll(true)
@@ -206,11 +208,10 @@ const Reward = () => {
                     <button className="claim-btn" onClick={() => handle_change()}>Claim Reward</button>
                 )}
             </div>
+            {/* <div className="rf-pad"> */}
             <RewardInfo></RewardInfo>
-            <div className="content-info">
-                The reward distribution started when Dora-KSM Parachain launched. The total rewards will be linearly released by block. The transcation fee of each claim is 0.125 DORA.
-            </div>
             <Footer></Footer>
+            {/* </div> */}
         </div>
     );
 }

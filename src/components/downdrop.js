@@ -37,7 +37,6 @@ const Main = (props) => {
 
     const handleChange = addr => {
         setCurrentAccount(keyring.getPair(addr))
-        // setValue(addr)
     }
 
     const minimalSelectClasses = useOutlineSelectStyles();

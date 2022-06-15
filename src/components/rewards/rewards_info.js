@@ -30,9 +30,8 @@ const RewardInfo = () => {
                     let total_reward = formatBalance(reward.totalReward, { withSi: false, forceUnit: '-' }, chainDecimals);
                     let claimed_reward = formatBalance(reward.claimedReward, { withSi: false, forceUnit: '-' }, chainDecimals);
                     settotalReawrd(total_reward);
-                    setclaimable(total_reward - claimed_reward);
+                    setclaimable(Number(total_reward - claimed_reward).toFixed(5));
                     setcontribution((total_reward / 3));
-
                     // get the reward history records
                     let history = localStorage.getItem(current_address);
                     rewardsHistory = JSON.parse(history);
@@ -52,7 +51,7 @@ const RewardInfo = () => {
     }, [api, currentAccount, claimable, setclaimable, settotalReawrd, setcontribution])
 
     return (
-        <div>
+        <div className="reward-info">
             <div className="reward-stat">
                 <div className="reward-grid">
                     <div>
@@ -73,59 +72,64 @@ const RewardInfo = () => {
                 </div>
             </div>
             {localStorage.getItem(currentAccount.address) == null || rewardsHistory == null ? (
-                <div className="no-history"> Not having claiming record ! </div>
+                <div>
+                    <div className="no-history"> Not having claiming record ! </div>
+                    <div className="content-info">
+                        The reward distribution started when Dora-KSM Parachain launched. The total rewards will be linearly released by block. The transcation fee of each claim is 0.125 DORA.
+                    </div>
+                </div>
             ) : (
-                <Table singleLine className="reward-history">
-                    <Table.Header>
-                        <Table.Row>
-                            <Table.HeaderCell>
-                                <span className="blockID">Block #</span>
-                            </Table.HeaderCell>
-                            <Table.HeaderCell>
-                                <span className="claim_time">CLAIMING TIME</span>
-                            </Table.HeaderCell>
-                            <Table.HeaderCell>
-                                <span className="amount">AMOUNT</span>
-                            </Table.HeaderCell>
-                            <Table.HeaderCell>
-                                <span className="token-stmbol">TOKEN SYMBOL</span>
-                            </Table.HeaderCell>
-                        </Table.Row>
-                    </Table.Header>
-                    <Table.Body>
-                        {rewardsHistory.map(record => (
+                <div className="tb-sty">
+                    <Table singleLine>
+                        <Table.Header>
                             <Table.Row>
-                                <Table.Cell>
-                                    <div className="pd-body">
-                                        <div className="icon-body2">
-                                            <a href={"https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A8844#/explorer/query/" + record.block_number} className="lg-p">{record.block_number}</a>
-                                            <img src={Icons.Arrow} className="reward-link"></img>
-                                        </div>
-                                    </div>
-                                </Table.Cell>
-                                <Table.Cell>
-                                    <div clasName="ba-content">
-                                        <span className="ba-content-time">{record.claiming_time}</span>
-                                    </div>
-                                </Table.Cell>
-                                <Table.Cell>
-                                    <div clasName="ba-content">
-                                        <span className="ba-content-token">{record.claimed}</span>
-                                    </div>
-                                </Table.Cell>
-                                <Table.Cell>
-                                    <div clasName="ba-content">
-                                        <span className="ba-content-symbol">DORA</span>
-                                    </div>
-                                </Table.Cell>
+                                <Table.HeaderCell>
+                                    <span className="blockID">Block #</span>
+                                </Table.HeaderCell>
+                                <Table.HeaderCell>
+                                    <span className="claim_time">CLAIMING TIME</span>
+                                </Table.HeaderCell>
+                                <Table.HeaderCell>
+                                    <span className="amount">AMOUNT</span>
+                                </Table.HeaderCell>
+                                <Table.HeaderCell>
+                                    <span className="token-stmbol">TOKEN SYMBOL</span>
+                                </Table.HeaderCell>
                             </Table.Row>
-                        ))}
-                    </Table.Body>
-                </Table >
+                        </Table.Header>
+                        <Table.Body>
+                            {rewardsHistory.map(record => (
+                                <Table.Row>
+                                    <Table.Cell>
+                                        <div className="pd-body">
+                                            <div className="icon-body2">
+                                                <a href={"https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A8844#/explorer/query/" + record.block_number} className="lg-p">{record.block_number}</a>
+                                                <img src={Icons.Arrow} className="reward-link"></img>
+                                            </div>
+                                        </div>
+                                    </Table.Cell>
+                                    <Table.Cell>
+                                        <div clasName="ba-content">
+                                            <span className="ba-content-time">{record.claiming_time}</span>
+                                        </div>
+                                    </Table.Cell>
+                                    <Table.Cell>
+                                        <div clasName="ba-content">
+                                            <span className="ba-content-token">{Number(record.claimed).toFixed(4)}</span>
+                                        </div>
+                                    </Table.Cell>
+                                    <Table.Cell>
+                                        <div clasName="ba-content">
+                                            <span className="ba-content-symbol">DORA</span>
+                                        </div>
+                                    </Table.Cell>
+                                </Table.Row>
+                            ))}
+                        </Table.Body>
+                    </Table >
+                </div>
             )}
-
         </div >
-
     );
 }
 
