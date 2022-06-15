@@ -40,7 +40,6 @@ const Main = (props) => {
     }
 
     const minimalSelectClasses = useOutlineSelectStyles();
-
     const iconComponent = (props) => {
         return (
             <ExpandMoreIcon className={props.className + " " + minimalSelectClasses.icon} />

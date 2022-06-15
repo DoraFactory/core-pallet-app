@@ -39,8 +39,6 @@ const DefaultPage = () => {
         if (isExtension && existsAccount) {
             navigate("/account")
         }
-        // console.log(`当前浏览器有polkadot.js插件嘛${isExtension}`);
-        // console.log(`当前钱包有账户嘛${existsAccount}`);
     }
     return (
         <div className="App" >
@@ -78,7 +76,6 @@ const DefaultPage = () => {
 
             <div className="text-default">
                 <span className="dora-ksm-font">Dora-KSM Parachain</span>
-                {/* TODO：文字页上脚*/}
                 <div className="defalt-link">
                     <a href={dora_ksm_parachain_explore} className="explorer-sty">View Dora-KSM Parachain Explorer</a>
                     <img src={Icons.Arrow} className="icon-sty"></img>

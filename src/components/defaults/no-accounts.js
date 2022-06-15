@@ -1,5 +1,4 @@
 /// no accounts
-// import '../../styles/page-default.css';
 import Icons from "../../resources/index";
 import config from "../../context/config"
 

@@ -77,8 +77,6 @@ const Reward = () => {
                     let reward = reward_info.unwrap();
                     let tr = formatBalance(reward.totalReward, { withSi: false, forceUnit: '-' }, chainDecimals);
                     let cr = formatBalance(reward.claimedReward, { withSi: false, forceUnit: '-' }, chainDecimals);
-                    // let tr = formatBalance(reward.totalReward, { withSiFull: true}, chainDecimals);
-                    // let cr = formatBalance(reward.claimedReward, { withSiFull: true }, chainDecimals);
                     // claimed reward ?= total reward
                     if (tr == cr) {
                         setClaimedAll(true)
@@ -122,7 +120,7 @@ const Reward = () => {
     }
 
     const handle_change = async () => {
-        console.log(`开始申请奖励.....`);
+        console.log(`start claim reward.....`);
         let history = new Array();
         let last_claimed = localStorage.getItem(currentAccount.address + "last-claim")
         const fromAcct = await getFromAcct();
@@ -149,7 +147,6 @@ const Reward = () => {
                     msg.claimed = current_claimed;
 
                     let local_storage = localStorage.getItem(currentAccount.address + "history-reward");
-                    console.log(`当前获取的存储为${local_storage}`);
                     // if there is no localstorage, we push the new array
                     if (local_storage == null) {
                         history.push(msg);
@@ -157,8 +154,6 @@ const Reward = () => {
                     } else {
                         let new_storage = JSON.parse(local_storage);
                         // if exists, we push into the new item into the array
-                        console.log(`新增一条索取信息${JSON.stringify(msg)}`);
-                        console.log(`store_obj is ${typeof new_storage}`);
                         console.log(new_storage);
                         new_storage.push(msg);
                         console.log(new_storage);
@@ -208,10 +203,8 @@ const Reward = () => {
                     <button className="claim-btn" onClick={() => handle_change()}>Claim Reward</button>
                 )}
             </div>
-            {/* <div className="rf-pad"> */}
             <RewardInfo></RewardInfo>
             <Footer></Footer>
-            {/* </div> */}
         </div>
     );
 }
