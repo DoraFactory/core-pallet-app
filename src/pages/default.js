@@ -1,16 +1,43 @@
 /// default page(unlogged pages)
 ///
-import { React } from 'react';
+import { React, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/page-default.scss';
 import LeaseInfo from '../components/defaults/default-networks';
 import NoAccount from "../components/defaults/no-accounts";
 import Icons from "../resources/index";
+import { web3Enable, web3Accounts } from '@polkadot/extension-dapp';
+import { Message } from 'semantic-ui-react';
+
 const DefaultPage = () => {
     const navigate = useNavigate();
+    // is there exists polkadot.js extension ?
+    const [isExtension, setIsExtension] = useState(1);
+    const [existsAccount, setExistsAccount] = useState(1);
 
-    const handle_change = () => {
-        navigate("/account")
+    useEffect(() => {
+        web3Enable("core pallet app").then((extension) => {
+            // no polkadot.js extension
+            console.log(extension.length);
+            if (extension.length == 0) {
+                setIsExtension(0);
+            } else {
+                web3Accounts().then((accounts) => {
+                    // no account in extension
+                    if (accounts.length == 0) {
+                        setExistsAccount(0)
+                    }
+                })
+            }
+        });
+    })
+
+    const handle_change = async () => {
+        if (isExtension && existsAccount) {
+            navigate("/account")
+        }
+        // console.log(`当前浏览器有polkadot.js插件嘛${isExtension}`);
+        // console.log(`当前钱包有账户嘛${existsAccount}`);
     }
     return (
         <div className="App" >
@@ -22,6 +49,30 @@ const DefaultPage = () => {
                     <button onClick={() => handle_change()} className="wallet">Connect Wallet</button>
                 </div>
             </div>
+            {!isExtension ? (
+                <Message
+                    negative
+                    compact
+                    floating
+                    header="No wallet extension. Please get Polkadot{.js} extension and create a new account."
+                    className="message-extension"
+                />
+            ) : (
+                null
+            )}
+
+            {isExtension && !existsAccount ? (
+                <Message
+                    negative
+                    compact
+                    floating
+                    header="your wallet have no accounts, please create a new account."
+                    className="message-extension"
+                />
+            ) : (
+                null
+            )}
+
             <div className="text-default">
                 <span className="dora-ksm-font">Dora-KSM Parachain</span>
                 {/* TODO：文字页上脚*/}

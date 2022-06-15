@@ -262,6 +262,7 @@
     height: 56px;
     top: 752px;
     background: $font-df;
+    // margin-bottom: 0px;
 }
 
 .tb-row{
@@ -380,6 +381,16 @@
     height: 45px;
     top: 57px;
     left: -940px;
+    width: 2000px;
+    background: #FFF6F0;
+    box-shadow: 0px 8px 16px rgba(33, 33, 44, 0.04), 0px 4px 12px rgba(33, 33, 44, 0.04), 0px 2px 8px rgba(33, 33, 44, 0.04), 0px 1px 4px rgba(33, 33, 44, 0.04), 0px 0px 0.5px rgba(33, 33, 44, 0.08);
+}
+
+.message-extension{
+    position: absolute;
+    height: 45px;
+    top: 40px;
+    // left: 140px;
     width: 2000px;
     background: #FFF6F0;
     box-shadow: 0px 8px 16px rgba(33, 33, 44, 0.04), 0px 4px 12px rgba(33, 33, 44, 0.04), 0px 2px 8px rgba(33, 33, 44, 0.04), 0px 1px 4px rgba(33, 33, 44, 0.04), 0px 0px 0.5px rgba(33, 33, 44, 0.08);
