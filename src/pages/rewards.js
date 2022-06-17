@@ -69,7 +69,8 @@ const Reward = () => {
         if (currentAccount) {
             let current_address = currentAccount.address;
             api.query.system.account(current_address, balance_info => {
-                setAccBalance(BigInt(balance_info.data.free));
+                let free = formatBalance(balance_info.data.free, { withSi: false, forceUnit: '-' }, chainDecimals);
+                setAccBalance(free);
             })
             let unsubscribeAll = null
             api.query.doraRewards.contributorsInfo(current_address, reward_info => {
