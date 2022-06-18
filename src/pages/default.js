@@ -77,7 +77,7 @@ const DefaultPage = () => {
             <div className="text-default">
                 <span className="dora-ksm-font">Dora-KSM Parachain</span>
                 <div className="defalt-link">
-                    <a href={dora_ksm_parachain_explore} className="explorer-sty">View Dora-KSM Parachain Explorer</a>
+                    <a href={dora_ksm_parachain_explore} target="_blank" className="explorer-sty">View Dora-KSM Parachain Explorer</a>
                     <img src={Icons.Arrow} className="icon-sty"></img>
                 </div>
             </div>
