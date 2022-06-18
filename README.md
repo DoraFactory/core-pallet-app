@@ -13,12 +13,6 @@ you can change some config in the directory `/context/config/`
 
 ```
 {
-  "PROVIDER_SOCKET": "ws://127.0.0.1:8844"
-}
-```
-
-```
-{
   ...
   ...
   "DORA_KSM_PARACHAIN_EXPLORE": "https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.dorafactory.org#/accounts",
@@ -30,7 +24,16 @@ you can change some config in the directory `/context/config/`
 ## Using steps
 ```javascript
 yarn install
-
-yarn start
 ```
+
+> Development mode
+```
+yarn start 
+```
+
+> production mode
+```
+yarn build
+```
+
 >local test listen localhost:3000
