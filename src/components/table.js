@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Icon, Table } from 'semantic-ui-react'
+import { Table } from 'semantic-ui-react'
 import Icons from '../resources'
-import { useSubstrateState, useSubstrate } from '../context'
+import { useSubstrateState } from '../context'
 import { formatBalance } from '@polkadot/util'
+import config from "../context/config"
 
+const dora_ksm_parachain_explore = config.DORA_KSM_PARACHAIN_EXPLORE;
+const ksm_network = config.KSM_NETWORK;
 const styleLink = document.createElement("link");
 styleLink.rel = "stylesheet";
 styleLink.href =
@@ -53,7 +56,7 @@ const TableSingleLine = () => {
                             <div className="pd-body">
                                 <img src={Icons.Dora} className="pic"></img>
                                 <div className="icon-body2">
-                                    <span className="lg-p">Dora-KSM Parachain</span>
+                                    <a href = {dora_ksm_parachain_explore} target="_blank" className="lg-p">Dora-KSM Parachain</a>
                                     <img src={Icons.Arrow} className="icon-link2"></img>
                                 </div>
                             </div>
@@ -72,7 +75,7 @@ const TableSingleLine = () => {
                             <div className="pd-body">
                                 <img src={Icons.Kusama} className="pic"></img>
                                 <div>
-                                    <span className="lg-p">kusama</span>
+                                    <a href = {ksm_network} target="_blank" className="lg-p">kusama</a>
                                     <img src={Icons.Arrow} className="icon-link3"></img>
                                 </div>
                             </div>
@@ -86,7 +89,7 @@ const TableSingleLine = () => {
                             <span>KSM</span>
                         </Table.Cell>
                     </Table.Row>
-                    <Table.Row>
+                    {/* <Table.Row>
                         <Table.Cell>
                             <div className="pd-body">
                                 <img src={Icons.Litmus} className="pic"></img>
@@ -102,7 +105,7 @@ const TableSingleLine = () => {
                             </div>
                         </Table.Cell>
                         <Table.Cell>LIT</Table.Cell>
-                    </Table.Row>
+                    </Table.Row> */}
                 </Table.Body>
             </Table>
     );
