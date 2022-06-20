@@ -2,6 +2,7 @@
   "APP_NAME": "DoraFactory core pallet",
   "POLKADOT_JS_EXTENSION": "https://polkadot.js.org/extension/",
   "DORA_KSM_PARACHAIN_EXPLORE": "https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama.dorafactory.org#/accounts",
+  "KSM_NETWORK": "https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fkusama-rpc.polkadot.io#/explorer",
   "REWARD_QUERY": "https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A8844#/explorer/query/",
   "HRMP_DOC": ""
 }

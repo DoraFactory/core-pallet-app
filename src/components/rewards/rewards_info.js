@@ -105,7 +105,7 @@ const RewardInfo = () => {
                                     <Table.Cell>
                                         <div className="pd-body">
                                             <div className="icon-body2">
-                                                <a href={reward_history_url + record.block_number} className="lg-p">{record.block_number}</a>
+                                                <a href={reward_history_url + record.block_number} target="_blank" className="lg-p">{record.block_number}</a>
                                                 <img src={Icons.Arrow} className="reward-link"></img>
                                             </div>
                                         </div>

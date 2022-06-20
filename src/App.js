@@ -28,7 +28,7 @@ function Main () {
                     negative
                     compact
                     floating
-                    header="Error Connecting to Substrate"
+                    header="Error Connecting to Dora-KSM parachain"
                     content={`Connection to websocket '${errObj.target.url}' failed.`}
                 />
             </Grid.Column>
@@ -37,7 +37,7 @@ function Main () {
 
     // 
     if (apiState === 'ERROR') return connect_failed(apiError)
-    else if (apiState !== 'READY') return loader('Connecting to Substrate')
+    else if (apiState !== 'READY') return loader('Connecting to Dora-KSM parachain')
 
     if (keyringState !== 'READY') {
         return loader(

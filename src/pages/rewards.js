@@ -14,6 +14,7 @@ import {
 } from 'semantic-ui-react'
 import localStorage from 'localStorage'
 import { useToasts } from "react-toast-notifications"
+import { KeyboardReturnOutlined } from '@material-ui/icons';
 
 // get current time
 const thisTime = () => {
@@ -33,17 +34,18 @@ const Reward = () => {
     const { api, currentAccount } = useSubstrateState();
     // record the current account' status in the contributor list
     const [contributor_status, setContributor_status] = useState(false);
-
     // is the lowest balance?
     const [accBalance, setAccBalance] = useState(0);
     // default the reward is not claimed
     const [claimedAll, setClaimedAll] = useState(false);
+    // Is initialized ? 
+    const [initialized, setInitialized] = useState(false);
     const [unsub, setUnsub] = useState(null)
     const chainDecimals = api.registry.chainDecimals[0];
 
     const { addToast } = useToasts()
 
-    const NosuffcientBalance = (content) => {
+    const ErrorMsg = (content) => {
         addToast(content, {
             appearance: 'error', autoDismiss: true,
         })
@@ -71,6 +73,11 @@ const Reward = () => {
             api.query.system.account(current_address, balance_info => {
                 let free = formatBalance(balance_info.data.free, { withSi: false, forceUnit: '-' }, chainDecimals);
                 setAccBalance(free);
+            })
+            api.query.doraRewards.initialized(isInitialized => {
+                if(isInitialized == true){
+                    setInitialized(isInitialized)
+                }
             })
             let unsubscribeAll = null
             api.query.doraRewards.contributorsInfo(current_address, reward_info => {
@@ -123,11 +130,15 @@ const Reward = () => {
     const handle_change = async () => {
         console.log(`start claim reward.....`);
         let history = new Array();
-        let last_claimed = localStorage.getItem(currentAccount.address + "last-claim")
         const fromAcct = await getFromAcct();
 
         if (accBalance < 5000000) {
-            NosuffcientBalance("Insufficient balance in your current account! Please buy some DORA !");
+            ErrorMsg("Insufficient balance in your current account! Please buy some DORA !");
+            return;
+        }
+
+        if (!initialized){
+            ErrorMsg("Reawrd ending lease is not set, Please wait for the initialization !");
             return;
         }
         // if the current account is in contributor list and not claimed all
@@ -167,7 +178,7 @@ const Reward = () => {
             )
         }
 
-        console.log(`已经领取全部奖励${claimedAll}`);
+        console.log(`claimed all reward ? ${claimedAll}`);
     }
 
     return (
@@ -193,7 +204,7 @@ const Reward = () => {
                     className="message-sty"
                 />
             ) : (
-                <p></p>
+                null
             )}
 
             <div className="text-default">
