@@ -106,8 +106,8 @@
     height: 304px;
     left: calc(50% - 1080px/2);
     top: 176px;
-    @include elevation-1;
-    background: $basic-bg-primary;
+    // @include elevation-1;    
+    // background: $basic-bg-primary;
 }
 
 @mixin text-sty {

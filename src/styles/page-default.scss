@@ -242,13 +242,12 @@
     @include dis-dir-ali-center;
     padding: 24px;
     position: fixed;
-    width: 1520px;
     height: 56px;
     left:0px;
+    right: 0px;
     height: 56px;
     top: 752px;
     background: $basic-bg-secondary;
-    // margin-bottom: 0px;
 }
 
 .tb-row{
@@ -329,6 +328,23 @@
     margin: 0px 25px;
 }
 
+.wrap-account{
+    @include dis-dir-ali-center;
+    padding: 2px 14px 2px 18px;
+    position: absolute;
+    width: 141px;
+    height: 36px;
+    top: calc(50% - 36px/2);
+    // left: 1250px;
+    right: 24px;
+    margin-right: 24px;
+    // background: $accent-bg;
+    // border: 1px solid $accent-primary;
+    box-sizing: border-box;
+    border-radius: 999px;
+    
+}
+
 .connect-wallet{
     @include dis-dir-ali-center;
     padding: 2px 14px 2px 18px;
@@ -336,7 +352,8 @@
     width: 141px;
     height: 36px;
     top: calc(50% - 36px/2);
-    left: 1250px;
+    // left: 1250px;
+    right: 0px;
     margin-right: 24px;
     background: $accent-bg;
     border: 1px solid $accent-primary;
