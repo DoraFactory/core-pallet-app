@@ -1,6 +1,7 @@
-@import "colors";
 @import "font";
 @import "common";
+@import "./token/elevation";
+@import "./token/colors.scss";
 
 .claim-btn{
     display: flex;
@@ -14,7 +15,7 @@
     right: 0px;
     top: calc(50% - 36px/2);
     border:0px;
-    background: $dora-color;
+    background: $accent-primary;
     border-radius: 999px;
     font-family: 'Public Sans';
     font-style: normal;
@@ -22,7 +23,7 @@
     font-size: 16px;
     line-height: 24px;
     text-align: center;
-    color: $doc-bd-color;
+    color: $basic-bg-primary;
 }
 
 .reward-stat{
@@ -34,7 +35,8 @@
     height: 120px;
     left: calc(50% - 1080px/2);
     top: 176px;
-    @include shadow;
+    @include elevation-1;
+    background: $basic-bg-primary;
     .reward-grid{
         display: grid;
         grid-template-columns: repeat(3, 360px);
@@ -72,17 +74,17 @@
 
 .block-gone{
     @include block-sty;
-    background: $block-gone;
+    background: $accent-secondary;
 }
 
 .block-view{
     @include block-sty;
-    background: $dora-color;
+    background: $accent-primary;
 }
 
 .block-coming{
     @include block-sty;
-    background: $block-coming;
+    background: $line-line-secondary;
 }
 
 .content-info{
@@ -91,12 +93,9 @@
     height: 60px;
     left: calc(50% - 1080px/2);
     top: 500px;
-    @include sty-font;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
+    @include regular-type-note;
     margin-top: 120px;
-    color: $dora-grey;
+    color: $basic-ink-secondary;
 }
 
 .reward-msg{

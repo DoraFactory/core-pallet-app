@@ -1,4 +1,6 @@
 @import "font";
+@import "./token/text.scss";
+@import "./token/colors.scss";
 
 .Tabs {
     display: flex;
@@ -40,9 +42,9 @@
 }
 
 .tab-font{
-    @include com-font;
+    @include semibold-type-body-sb;
     text-align: center;
-    color: $dora-color;
+    color: $accent-primary;
 }
 
 @mixin tab-sty{
@@ -50,7 +52,7 @@
     height: 2px;
     left: 0px;
     top: 54px;
-    background: $dora-color;
+    background: $accent-primary;
     flex: none;
     order: 1;
     align-self: stretch;
@@ -81,7 +83,7 @@
 }
 
 .tab-fontdefault{
-    @include com-font;
+    @include regular-type-body;
     text-align: center;
-    color: $p-color;
+    color: $basic-ink-primary;
 }
