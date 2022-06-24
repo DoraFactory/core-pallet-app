@@ -83,7 +83,7 @@ const DefaultPage = () => {
             </div>
             <LeaseInfo />
             <NoAccount />
-            <div className="foot-default">
+            <div className="foot">
                 <span className="foot-font">© 2022 Dora Factory</span>
                 <span className="foot-font">·</span>
                 <a className="foot-font">Feedback</a>

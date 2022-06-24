@@ -1,7 +1,6 @@
 /// page reward for contributors to claim
 ///
 import React, { useState, useEffect } from 'react';
-import Footer from '../components/footer';
 import '../styles/assets.scss';
 import RewardInfo from '../components/rewards/rewards_info'
 import Block from '../components/rewards/block';
@@ -9,12 +8,10 @@ import { useSubstrateState } from '../context';
 import { web3FromSource } from '@polkadot/extension-dapp';
 import { formatBalance } from '@polkadot/util'
 import {
-    Grid,
     Message,
 } from 'semantic-ui-react'
 import localStorage from 'localStorage'
 import { useToasts } from "react-toast-notifications"
-import { KeyboardReturnOutlined } from '@material-ui/icons';
 
 // get current time
 const thisTime = () => {
@@ -216,7 +213,6 @@ const Reward = () => {
                 )}
             </div>
             <RewardInfo></RewardInfo>
-            <Footer></Footer>
         </div>
     );
 }

@@ -2,7 +2,6 @@
 import "../styles/assets.scss"
 import TableSingleLine from '../components/table';
 import TransDoc from '../components/assets/transfer-doc';
-import Footer from '../components/footer';
 import config from "../context/config"
 
 const dora_ksm_parachain_explore = config.DORA_KSM_PARACHAIN_EXPLORE;
@@ -17,7 +16,6 @@ const Assets = () => {
                 <TableSingleLine className="tb"></TableSingleLine>
             </div>
             <TransDoc></TransDoc>
-            <Footer></Footer>
         </div>
     );
 }

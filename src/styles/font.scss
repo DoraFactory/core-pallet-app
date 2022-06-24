@@ -1,44 +1,13 @@
-@import "./colors.scss";
-
-$pub-font:Public Sans;
-@mixin sty-font {
-    font: Public Sans;
-    font-style: normal;
-}
-
-@mixin font-other{
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-}
-
-@mixin asset-font{
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 16px;
-}
-
-@mixin com-font {
-    @include sty-font;
-    @include font-other;
-}
-
-@mixin spec-font {
-    @include sty-font;
-    @include asset-font;
-}
+@import "./token/text.scss";
+@import "./token/colors.scss";
 
 .p-font{
     position: static;
     width: 200px;
     height: 48px;
     left: calc(50% - 145px/2 - 107.5px);
-    font: $pub-font;
-    font-style: normal;
-    font-weight: 800;
-    font-size: 32px;
-    line-height: 48px;
-    color: $p-color;
+    @include extrabold-type-display-eb;
+    color: $basic-ink-primary;
     flex: none;
     order: 0;
     flex-grow: 0;
@@ -46,9 +15,8 @@ $pub-font:Public Sans;
 }
 
 .p-font2{
-    @include sty-font;
-    @include font-other;
-    color: $dora-grey;
+    @include regular-type-body;
+    color: $basic-ink-secondary;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -62,38 +30,24 @@ $pub-font:Public Sans;
 }
 
 .p-doya{
-    @include sty-font;
-    color: $dora-grey;
-    font-weight: 600;
-    font-size: 24px;
+    @include semibold-type-headline-sb;
+    color: $basic-ink-secondary;
 }
-
 
 .dora-ksm-font{
     /* Dora-KSM Parachain */
     width: 842px;
     height: 32px;
-    font-family: 'Public Sans';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 24px;
-    line-height: 32px;
-    color: #21212C;
+    @include extrabold-type-headline-eb;
+    color: $basic-ink-primary;
     flex: none;
     order: 0;
     flex-grow: 0;
 }
 
 .defalt-link{
-    /* text */
     width: 466px;
     height: 24px;
-    font-family: 'Public Sans';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
-    color: #FF6500;
     flex: none;
     order: 0;
     flex-grow: 0;
