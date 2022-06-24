@@ -2,6 +2,7 @@ import React from 'react';
 import "../styles/page-default.scss";
 import DoraTabs from "../components/tab/doratab";
 import Downdrop from "../components/downdrop";
+import Footer from "../components/footer";
 const Header = () => {
 
     return (
@@ -13,6 +14,7 @@ const Header = () => {
             <div className="wrap-account">
                 <Downdrop></Downdrop>
             </div>
+            <Footer></Footer>
         </div >
     );
 }

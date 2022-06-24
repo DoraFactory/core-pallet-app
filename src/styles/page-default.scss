@@ -239,15 +239,28 @@
 }
 
 .foot{
-    @include dis-dir-ali-center;
-    padding: 24px;
-    position: fixed;
+    position: absolute;
     height: 56px;
-    left:0px;
+    left: 0px;
     right: 0px;
-    height: 56px;
-    top: 752px;
-    background: $basic-bg-secondary;
+    top: 744px;
+    background: #F6F6F8;
+}
+
+.foot-wrap{
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 14px;
+
+    position: absolute;
+    width: 232px;
+    height: 20px;
+    left: calc(50% - 232px/2);
+    top: calc(50% - 20px/2);
 }
 
 .tb-row{
