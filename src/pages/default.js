@@ -9,6 +9,7 @@ import Icons from "../resources/index";
 import { web3Enable, web3Accounts } from '@polkadot/extension-dapp';
 import { Message } from 'semantic-ui-react';
 import config from "../context/config"
+import Footer from "../components/footer"
 
 const dora_ksm_parachain_explore = config.DORA_KSM_PARACHAIN_EXPLORE;
 
@@ -83,10 +84,10 @@ const DefaultPage = () => {
             </div>
             <LeaseInfo />
             <NoAccount />
-            <div className="foot">
-                <span className="foot-font">© 2022 Dora Factory</span>
-                <span className="foot-font">·</span>
-                <a className="foot-font">Feedback</a>
+            <div className="foot-default">
+                    <span className="foot-font">© 2022 Dora Factory</span>
+                    <span className="foot-font">·</span>
+                    <a className="foot-font">Feedback</a>
             </div>
         </div>
     );

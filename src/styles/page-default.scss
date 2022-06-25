@@ -94,18 +94,15 @@
 }
 
 .foot-default{
-    @include dis-dir-ali;
-    justify-content: center;
+    @include dis-dir-ali-center;
     padding: 24px;
-    position: absolute;
-    width: 1520px;
+    position: fixed;
     height: 56px;
     left:0px;
-    top: 460px;
+    right: 0px;
     height: 56px;
-    top: 744px;
+    top: 752px;
     background: $basic-bg-secondary;
-
 }
 
 .foot-font{
