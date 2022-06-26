@@ -60,7 +60,7 @@ const LeaseInfo = (props) => {
                 </div>
                 <div>
                     <span className="p-font">DORA </span>
-                    <span className="p-doya">Dorayaki</span>
+                    {/* <span className="p-doya">Dorayaki</span> */}
                     <p className="p-font2">Primary token</p>
                 </div>
                 <div>
