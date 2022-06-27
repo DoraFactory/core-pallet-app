@@ -8,7 +8,7 @@ const TransDoc = () => {
                 <span className="p2">Please check out the Substrate documentation to learn more information about the HRMP pallet.</span>
             </div>
             <button className="doc">
-                <a href={config.HRMP_DOC} target="_blank" className="doc-sty">Documention</a>
+                <a href={config.KSM_NETWORK} target="_blank" className="doc-sty">Documention</a>
             </button>
         </div>
     )

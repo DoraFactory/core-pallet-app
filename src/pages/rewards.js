@@ -128,8 +128,7 @@ const Reward = () => {
         console.log(`start claim reward.....`);
         let history = new Array();
         const fromAcct = await getFromAcct();
-
-        if (accBalance < 5000000) {
+        if (accBalance < 0.0015) {
             ErrorMsg("Insufficient balance in your current account! Please buy some DORA !");
             return;
         }
