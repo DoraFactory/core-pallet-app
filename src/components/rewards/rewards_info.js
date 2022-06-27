@@ -77,7 +77,7 @@ const RewardInfo = () => {
                 <div>
                     <div className="no-history"> Not having claiming record ! </div>
                     <div className="content-info">
-                        The reward distribution started when Dora-KSM Parachain launched. The total rewards will be linearly released by block. The transcation fee of each claim is 0.125 DORA.
+                        The reward distribution started when Dora-KSM Parachain launched. The total rewards will be linearly released by block. The transcation fee of each claim is about 0.0015 DORA.
                     </div>
                 </div>
             ) : (
