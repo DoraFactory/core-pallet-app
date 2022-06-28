@@ -1,0 +1,35 @@
+/*************************
+ * Webfonts
+ *************************/
+
+//----- Public Sans -----//
+// Version tag
+
+// Regular
+@font-face {
+	font-family : "Public Sans";
+	font-style  : normal;
+	font-weight : 400;
+	font-display: swap;
+	src: url("https://s3.ap-southeast-1.amazonaws.com/assets.dorafactory/PublicSans-ExtraBold.woff2") format("woff2"),
+    url("https://s3.ap-southeast-1.amazonaws.com/assets.dorafactory/PublicSans-ExtraBold.woff") format("woff");
+}
+// Semibold
+@font-face {
+	font-family : "Public Sans";
+	font-style  : normal;
+	font-weight : 600;
+	font-display: swap;
+	src: url("https://s3.ap-southeast-1.amazonaws.com/assets.dorafactory/PublicSans-ExtraBold.woff2") format("woff2"),
+    url("https://s3.ap-southeast-1.amazonaws.com/assets.dorafactory/PublicSans-ExtraBold.woff") format("woff");
+}
+// Extra Bold
+@font-face {
+	font-family : "Public Sans";
+	font-style  : normal;
+	font-weight : 800;
+	font-display: swap;
+	src: url("https://s3.ap-southeast-1.amazonaws.com/assets.dorafactory/PublicSans-ExtraBold.woff2") format("woff2"),
+	url("https://s3.ap-southeast-1.amazonaws.com/assets.dorafactory/PublicSans-ExtraBold.woff") format("woff");
+}
+//--- Public Sans END ---//
