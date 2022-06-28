@@ -90,8 +90,8 @@
     position: absolute;
     width: 456px;
     height: 60px;
-    left: -400px;
-    top: 560px;
+    left: -420px;
+    top: 665px;
     @include regular-type-note;
     color: $basic-ink-secondary;
 }
@@ -104,6 +104,8 @@
     position:absolute;
     top: 400px;
     left: 10px;
+    width: 1000px;
+    @include semibold-type-body-sb;
 }
 
 .tb-sty{
@@ -115,6 +117,6 @@
     width: 1182px;
     left: calc(50% - 1083px/2);
     top: 320px;
-    height: 350px;
+    height: 315px;
     overflow: auto;
 }

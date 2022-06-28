@@ -32,7 +32,7 @@ const RewardInfo = () => {
                     let total_reward = formatBalance(reward.totalReward, { withSi: false, forceUnit: '-' }, chainDecimals);
                     let claimed_reward = formatBalance(reward.claimedReward, { withSi: false, forceUnit: '-' }, chainDecimals);
                     settotalReawrd(total_reward);
-                    setclaimable(Number(total_reward - claimed_reward).toFixed(5));
+                    setclaimable(Number(total_reward - claimed_reward).toFixed(4));
                     setcontribution((total_reward / 3));
                     // get the reward history records
                     let history = localStorage.getItem(current_address + "history-reward");
@@ -74,12 +74,8 @@ const RewardInfo = () => {
                 </div>
             </div>
             {localStorage.getItem(currentAccount.address + "history-reward") == null || rewardsHistory == null ? (
-                <div>
-                    <div className="no-history"> Not having claiming record ! </div>
-                    <div className="content-info">
-                        The reward distribution started when Dora-KSM Parachain launched. The total rewards will be linearly released by block. The transcation claiming time need to wait about 0.0015 DORA.
-                    </div>
-                </div>
+                    <div className="no-history"> You have no claiming record history! </div>
+                    
             ) : (
                 <div className="tb-sty">
                     <Table singleLine>
@@ -117,7 +113,7 @@ const RewardInfo = () => {
                                     </Table.Cell>
                                     <Table.Cell>
                                         <div clasName="ba-content">
-                                            <span className="ba-content-token">{Number(record.claimed).toFixed(4)}</span>
+                                            <span className="ba-content-token">{(Number(record.claimed) / 1000000000000).toFixed(12)}</span>
                                         </div>
                                     </Table.Cell>
                                     <Table.Cell>
@@ -131,6 +127,11 @@ const RewardInfo = () => {
                     </Table >
                 </div>
             )}
+
+            <div className="content-info">
+                <span>The total rewards will be linearly released by block. The reward claiming transcation need to wait about 12s.</span>
+                <p>Attention: Each claiming transaction need to pay some transaction fee</p>
+            </div>
         </div >
     );
 }
