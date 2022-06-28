@@ -26,7 +26,7 @@ const DoraTabs = () => {
 
             <TabNavItem title="Assets" id="tab1" activeTab={activeTab} setActiveTab={setActiveTab} />
             <TabNavItem title="Network" id="tab2" activeTab={activeTab} setActiveTab={setActiveTab} />
-            <TabNavItem title="Rewards" id="tab3" activeTab={activeTab} setActiveTab={setActiveTab} />
+            {/* <TabNavItem title="Rewards" id="tab3" activeTab={activeTab} setActiveTab={setActiveTab} /> */}
             <div id="haha">
                 <ToastProvider>
                     <TabContent id="tab1" activeTab={activeTab}>
@@ -35,9 +35,9 @@ const DoraTabs = () => {
                     <TabContent id="tab2" activeTab={activeTab}>
                         <Network />
                     </TabContent>
-                    <TabContent id="tab3" activeTab={activeTab}>
+                    {/* <TabContent id="tab3" activeTab={activeTab}>
                         <Rewards />
-                    </TabContent>
+                    </TabContent> */}
                 </ToastProvider>
             </div>
         </div>
