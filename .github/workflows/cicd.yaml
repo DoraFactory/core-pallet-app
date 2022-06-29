@@ -1,4 +1,4 @@
-name: Dorafactory front CICD
+name: Dorafactory core pallet CICD
 
 on:
   push:
