@@ -10,6 +10,8 @@ import { formatBalance } from '@polkadot/util'
 import {
     Message,
 } from 'semantic-ui-react'
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
 import localStorage from 'localStorage'
 import { useToasts } from "react-toast-notifications"
 
@@ -37,6 +39,7 @@ const Reward = () => {
     const [claimedAll, setClaimedAll] = useState(false);
     // Is initialized ? 
     const [initialized, setInitialized] = useState(false);
+    const [open, setOpen] = useState(false);
     const [unsub, setUnsub] = useState(null)
     const chainDecimals = api.registry.chainDecimals[0];
 
@@ -72,7 +75,7 @@ const Reward = () => {
                 setAccBalance(free);
             })
             api.query.doraRewards.initialized(isInitialized => {
-                if(isInitialized == true){
+                if (isInitialized == true) {
                     setInitialized(isInitialized)
                 }
             })
@@ -80,19 +83,25 @@ const Reward = () => {
             api.query.doraRewards.contributorsInfo(current_address, reward_info => {
                 if (reward_info.isSome) {
                     let reward = reward_info.unwrap();
-                    let tr = formatBalance(reward.totalReward, { withSi: false, forceUnit: '-' }, chainDecimals);
-                    let cr = formatBalance(reward.claimedReward, { withSi: false, forceUnit: '-' }, chainDecimals);
+                    // let tr = formatBalance(reward.totalReward, { withSi: false, forceUnit: '-' }, chainDecimals);
+                    // let cr = formatBalance(reward.claimedReward, { withSi: false, forceUnit: '-' }, chainDecimals);
+                    let tr = reward.totalReward.toNumber();
+                    let cr = reward.claimedReward.toNumber();
                     // claimed reward ?= total reward
                     if (tr == cr) {
                         setClaimedAll(true)
                     } else {
                         let last_claimed = localStorage.getItem(current_address + "last-claim");
                         if (cr != last_claimed) {
-                            current_claimed = cr - last_claimed;
-                            localStorage.setItem(current_address + "last-claim", cr);
+                            // current_claimed = cr - last_claimed;
+                            // localStorage.setItem(current_address + "last-claim", cr);
+                            console.log(`last_claimed is ${last_claimed}`);
+                            current_claimed = reward.claimedReward.toNumber() - Number(last_claimed);
+                            localStorage.setItem(current_address + "last-claim", Number(cr));
                         }
                         if (localStorage.getItem(current_address + "last-claim") == null) {
-                            localStorage.setItem(current_address + "last-claim", cr);
+                            // localStorage.setItem(current_address + "last-claim", cr);
+                            localStorage.setItem(current_address + "last-claim", Number(cr));
                         }
                         setClaimedAll(false)
                     }
@@ -133,7 +142,7 @@ const Reward = () => {
             return;
         }
 
-        if (!initialized){
+        if (!initialized) {
             ErrorMsg("Reawrd ending lease is not set, Please wait for the initialization !");
             return;
         }
@@ -141,6 +150,7 @@ const Reward = () => {
         if (contributor_status && !claimedAll) {
             let txExecute = api.tx.doraRewards.claimRewards();
             Claiming(" claiming reward, wait at least 12s")
+            setOpen(!open);
             const unsub = txExecute.signAndSend(...fromAcct, async result => {
                 console.log(`Current status is ${result.status}`);
                 if (result.status.isInBlock) {
@@ -167,7 +177,7 @@ const Reward = () => {
                         console.log(new_storage);
                         localStorage.setItem(currentAccount.address + "history-reward", JSON.stringify(new_storage))
                     }
-
+                    setOpen(false);
                 }
             })
             setUnsub(() => unsub
@@ -210,6 +220,14 @@ const Reward = () => {
                 ) : (
                     <button className="claim-btn" onClick={() => handle_change()}>Claim Reward</button>
                 )}
+            </div>
+            <div>
+                <Backdrop
+                    sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                    open={open}
+                >
+                    <CircularProgress color="inherit" />
+                </Backdrop>
             </div>
             <RewardInfo></RewardInfo>
         </div>
