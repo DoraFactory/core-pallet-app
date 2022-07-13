@@ -1,0 +1,18 @@
+body.layout-stickyfooter {
+	display        : flex;
+	flex-direction : column;
+	justify-content: space-between;
+	min-height     : 100vh;
+	
+	& > main[role="main"] {
+		flex-grow  : 1;
+		flex-shrink: 0;
+		padding    : @grid-navbar 0px (@leading-body * 4);
+	}
+	
+	& > footer {
+		flex-grow  : 0;
+		flex-shrink: 0;
+	}
+}
+

@@ -1,0 +1,20 @@
+.footer {
+	.text-note-rg();
+	display        : flex;
+	justify-content: center;
+	align-items    : center;
+	height         : @grid-footer;
+	border-top     : @border-line-secondary;
+	box-sizing     : border-box;
+	color          : @color-ink-secondary;
+}
+
+.footer-nav {
+	display: flex;
+	gap    : 1em;
+}
+.footer-nav-item:not(:first-child)::before {
+	content     : "·";
+	margin-right: 1em;
+	user-select : none;
+}

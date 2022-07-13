@@ -1,0 +1,141 @@
+html {
+	height: 100%;
+	
+	// https://gomakethings.com/how-to-animate-scrolling-to-anchor-links-with-one-line-of-css/
+	// https://gomakethings.com/how-to-prevent-anchor-links-from-scrolling-behind-a-sticky-header-with-one-line-of-css/
+	scroll-behavior   : smooth;
+	scroll-padding-top: 5vh;
+}
+
+body {
+	// Layout
+	width : 100%;
+	height: 100%;
+	
+	// Color
+	background: @color-bg-secondary;
+	color     : @color-ink-primary;
+	
+	// Typography
+	font-family: @font-family-basic;
+	.text-body-rg();
+	
+	// Micro-typography / font rendering
+	font-feature-settings  : "pnum", "kern", "liga";
+	text-rendering         : optimizeLegibility;
+	-webkit-font-smoothing : antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+//----- Typographic reset -----//
+header,
+section,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+ol,
+ul,
+li,
+figure,
+img,
+figcaption {
+	margin: 0;
+}
+
+h1,
+h2 {
+	font-weight: @font-weight-eb;
+}
+
+h3,
+h4,
+h5,
+h6,
+b,
+strong {
+	font-weight: @font-weight-sb;
+}
+
+ol,
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+dl,
+dd {
+	margin: 0;
+}
+
+// p,
+// li,
+// figcaption {
+// 	hyphens: auto;
+// }
+
+// pre {
+// 	margin: 0;
+// }
+
+// address {
+// 	font-style: normal;
+// }
+
+// hr {
+// 	border: 0;
+// 	margin: 0;
+// }
+//--- Typographic reset END ---//
+
+//----- Link and button reset -----//
+a {
+	color: inherit;
+	text-decoration: none;
+	// -webkit-touch-callout: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	
+	&:focus {
+		outline: none;
+	}
+}
+
+// label {
+// 	-webkit-tap-highlight-color: rgba(0,0,0,0);
+// }
+
+button {
+	padding    : 0;
+	border     : 0;
+	color      : inherit;
+	background : none;
+	text-align : center;
+	user-select: none;
+	cursor     : pointer;
+	
+	-webkit-touch-callout: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	
+	&:focus {
+		outline: none;
+	}
+}
+
+// video {
+// 	&:focus {
+// 		outline: none;
+// 	}
+// }
+//--- Link and button reset END ---//
+
+//----- Selection color -----//
+// ::selection {
+// 	background-color: @accent;
+// 	background-color: @accent-p3;
+// 	color: @bg-main;
+// }
+//--- Selection color END ---//

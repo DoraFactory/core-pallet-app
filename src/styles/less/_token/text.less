@@ -1,0 +1,215 @@
+/*************************
+ * Text styles
+ *************************/
+
+//----- Font families -----//
+// Basic fallback list
+@font-family-basic--system-ui-polyfill:
+	system-ui, -apple-system, BlinkMacSystemFont;
+@font-family-basic--system-font-stack:
+	"Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial;
+@font-family-basic--fallback:
+	@font-family-basic--system-ui-polyfill,
+	@font-family-basic--system-font-stack,
+	sans-serif;
+// Basic custom font
+@font-family-basic: "Public Sans", @font-family-basic--fallback;
+
+// Code fallback list
+@font-family-code--ui-monospace:
+	ui-monospace;
+@font-family-code--system-font-stack:
+	"SF Mono", Menlo, Consolas, Liberation Mono;
+@font-family-code--fallback:
+	@font-family-code--ui-monospace,
+	@font-family-code--system-font-stack,
+	monospace;
+// Code custom font
+@font-family-code: "Fira Code", @font-family-code--fallback;
+//--- Font families END ---//
+
+//----- Font weights -----//
+@font-weight-rg: 400;
+@font-weight-md: 500;
+@font-weight-sb: 600;
+@font-weight-eb: 800;
+//--- Font weights END ---//
+
+//----- Em sizes -----//
+/* Em sizes, aka font sizes, are the unit sizes of horizontal grids */
+@em-display : 32px;
+@em-headline: 24px;
+@em-body    : 16px;
+@em-note    : 14px;
+@em-caption : 12px;
+//--- Em sizes END ---//
+
+//----- Leadings -----//
+/* Leading, aka line heights, are the unit sizes of vertical grids */
+@leading-display : 48px;
+@leading-headline: 32px;
+@leading-body    : 24px;
+@leading-note    : 20px;
+@leading-caption : 16px;
+//--- Leadings END ---//
+
+//----- Text styles -----//
+// Display
+.text-display-rg() {
+	font-size  : @em-display;
+	line-height: @leading-display;
+	font-weight: @font-weight-rg;
+}
+.text-display-sb() {
+	font-size  : @em-display;
+	line-height: @leading-display;
+	font-weight: @font-weight-sb;
+}
+.text-display-eb() {
+	font-size  : @em-display;
+	line-height: @leading-display;
+	font-weight: @font-weight-eb;
+}
+// Headline
+.text-headline-rg() {
+	font-size  : @em-headline;
+	line-height: @leading-headline;
+	font-weight: @font-weight-rg;
+}
+.text-headline-sb() {
+	font-size  : @em-headline;
+	line-height: @leading-headline;
+	font-weight: @font-weight-sb;
+}
+.text-headline-eb() {
+	font-size  : @em-headline;
+	line-height: @leading-headline;
+	font-weight: @font-weight-eb;
+}
+// Body
+.text-body-rg() {
+	font-size  : @em-body;
+	line-height: @leading-body;
+	font-weight: @font-weight-rg;
+}
+.text-body-sb() {
+	font-size  : @em-body;
+	line-height: @leading-body;
+	font-weight: @font-weight-sb;
+}
+.text-body-eb() {
+	font-size  : @em-body;
+	line-height: @leading-body;
+	font-weight: @font-weight-eb;
+}
+// Note
+.text-note-rg() {
+	font-size  : @em-note;
+	line-height: @leading-note;
+	font-weight: @font-weight-rg;
+}
+.text-note-sb() {
+	font-size  : @em-note;
+	line-height: @leading-note;
+	font-weight: @font-weight-sb;
+}
+.text-note-eb() {
+	font-size  : @em-note;
+	line-height: @leading-note;
+	font-weight: @font-weight-eb;
+}
+// Caption
+.text-caption-rg() {
+	font-size  : @em-caption;
+	line-height: @leading-caption;
+	font-weight: @font-weight-rg;
+}
+.text-caption-sb() {
+	font-size  : @em-caption;
+	line-height: @leading-caption;
+	font-weight: @font-weight-sb;
+}
+.text-caption-eb() {
+	font-size  : @em-caption;
+	line-height: @leading-caption;
+	font-weight: @font-weight-eb;
+}
+
+// Tabular figures
+.text-body-rg--tnum() {
+	.text-body-rg();
+	font-feature-settings: "tnum", "lnum";
+}
+.text-body-sb--tnum() {
+	.text-body-sb();
+	font-feature-settings: "tnum", "lnum";
+}
+.text-display-eb--tnum() {
+	.text-display-eb();
+	font-feature-settings: "tnum", "lnum";
+}
+
+// All caps
+.text-caption-sb--caps() {
+	.text-caption-sb();
+	letter-spacing: (1em / 16);
+	text-transform: uppercase;
+}
+//--- Text styles END ---//
+
+//----- Program languages (code) -----//
+// Body
+.code-body-rg() {
+	font-family: @font-family-code;
+	font-weight: @font-weight-rg;
+	font-size  : 14px;
+	line-height: 20px;
+	
+	// IE 10+, Edge Legacy
+	// Ref: https://github.com/tonsky/FiraCode#browser-support
+	font-feature-settings: "calt";
+}
+.code-body-md() {
+	.code-body-rg();
+	font-weight: @font-weight-md;
+}
+.code-body-sb() {
+	.code-body-rg();
+	font-weight: @font-weight-sb;
+}
+// Note
+.code-note-rg() {
+	font-family: @font-family-code;
+	font-weight: @font-weight-rg;
+	font-size  : 12px;
+	line-height: 18px;
+	
+	// IE 10+, Edge Legacy
+	// Ref: https://github.com/tonsky/FiraCode#browser-support
+	font-feature-settings: "calt";
+}
+.code-note-md() {
+	.code-note-rg();
+	font-weight: @font-weight-md;
+}
+.code-note-sb() {
+	.code-note-rg();
+	font-weight: @font-weight-sb;
+}
+//--- Program languages (code) END ---//
+
+// Text link underline motion for hovering
+.text-link-underline-motion() {
+	text-decoration          : underline transparent;
+	text-decoration-thickness: 1px;
+	text-underline-offset    : 0.125em;
+	transition:
+		text-decoration-color @motion-duration ease-in-out;
+	.ua-Safari & {
+		transition: none;
+	}
+	.ua-Pointer &:hover,
+	&:active {
+		text-decoration-color: currentColor;
+	}
+}

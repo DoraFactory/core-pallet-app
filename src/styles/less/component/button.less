@@ -1,0 +1,84 @@
+//----- Pill buttons -----//
+// Primary
+.button-pill-primary-md {
+	.text-body-sb();
+	display        : flex;
+	justify-content: center;
+	align-items    : center;
+	height         : (@leading-body * 1.5);
+	padding        : 0 (@leading-body * 0.75);
+	border-radius  : @border-corner-pill;
+	background     : @color-accent-primary;
+	color          : @color-bg-primary;
+	user-select    : none;
+	
+	// Hover motion
+	transition:
+		opacity @motion-duration ease-in-out;
+	will-change:
+		opacity;
+	.ua-Pointer &:hover,
+	&:active {
+		opacity: 0.75;
+	}
+}
+// Primary, with external link
+.button-pill-primary-md[target="_blank"],
+.button-pill-primary-md--external {
+	.button-pill-primary-md();
+	
+	&::after {
+		content    : "";
+		display    : inline-block;
+		width      : 6px;
+		height     : 6px;
+		margin     : 0 0 10px 4px;
+		background : currentColor;
+		mask-image : @icon-external;
+		mask-repeat: no-repeat;
+	}
+}
+//--- Pill buttons END ---//
+
+//----- Text buttons -----//
+.button-text-primary-md {
+	.text-body-sb();
+	display        : flex;
+	justify-content: center;
+	align-items    : center;
+	color          : @color-accent-primary;
+	
+	&::after {
+		content    : "";
+		flex-shrink: 0;
+		display    : inline-block;
+		width      : 16px;
+		height     : 16px;
+		margin     : 0 0 0 4px;
+		background : currentColor;
+		mask-image : @icon-chevron-md;
+		mask-repeat: no-repeat;
+	}
+	
+	// Hover motion
+	transition:
+		opacity @motion-duration ease-in-out;
+	will-change:
+		opacity;
+	.ua-Pointer &:hover,
+	&:active {
+		opacity: 0.75;
+	}
+}
+.button-text-primary-md[target="_blank"],
+.button-text-primary-md--external {
+	.button-text-primary-md();
+	
+	&::after {
+		width      : 6px;
+		height     : 6px;
+		margin     : 0 0 10px 4px;
+		mask-image : @icon-external;
+	}
+}
+//--- Text buttons END ---//
