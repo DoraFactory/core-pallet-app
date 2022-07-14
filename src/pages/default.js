@@ -11,6 +11,9 @@ import { Message } from 'semantic-ui-react';
 import config from "../context/config"
 import Footer from "../components/footer"
 
+// import less
+import "../styles/less/component/navbar.less";
+
 const dora_ksm_parachain_explore = config.DORA_KSM_PARACHAIN_EXPLORE;
 
 const DefaultPage = () => {
@@ -43,14 +46,20 @@ const DefaultPage = () => {
     }
     return (
         <div className="App" >
-            <div className="header-default">
+            <div clasName="navbar">
+                <a clasName="navbar-logo"></a>
+                <div clasName="navbar-complex">
+                    <button></button>
+                </div>
+            </div>
+            {/* <div className="header-default">
                 <div className="nav-brand">
                     CORE Pallet
                 </div>
                 <div className="nav-account">
                     <button onClick={() => handle_change()} className="wallet">Connect Wallet</button>
                 </div>
-            </div>
+            </div> */}
             {!isExtension ? (
                 <Message
                     negative
@@ -85,9 +94,9 @@ const DefaultPage = () => {
             <LeaseInfo />
             <NoAccount />
             <div className="foot-default">
-                    <span className="foot-font">© 2022 Dora Factory</span>
-                    <span className="foot-font">·</span>
-                    <a className="foot-font">Feedback</a>
+                <span className="foot-font">© 2022 Dora Factory</span>
+                <span className="foot-font">·</span>
+                <a className="foot-font">Feedback</a>
             </div>
         </div>
     );

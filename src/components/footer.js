@@ -1,13 +1,29 @@
 import React from "react";
-import "../styles/page-default.scss"
+import "../styles/less/component/footer.less";
+const _dataFooter = {
+    link: [
+        {
+            name: '© 2022 Dora Factory',
+            link: 'https://dorafactory.org/',
+        }, {
+            name: 'Feedback',
+            link: 'https://github.com/DoraFactory/df-design-system/issues',
+        }
+    ]
+}
 
 const Footer = () => {
     return (
-        <div className="foot">
-            <div className="foot-wrap">
-                <span className="foot-font">© 2022 Dora Factory</span>
-                <span className="foot-font">·</span>
-                <a className="foot-font">Feedback</a>
+        <div className="footer">
+            <div className="foot-nav">
+                {_dataFooter.link.map(linkInfo => {
+                    <a className="footer-nav-item" target="_blank"
+                        rel="noopener external nofollow noreferrer"
+                        href={linkInfo.link}
+                    >
+                        {linkInfo.name}
+                    </a>
+                })}
             </div>
         </div>
     );
