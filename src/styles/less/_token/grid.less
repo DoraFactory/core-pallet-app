@@ -1,0 +1,45 @@
+/*************************
+ * Grids
+ *************************/
+
+// Grid modular
+@grid-track : 72px;
+@grid-gutter: 24px;
+
+// Grid template
+.grid-12col-fixed() {
+	display              : grid;
+	grid-template-columns: repeat(12, @grid-track);
+	column-gap           : @grid-gutter;
+	justify-content      : center;
+}
+.grid-12col-flexible() {
+	display              : grid;
+	grid-template-columns: repeat(12, 1fr);
+	column-gap           : @grid-gutter;
+	justify-content      : center;
+}
+.grid-6col-fixed() {
+	display              : grid;
+	grid-template-columns: repeat(6, @grid-track);
+	column-gap           : @grid-gutter;
+	justify-content      : center;
+}
+.grid-6col-flexible() {
+	display              : grid;
+	grid-template-columns: repeat(6, 1fr);
+	column-gap           : @grid-gutter;
+	justify-content      : center;
+}
+
+// Chrome metrics
+@grid-navbar: 56px;
+@grid-footer: 56px;
+
+// Breakpoints
+/* Define the values of max-width, i.e., value of min-width is (@bp-foo + 1px) */
+@bp-desktop--md: ((@grid-track + @grid-gutter) * 12 - @grid-gutter + @grid-gutter * 3 * 2); // 1272px
+@bp-desktop--sm: ((@grid-gutter * 1.5 + @grid-gutter) * 12 - @grid-gutter + @grid-gutter * 3 * 2); // 840px
+@bp-mobile--lg : ((@grid-track + @grid-gutter) * 6 - @grid-gutter + @grid-gutter * 1.5 * 2); // 624px
+@bp-mobile--md : ((@grid-gutter * 1.5 + @grid-gutter) * 6 - @grid-gutter + @grid-gutter * 1.5 * 2); // 408px
+@bp-mobile--sm : 320px;

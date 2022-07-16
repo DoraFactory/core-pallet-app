@@ -1,0 +1,90 @@
+/*************************
+ * Grids
+ *************************/
+/* Define the values of max-width, i.e., value of min-width is (@bp-foo + 1px) */
+/*************************
+ * Colors
+ *************************/
+/*************************
+ * CSS variables
+ *************************/
+:root {
+  --color-ink-primary: hsl(240, 15%, 15%);
+  --color-ink-secondary: hsl(240, 15%, 55%);
+  --color-bg-primary: hsl(60, 100%, 100%);
+  --color-bg-secondary: hsl(240, 15%, 97%);
+  --color-line-primary: hsl(240, 15%, 95%);
+  --color-line-secondary: hsl(240, 15%, 92%);
+  --color-accent-primary: hsl(24, 100%, 50%);
+  --color-accent-secondary: hsl(48, 100%, 50%);
+  --color-accent-bg: hsl(24, 100%, 97%);
+  --color-error-primary: hsl(350, 100%, 40%);
+  --color-error-bg: hsl(350, 100%, 97%);
+  --elevation-shadow-color: 240deg, 15%, 15%;
+  --elevation-shadow-1: 0px 3px 8px hsla(var(--elevation-shadow-color), 6%),
+		0px 1.5px   4px hsla(var(--elevation-shadow-color), 6%),
+		0px   1px   2px hsla(var(--elevation-shadow-color), 6%),
+		0px 0.5px   1px hsla(var(--elevation-shadow-color), 6%),
+		0px   0px 0.5px hsla(var(--elevation-shadow-color), 8%);
+  --elevation-shadow-2: 0px 8px 16px hsla(var(--elevation-shadow-color), 4%),
+		0px   4px  12px hsla(var(--elevation-shadow-color), 4%),
+		0px   2px   8px hsla(var(--elevation-shadow-color), 4%),
+		0px   1px   4px hsla(var(--elevation-shadow-color), 4%),
+		0px   0px 0.5px hsla(var(--elevation-shadow-color), 8%);
+  --elevation-shadow-3: 0px 16px 24px hsla(var(--elevation-shadow-color), 2%),
+		0px   8px  12px hsla(var(--elevation-shadow-color), 2%),
+		0px   6px   8px hsla(var(--elevation-shadow-color), 2%),
+		0px   4px   6px hsla(var(--elevation-shadow-color), 3%),
+		0px   0px 0.5px hsla(var(--elevation-shadow-color), 8%);
+  --scrollbar-width: 0px;
+  /* default/fallback value */
+}
+/*************************
+ * Border styles
+ *************************/
+/*************************
+ * Text styles
+ *************************/
+/* Em sizes, aka font sizes, are the unit sizes of horizontal grids */
+/* Leading, aka line heights, are the unit sizes of vertical grids */
+.stat {
+  padding: 24px;
+  background: var(--color-bg-primary);
+  border-radius: 8px;
+}
+.stat-data {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (min-width: 409px) and (max-width: 840px) {
+  .stat-data {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 321px) and (max-width: 408px) {
+  .stat-data {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.stat-data-value {
+  font-size: 32px;
+  line-height: 48px;
+  font-weight: 800;
+  font-feature-settings: "tnum", "lnum";
+}
+.stat-data-value small {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  display: inline-block;
+  color: var(--color-ink-secondary);
+  vertical-align: text-bottom;
+}
+.stat-data-label {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  text-indent: 0.125em;
+  color: var(--color-ink-secondary);
+}

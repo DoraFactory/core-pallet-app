@@ -1,0 +1,40 @@
+@import "../_token/grid.less";
+@import "../_token/color.less";
+@import "../_token/border.less";
+@import "../_token/text.less";
+
+
+.stat {
+	padding      : @grid-gutter;
+	background   : @color-bg-primary;
+	border-radius: @border-corner-md;
+}
+
+.stat-data {
+	display              : grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap                  : @grid-gutter;
+	
+	@media (min-width: (@bp-mobile--md + 1)) and (max-width: @bp-desktop--sm) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	
+	@media (min-width: (@bp-mobile--sm + 1)) and (max-width: @bp-mobile--md) {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}
+.stat-data-value {
+	.text-display-eb--tnum();
+	
+	small {
+		.text-headline-sb();
+		display       : inline-block;
+		color         : @color-ink-secondary;
+		vertical-align: text-bottom;
+	}
+}
+.stat-data-label {
+	.text-body-rg();
+	text-indent: (1em / 8);
+	color      : @color-ink-secondary;
+}
