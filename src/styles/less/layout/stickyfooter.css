@@ -1,0 +1,24 @@
+/*************************
+ * Grids
+ *************************/
+/* Define the values of max-width, i.e., value of min-width is (@bp-foo + 1px) */
+/*************************
+ * Text styles
+ *************************/
+/* Em sizes, aka font sizes, are the unit sizes of horizontal grids */
+/* Leading, aka line heights, are the unit sizes of vertical grids */
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+.app > main {
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding: 56px 0px 96px;
+}
+.app > footer {
+  flex-grow: 0;
+  flex-shrink: 0;
+}

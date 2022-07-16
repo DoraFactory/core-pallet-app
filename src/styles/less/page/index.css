@@ -1,0 +1,205 @@
+/*************************
+ * Grids
+ *************************/
+/* Define the values of max-width, i.e., value of min-width is (@bp-foo + 1px) */
+/*************************
+ * Text styles
+ *************************/
+/* Em sizes, aka font sizes, are the unit sizes of horizontal grids */
+/* Leading, aka line heights, are the unit sizes of vertical grids */
+/*************************
+ * Colors
+ *************************/
+/*************************
+ * CSS variables
+ *************************/
+:root {
+  --color-ink-primary: hsl(240, 15%, 15%);
+  --color-ink-secondary: hsl(240, 15%, 55%);
+  --color-bg-primary: hsl(60, 100%, 100%);
+  --color-bg-secondary: hsl(240, 15%, 97%);
+  --color-line-primary: hsl(240, 15%, 95%);
+  --color-line-secondary: hsl(240, 15%, 92%);
+  --color-accent-primary: hsl(24, 100%, 50%);
+  --color-accent-secondary: hsl(48, 100%, 50%);
+  --color-accent-bg: hsl(24, 100%, 97%);
+  --color-error-primary: hsl(350, 100%, 40%);
+  --color-error-bg: hsl(350, 100%, 97%);
+  --elevation-shadow-color: 240deg, 15%, 15%;
+  --elevation-shadow-1: 0px 3px 8px hsla(var(--elevation-shadow-color), 6%),
+		0px 1.5px   4px hsla(var(--elevation-shadow-color), 6%),
+		0px   1px   2px hsla(var(--elevation-shadow-color), 6%),
+		0px 0.5px   1px hsla(var(--elevation-shadow-color), 6%),
+		0px   0px 0.5px hsla(var(--elevation-shadow-color), 8%);
+  --elevation-shadow-2: 0px 8px 16px hsla(var(--elevation-shadow-color), 4%),
+		0px   4px  12px hsla(var(--elevation-shadow-color), 4%),
+		0px   2px   8px hsla(var(--elevation-shadow-color), 4%),
+		0px   1px   4px hsla(var(--elevation-shadow-color), 4%),
+		0px   0px 0.5px hsla(var(--elevation-shadow-color), 8%);
+  --elevation-shadow-3: 0px 16px 24px hsla(var(--elevation-shadow-color), 2%),
+		0px   8px  12px hsla(var(--elevation-shadow-color), 2%),
+		0px   6px   8px hsla(var(--elevation-shadow-color), 2%),
+		0px   4px   6px hsla(var(--elevation-shadow-color), 3%),
+		0px   0px 0.5px hsla(var(--elevation-shadow-color), 8%);
+  --scrollbar-width: 0px;
+  /* default/fallback value */
+}
+/*************************
+ * Elevations
+ *************************/
+/*************************
+ * Border styles
+ *************************/
+.index-wrap {
+  display: grid;
+  grid-template-columns: repeat(12, 72px);
+  column-gap: 24px;
+  justify-content: center;
+  padding-top: 48px;
+  margin: 0 auto;
+}
+@media (min-width: 841px) and (max-width: 1272px) {
+  .index-wrap {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 24px;
+    justify-content: center;
+    margin-left: 72px;
+    margin-right: 72px;
+  }
+}
+@media (min-width: 625px) and (max-width: 840px) {
+  .index-wrap {
+    display: grid;
+    grid-template-columns: repeat(6, 72px);
+    column-gap: 24px;
+    justify-content: center;
+  }
+}
+@media (min-width: 321px) and (max-width: 624px) {
+  .index-wrap {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 24px;
+    justify-content: center;
+    margin-left: 36px;
+    margin-right: 36px;
+  }
+}
+.index-header {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 800;
+  grid-column: 1 / 13;
+  display: flex;
+  column-gap: 24px;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+}
+@media (min-width: 321px) and (max-width: 840px) {
+  .index-header {
+    grid-column: 1 / 7;
+  }
+}
+.index-header-headline {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 800;
+}
+.index-header-link {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  color: var(--color-accent-primary);
+}
+.index-overview {
+  box-shadow: var(--elevation-shadow-1);
+  grid-column: 1 / 13;
+  margin: 24px -24px 0;
+}
+@media (min-width: 321px) and (max-width: 840px) {
+  .index-overview {
+    grid-column: 1 / 7;
+  }
+}
+.index-source {
+  box-shadow: var(--elevation-shadow-1);
+  display: grid;
+  grid-template-columns: repeat(12, 72px);
+  column-gap: 24px;
+  justify-content: center;
+  grid-column: 1 / 13;
+  align-items: center;
+  margin: 24px -24px 0;
+  padding: 24px 24px;
+  border-radius: 8px;
+  background: var(--color-bg-primary);
+}
+@media (min-width: 841px) and (max-width: 1272px) {
+  .index-source {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 24px;
+    justify-content: center;
+  }
+}
+@media (min-width: 625px) and (max-width: 840px) {
+  .index-source {
+    display: grid;
+    grid-template-columns: repeat(6, 72px);
+    column-gap: 24px;
+    justify-content: center;
+    grid-column: 1 / 7;
+  }
+}
+@media (min-width: 321px) and (max-width: 624px) {
+  .index-source {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 24px;
+    justify-content: center;
+    row-gap: 24px;
+    grid-column: 1 / 7;
+  }
+}
+.index-source-text {
+  grid-column: 1 / 7;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+@media (min-width: 625px) and (max-width: 840px) {
+  .index-source-text {
+    grid-column: 1 / 4;
+  }
+}
+@media (min-width: 321px) and (max-width: 624px) {
+  .index-source-text {
+    grid-column: 1 / 7;
+  }
+}
+.index-source-text-title {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 800;
+}
+.index-source-text-desc {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+.index-source-button {
+  grid-column: 9 / 13;
+  justify-self: end;
+}
+@media (min-width: 625px) and (max-width: 840px) {
+  .index-source-button {
+    grid-column: 4 / 7;
+  }
+}
+@media (min-width: 321px) and (max-width: 624px) {
+  .index-source-button {
+    grid-column: 1 / 7;
+  }
+}

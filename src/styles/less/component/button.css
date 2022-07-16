@@ -1,0 +1,212 @@
+/*************************
+ * Text styles
+ *************************/
+/*************************
+ * Webfonts
+ *************************/
+/* @font-face {
+  font-family: "Public Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("PublicSans-Regular.woff2?v=2.001") format("woff2"), url("PublicSans-Regular.woff?v=2.001") format("woff");
+}
+@font-face {
+  font-family: "Public Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("PublicSans-SemiBold.woff2?v=2.001") format("woff2"), url("PublicSans-SemiBold.woff?v=2.001") format("woff");
+}
+@font-face {
+  font-family: "Public Sans";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("PublicSans-ExtraBold.woff2?v=2.001") format("woff2"), url("PublicSans-ExtraBold.woff?v=2.001") format("woff");
+}
+@font-face {
+  font-family: "Fira Code";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("FiraCode-Regular.woff2?v=6.2") format("woff2"), url("FiraCode-Regular.woff?v=6.2") format("woff");
+}
+@font-face {
+  font-family: "Fira Code";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("FiraCode-Medium.woff2?v=6.2") format("woff2"), url("FiraCode-Medium.woff?v=6.2") format("woff");
+}
+@font-face {
+  font-family: "Fira Code";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("FiraCode-SemiBold.woff2?v=6.2") format("woff2"), url("FiraCode-SemiBold.woff?v=6.2") format("woff");
+} */
+/* Em sizes, aka font sizes, are the unit sizes of horizontal grids */
+/* Leading, aka line heights, are the unit sizes of vertical grids */
+/*************************
+ * Border styles
+ *************************/
+/*************************
+ * Colors
+ *************************/
+/*************************
+ * CSS variables
+ *************************/
+:root {
+  --color-ink-primary: hsl(240, 15%, 15%);
+  --color-ink-secondary: hsl(240, 15%, 55%);
+  --color-bg-primary: hsl(60, 100%, 100%);
+  --color-bg-secondary: hsl(240, 15%, 97%);
+  --color-line-primary: hsl(240, 15%, 95%);
+  --color-line-secondary: hsl(240, 15%, 92%);
+  --color-accent-primary: hsl(24, 100%, 50%);
+  --color-accent-secondary: hsl(48, 100%, 50%);
+  --color-accent-bg: hsl(24, 100%, 97%);
+  --color-error-primary: hsl(350, 100%, 40%);
+  --color-error-bg: hsl(350, 100%, 97%);
+  --elevation-shadow-color: 240deg, 15%, 15%;
+  --elevation-shadow-1: 0px 3px 8px hsla(var(--elevation-shadow-color), 6%),
+		0px 1.5px   4px hsla(var(--elevation-shadow-color), 6%),
+		0px   1px   2px hsla(var(--elevation-shadow-color), 6%),
+		0px 0.5px   1px hsla(var(--elevation-shadow-color), 6%),
+		0px   0px 0.5px hsla(var(--elevation-shadow-color), 8%);
+  --elevation-shadow-2: 0px 8px 16px hsla(var(--elevation-shadow-color), 4%),
+		0px   4px  12px hsla(var(--elevation-shadow-color), 4%),
+		0px   2px   8px hsla(var(--elevation-shadow-color), 4%),
+		0px   1px   4px hsla(var(--elevation-shadow-color), 4%),
+		0px   0px 0.5px hsla(var(--elevation-shadow-color), 8%);
+  --elevation-shadow-3: 0px 16px 24px hsla(var(--elevation-shadow-color), 2%),
+		0px   8px  12px hsla(var(--elevation-shadow-color), 2%),
+		0px   6px   8px hsla(var(--elevation-shadow-color), 2%),
+		0px   4px   6px hsla(var(--elevation-shadow-color), 3%),
+		0px   0px 0.5px hsla(var(--elevation-shadow-color), 8%);
+  --scrollbar-width: 0px;
+  /* default/fallback value */
+}
+/*************************
+ * Motion metrics
+ *************************/
+/*************************
+ * Icons
+ *************************/
+/* Icons are defined by the asset (file) URLs or data URIs (base64) */
+.button-pill-primary-md {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 36px;
+  padding: 0 18px;
+  border-radius: 999em;
+  background: var(--color-accent-primary);
+  color: var(--color-bg-primary);
+  user-select: none;
+  transition: opacity 0.25s ease-in-out;
+  will-change: opacity;
+}
+.ua-Pointer .button-pill-primary-md:hover,
+.button-pill-primary-md:active {
+  opacity: 0.75;
+}
+.button-pill-primary-md[target="_blank"],
+.button-pill-primary-md--external {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 36px;
+  padding: 0 18px;
+  border-radius: 999em;
+  background: var(--color-accent-primary);
+  color: var(--color-bg-primary);
+  user-select: none;
+  transition: opacity 0.25s ease-in-out;
+  will-change: opacity;
+}
+.ua-Pointer .button-pill-primary-md[target="_blank"]:hover,
+.ua-Pointer .button-pill-primary-md--external:hover,
+.button-pill-primary-md[target="_blank"]:active,
+.button-pill-primary-md--external:active {
+  opacity: 0.75;
+}
+.button-pill-primary-md[target="_blank"]::after,
+.button-pill-primary-md--external::after {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0 0 10px 4px;
+  background: currentColor;
+  /* mask-image: url("icon-external.svg"); */
+  mask-repeat: no-repeat;
+}
+.button-text-primary-md {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-accent-primary);
+  transition: opacity 0.25s ease-in-out;
+  will-change: opacity;
+}
+.button-text-primary-md::after {
+  content: "";
+  flex-shrink: 0;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin: 0 0 0 4px;
+  background: currentColor;
+  mask-repeat: no-repeat;
+}
+.ua-Pointer .button-text-primary-md:hover,
+.button-text-primary-md:active {
+  opacity: 0.75;
+}
+.button-text-primary-md[target="_blank"],
+.button-text-primary-md--external {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-accent-primary);
+  transition: opacity 0.25s ease-in-out;
+  will-change: opacity;
+}
+.button-text-primary-md[target="_blank"]::after,
+.button-text-primary-md--external::after {
+  content: "";
+  flex-shrink: 0;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin: 0 0 0 4px;
+  background: currentColor;
+  mask-repeat: no-repeat;
+}
+.ua-Pointer .button-text-primary-md[target="_blank"]:hover,
+.ua-Pointer .button-text-primary-md--external:hover,
+.button-text-primary-md[target="_blank"]:active,
+.button-text-primary-md--external:active {
+  opacity: 0.75;
+}
+.button-text-primary-md[target="_blank"]::after,
+.button-text-primary-md--external::after {
+  width: 6px;
+  height: 6px;
+  margin: 0 0 10px 4px;
+  /* mask-image: url("icon-external.svg"); */
+}

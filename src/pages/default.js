@@ -10,6 +10,13 @@ import { web3Enable, web3Accounts } from '@polkadot/extension-dapp';
 import { Message } from 'semantic-ui-react';
 import config from "../context/config"
 import Footer from "../components/footer"
+import "../styles/less/component/navbar.css";
+import "../styles/less/page/index.css";
+import "../styles/less/component/stat.css";
+import "../styles/less/component/button.css";
+import "../styles/less/component/footer.css";
+import "../styles/less/basis.css";
+import "../styles/less/layout/stickyfooter.css";
 
 const dora_ksm_parachain_explore = config.DORA_KSM_PARACHAIN_EXPLORE;
 
@@ -42,16 +49,16 @@ const DefaultPage = () => {
         }
     }
     return (
-        <div className="App" >
-            <div className="header-default">
-                <div className="nav-brand">
+        <div className="app" >
+            <nav className="navbar">
+                <span className="navbar-logo">
                     CORE Pallet
-                </div>
-                <div className="nav-account">
+                </span>
+                <div className="navbar-complex">
                     <button onClick={() => handle_change()} className="wallet">Connect Wallet</button>
                 </div>
-            </div>
-            {!isExtension ? (
+            </nav>
+            {/* {!isExtension ? (
                 <Message
                     negative
                     compact
@@ -73,21 +80,63 @@ const DefaultPage = () => {
                 />
             ) : (
                 null
-            )}
+            )} */}
 
-            <div className="text-default">
-                <span className="dora-ksm-font">Dora-KSM Parachain</span>
+            <main className="main">
+                {/* <div className="message"></div> */}
+                <div className="index-wrap">
+                    <header className="index-header">
+                        <h1 className="index-header-headline">Dora-KSM Parachain</h1>
+                        <a className="index-header-link button-text-primary-md" target="_blank">View Dora-KSM Parachain Explore</a>
+                    </header>
+                    <section className="index-overview stat">
+                        <ul className="stat-data">
+                            <div className="stat-data-pair">
+                                <div className="stat-data-value">11</div>
+                                <div className="stat-data-label">Current block</div>
+                            </div>
+                            <div className="stat-data-pair">
+                                <div className="stat-data-value">48 weeks</div>
+                                <div className="stat-data-label">Parachain duration</div>
+                            </div>
+                            <div className="stat-data-pair">
+                                <div className="stat-data-value">Kusama</div>
+                                <div className="stat-data-label">Parachain network</div>
+                            </div>
+                            <div className="stat-data-pair">
+                                <div className="stat-data-value">DORA</div>
+                                <div className="stat-data-label">Primary token</div>
+                            </div>
+                            <div className="stat-data-pair">
+                                <div className="stat-data-value">50,000.0000</div>
+                                <div className="stat-data-label">Current total supply</div>
+                            </div>
+                            <div className="stat-data-pair">
+                                <div className="stat-data-value">34</div>
+                                <div className="stat-data-label">Connected parachains</div>
+                            </div>
+                        </ul>
+                    </section>
+                    <section className="index-source">
+                        <div className="index-source-text">
+                            <h2 className="index-source-text-title">Haven't got an account</h2>
+                            <p className="index-source-text-desc">You can create a new account and connect to the Core Pallet with polkadot-js extension.</p>
+                        </div>
+                        <a className="index-source-button button-pill-primary-md" rel="noopener external nofollow noreferrer">Get polkadot js Extension</a>
+                    </section>
+                </div>
+            </main>
+            {/* <span className="dora-ksm-font">Dora-KSM Parachain</span>
                 <div className="defalt-link">
                     <a href={dora_ksm_parachain_explore} target="_blank" className="explorer-sty">View Dora-KSM Parachain Explorer</a>
                     <img src={Icons.Arrow} className="icon-sty"></img>
-                </div>
-            </div>
-            <LeaseInfo />
-            <NoAccount />
-            <div className="foot-default">
-                    <span className="foot-font">© 2022 Dora Factory</span>
-                    <span className="foot-font">·</span>
-                    <a className="foot-font">Feedback</a>
+                </div> */}
+            {/* <LeaseInfo /> */}
+            {/* <NoAccount /> */}
+            <div className="footer">
+                <nav className="footer-nav"></nav>
+                <a className="footer-nav-item">© 2022 Dora Factory</a>
+                <span className="footer-nav-item">Feedback</span>
             </div>
         </div>
     );
