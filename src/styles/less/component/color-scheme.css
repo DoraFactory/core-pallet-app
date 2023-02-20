@@ -1,0 +1,58 @@
+.color-scheme-dark {
+  --color-ink-primary: hsl(240, 12%, 90%);
+  --color-ink-secondary: hsl(240, 12%, 65%);
+  --color-bg-primary: hsl(240, 12%, 15%);
+  --color-bg-secondary: hsl(240, 12%, 10%);
+  --color-line-primary: hsl(240, 12%, 24%);
+  --color-line-secondary: hsl(240, 12%, 20%);
+  --color-accent-primary: hsl(24, 100%, 50%);
+  --color-accent-secondary: hsl(48, 100%, 50%);
+  --color-accent-bg: hsl(24, 55%, 20%);
+  --color-error-primary: hsl(350, 100%, 45%);
+  --color-error-bg: hsl(350, 100%, 10%);
+  --elevation-shadow-color: 240deg, 12%, 2%;
+  --elevation-shadow-1: 0px 3px 8px hsla(var(--elevation-shadow-color), 30%),
+		0px 1.5px   4px hsla(var(--elevation-shadow-color), 30%),
+		0px   1px   2px hsla(var(--elevation-shadow-color), 30%),
+		0px 0.5px   1px hsla(var(--elevation-shadow-color), 30%),
+		0px   0px 0.5px hsla(var(--elevation-shadow-color), 40%);
+  --elevation-shadow-2: 0px 8px 16px hsla(var(--elevation-shadow-color), 20%),
+		0px   4px  12px hsla(var(--elevation-shadow-color), 20%),
+		0px   2px   8px hsla(var(--elevation-shadow-color), 20%),
+		0px   1px   4px hsla(var(--elevation-shadow-color), 20%),
+		0px   0px 0.5px hsla(var(--elevation-shadow-color), 40%);
+  --elevation-shadow-3: 0px 16px 24px hsla(var(--elevation-shadow-color), 10%),
+		0px   8px  12px hsla(var(--elevation-shadow-color), 10%),
+		0px   6px   8px hsla(var(--elevation-shadow-color), 10%),
+		0px   4px   6px hsla(var(--elevation-shadow-color), 15%),
+		0px   0px 0.5px hsla(var(--elevation-shadow-color), 40%);
+}
+.color-scheme-yas {
+  --color-ink-primary: hsl(240, 10%, 20%);
+  --color-ink-secondary: hsl(240, 10%, 55%);
+  --color-bg-primary: hsl(0, 0%, 100%);
+  --color-bg-secondary: hsl(240, 10%, 97%);
+  --color-line-primary: hsl(240, 10%, 95%);
+  --color-line-secondary: hsl(240, 10%, 92%);
+  --color-accent-primary: hsl(240, 45%, 60%);
+  --color-accent-secondary: hsl(192, 45%, 60%);
+  --color-accent-bg: hsl(240, 45%, 97%);
+  --color-error-primary: hsl(350, 100%, 40%);
+  --color-error-bg: hsl(350, 100%, 97%);
+  --elevation-shadow-color: 240deg, 10%, 20%;
+  --elevation-shadow-1: 0px 3px 8px hsla(var(--elevation-shadow-color), 6%),
+		0px 1.5px   4px hsla(var(--elevation-shadow-color), 6%),
+		0px   1px   2px hsla(var(--elevation-shadow-color), 6%),
+		0px 0.5px   1px hsla(var(--elevation-shadow-color), 6%),
+		0px   0px 0.5px hsla(var(--elevation-shadow-color), 8%);
+  --elevation-shadow-2: 0px 8px 16px hsla(var(--elevation-shadow-color), 4%),
+		0px   4px  12px hsla(var(--elevation-shadow-color), 4%),
+		0px   2px   8px hsla(var(--elevation-shadow-color), 4%),
+		0px   1px   4px hsla(var(--elevation-shadow-color), 4%),
+		0px   0px 0.5px hsla(var(--elevation-shadow-color), 8%);
+  --elevation-shadow-3: 0px 16px 24px hsla(var(--elevation-shadow-color), 2%),
+		0px   8px  12px hsla(var(--elevation-shadow-color), 2%),
+		0px   6px   8px hsla(var(--elevation-shadow-color), 2%),
+		0px   4px   6px hsla(var(--elevation-shadow-color), 3%),
+		0px   0px 0.5px hsla(var(--elevation-shadow-color), 8%);
+}

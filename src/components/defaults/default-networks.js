@@ -32,7 +32,7 @@ const LeaseInfo = (props) => {
     useEffect(() => {
         let unsubscribeAll = null
         api.query.balances.totalIssuance(total => {
-            const free = formatBalance(total, { withSi: false, forceUnit: '-'  }, chainDecimals);
+            const free = formatBalance(total, { withSi: false, forceUnit: '-' }, chainDecimals);
             setTotalSupply(free);
         })
             .then(unsub => {
@@ -44,35 +44,63 @@ const LeaseInfo = (props) => {
     }, [api, setTotalSupply])
 
     return (
-        <div className="body">
-            <div className="body-default">
-                <div>
-                    <p className="p-font">{blockNumber}</p>
-                    <p className="p-font2">Current block</p>
+        // <div className="body">
+        //     <div className="body-default">
+        //         <div>
+        //             <p className="p-font">{blockNumber}</p>
+        //             <p className="p-font2">Current block</p>
+        //         </div>
+        //         <div>
+        //             <p className="p-font">48 weeks</p>
+        //             <p className="p-font2">Parachain duration</p>
+        //         </div>
+        //         <div>
+        //             <p className="p-font">Kusama</p>
+        //             <p className="p-font2">Parachain network</p>
+        //         </div>
+        //         <div>
+        //             <span className="p-font">DORA </span>
+        //             {/* <span className="p-doya">Dorayaki</span> */}
+        //             <p className="p-font2">Primary token</p>
+        //         </div>
+        //         <div>
+        //             <span className="p-font">{totalsupply}</span>
+        //             <p className="p-font2">Current total supply</p>
+        //         </div>
+        //         <div>
+        //             <p className="p-font">34</p>
+        //             <p className="p-font2">Connected parachains</p>
+        //         </div>
+        //     </div>
+        // </div>
+        <section className="index-overview stat">
+            <ul className="stat-data">
+                <div className="stat-data-pair">
+                    <div className="stat-data-value">{blockNumber}</div>
+                    <div className="stat-data-label">Current block</div>
                 </div>
-                <div>
-                    <p className="p-font">48 weeks</p>
-                    <p className="p-font2">Parachain duration</p>
+                <div className="stat-data-pair">
+                    <div className="stat-data-value">48 weeks</div>
+                    <div className="stat-data-label">Parachain duration</div>
                 </div>
-                <div>
-                    <p className="p-font">Kusama</p>
-                    <p className="p-font2">Parachain network</p>
+                <div className="stat-data-pair">
+                    <div className="stat-data-value">Kusama</div>
+                    <div className="stat-data-label">Parachain network</div>
                 </div>
-                <div>
-                    <span className="p-font">DORA </span>
-                    {/* <span className="p-doya">Dorayaki</span> */}
-                    <p className="p-font2">Primary token</p>
+                <div className="stat-data-pair">
+                    <div className="stat-data-value">DORA</div>
+                    <div className="stat-data-label">Primary token</div>
                 </div>
-                <div>
-                    <span className="p-font">{totalsupply}</span>
-                    <p className="p-font2">Current total supply</p>
+                <div className="stat-data-pair">
+                    <div className="stat-data-value">{totalsupply}</div>
+                    <div className="stat-data-label">Current total supply</div>
                 </div>
-                <div>
-                    <p className="p-font">34</p>
-                    <p className="p-font2">Connected parachains</p>
+                <div className="stat-data-pair">
+                    <div className="stat-data-value">34</div>
+                    <div className="stat-data-label">Connected parachains</div>
                 </div>
-            </div>
-        </div>
+            </ul>
+        </section>
     );
 }
 

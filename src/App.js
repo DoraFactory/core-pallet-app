@@ -1,5 +1,8 @@
-import Header from "./pages/header";
 import DefaultPage from "./pages/default";
+import Assets from "./pages/assets";
+import Network from "./pages/network";
+import Rewards  from "./pages/rewards";
+import Rwd  from "./pages/rewards";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
     Dimmer,
@@ -7,7 +10,7 @@ import {
     Grid,
     Sticky,
     Message,
-} from 'semantic-ui-react'
+} from 'semantic-ui-react';
 import { SubstrateContextProvider, useSubstrateState } from "./context";
 
 function Main () {
@@ -49,7 +52,9 @@ function Main () {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<DefaultPage></DefaultPage>}></Route>
-                <Route path="/account" element={<Header></Header>}></Route>
+                <Route path="/assets" element={<Assets></Assets>}></Route>
+                <Route path="/network" element={<Network></Network>}></Route>
+                <Route path="/rewards" element={<Rewards></Rewards>}></Route>
             </Routes>
         </BrowserRouter>
     );

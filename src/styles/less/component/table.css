@@ -1,0 +1,152 @@
+/*************************
+ * Elevations
+ *************************/
+/*************************
+ * CSS variables
+ *************************/
+:root {
+  --color-ink-primary: hsl(240, 15%, 15%);
+  --color-ink-secondary: hsl(240, 15%, 55%);
+  --color-bg-primary: hsl(60, 100%, 100%);
+  --color-bg-secondary: hsl(240, 15%, 97%);
+  --color-line-primary: hsl(240, 15%, 95%);
+  --color-line-secondary: hsl(240, 15%, 92%);
+  --color-accent-primary: hsl(24, 100%, 50%);
+  --color-accent-secondary: hsl(48, 100%, 50%);
+  --color-accent-bg: hsl(24, 100%, 97%);
+  --color-error-primary: hsl(350, 100%, 40%);
+  --color-error-bg: hsl(350, 100%, 97%);
+  --elevation-shadow-color: 240deg, 15%, 15%;
+  --elevation-shadow-1: 0px 3px 8px hsla(var(--elevation-shadow-color), 6%),
+		0px 1.5px   4px hsla(var(--elevation-shadow-color), 6%),
+		0px   1px   2px hsla(var(--elevation-shadow-color), 6%),
+		0px 0.5px   1px hsla(var(--elevation-shadow-color), 6%),
+		0px   0px 0.5px hsla(var(--elevation-shadow-color), 8%);
+  --elevation-shadow-2: 0px 8px 16px hsla(var(--elevation-shadow-color), 4%),
+		0px   4px  12px hsla(var(--elevation-shadow-color), 4%),
+		0px   2px   8px hsla(var(--elevation-shadow-color), 4%),
+		0px   1px   4px hsla(var(--elevation-shadow-color), 4%),
+		0px   0px 0.5px hsla(var(--elevation-shadow-color), 8%);
+  --elevation-shadow-3: 0px 16px 24px hsla(var(--elevation-shadow-color), 2%),
+		0px   8px  12px hsla(var(--elevation-shadow-color), 2%),
+		0px   6px   8px hsla(var(--elevation-shadow-color), 2%),
+		0px   4px   6px hsla(var(--elevation-shadow-color), 3%),
+		0px   0px 0.5px hsla(var(--elevation-shadow-color), 8%);
+  --scrollbar-width: 0px;
+  /* default/fallback value */
+}
+/*************************
+ * Border styles
+ *************************/
+/*************************
+ * Colors
+ *************************/
+/*************************
+ * Grids
+ *************************/
+/* Define the values of max-width, i.e., value of min-width is (@bp-foo + 1px) */
+/*************************
+ * Motion metrics
+ *************************/
+/*************************
+ * Text styles
+ *************************/
+/* Em sizes, aka font sizes, are the unit sizes of horizontal grids */
+/* Leading, aka line heights, are the unit sizes of vertical grids */
+/*************************
+ * Icons
+ *************************/
+/* Icons are defined by the asset (file) URLs or data URIs (base64) */
+.table {
+  box-shadow: var(--elevation-shadow-1);
+  overflow: hidden;
+  border-radius: 8px;
+}
+.table-wrap {
+  overflow-x: auto;
+}
+.table-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 24px;
+  transition: background-color 0.25s ease-in-out;
+  will-change: background-color;
+}
+.table-row:not(:last-child) {
+  border-bottom: 1px solid var(--color-line-primary);
+}
+.ua-Pointer .table-row:hover,
+.table-row:active {
+  background: var(--color-bg-secondary);
+}
+.table-cell {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding: 16px 0;
+}
+.table-cell a {
+  color: var(--color-accent-primary);
+  text-decoration: underline transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.125em;
+  transition: text-decoration-color 0.25s ease-in-out;
+}
+.ua-Safari .table-cell a {
+  transition: none;
+}
+.ua-Pointer .table-cell a:hover,
+.table-cell a:active {
+  text-decoration-color: currentColor;
+}
+.table-cell a[target="_blank"]::after {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0 0 8px 4px;
+  background: currentColor;
+  mask-image: url("../../../../public/assets/icon-external.svg");
+  mask-repeat: no-repeat;
+}
+.table-cell code {
+  font-family: "Fira Code", ui-monospace, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  font-feature-settings: "calt";
+  white-space: pre-wrap;
+}
+.table-cell code b {
+  font-family: "Fira Code", ui-monospace, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  font-feature-settings: "calt";
+  font-weight: 500;
+}
+.table-cell code a[target="_blank"]::after {
+  margin: 0 0 6px 4px;
+}
+.table-head {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  letter-spacing: 0.0625em;
+  text-transform: uppercase;
+  width: 100%;
+  border-bottom: 1px solid var(--color-line-secondary);
+  color: var(--color-ink-secondary);
+  background: var(--color-bg-secondary);
+}
+.table-head:not(:first-child) {
+  border-top: 1px solid var(--color-line-secondary);
+}
+.table-body {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  font-feature-settings: "tnum", "lnum";
+  background: var(--color-bg-primary);
+}
