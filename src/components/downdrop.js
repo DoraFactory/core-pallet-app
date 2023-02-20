@@ -7,10 +7,12 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import "../styles/less/component/navbar.css";
+
 
 const acctAddr = acct => (acct ? acct.address : '')
 
-const Main = (props) => {
+const Downdrop = (props) => {
     const {
         setCurrentAccount,
     } = useSubstrate()
@@ -64,30 +66,63 @@ const Main = (props) => {
     };
 
     return (
-        <FormControl>
-            <Select
-                disableUnderline
-                classes={{ root: minimalSelectClasses.select }}
-                MenuProps={menuProps}
-                IconComponent={iconComponent}
-                value={currentAccount ? currentAccount.address : initialAddress}
-                onChange={(dropdown) => {
-                    handleChange(dropdown.target.value)
-                }}
-                className="connect-wallet"
-            >
-                {keyringOptions.map((option) => {
-                    return (<MenuItem value={option.key}>
-                            {option.text}
-                    </MenuItem>
-                    )
-                })}
-            </Select>
-        </FormControl>
+        // <FormControl>
+        //     <Select
+        //         disableUnderline
+        //         classes={{ root: minimalSelectClasses.select }}
+        //         MenuProps={menuProps}
+        //         IconComponent={iconComponent}
+        //         value={currentAccount ? currentAccount.address : initialAddress}
+        //         onChange={(dropdown) => {
+        //             handleChange(dropdown.target.value)
+        //         }}
+        //         className="connect-wallet"
+        //     >
+        //         {keyringOptions.map((option) => {
+        //             return (<MenuItem value={option.key}>
+        //                     {option.text}
+        //             </MenuItem>
+        //             )
+        //         })}
+        //     </Select>
+        // </FormControl>
+        <div className="navbar-complex-dropdown">
+            <h5 className="navbar-complex-dropdown-caption">Scahemes</h5>
+            <ul className="navbar-complex-drop-list">
+                {/* {keyringOptions.map(account => {
+                            <li className="nav-complex-dropdown-item">
+                                <span>
+                                    <strong>{account.text}</strong>
+                                    <small>{keyringOptions[0].value.slice(0, 10)}...{keyringOptions[0].value.slice(40)}</small>
+                                </span>
+                                <i className="nav-complex-dropdown-radio"></i>
+                            </li>
+                        })} */}
+                <li className="nav-complex-dropdown-item">
+                    <span>
+                        <strong>Alice</strong>
+                        <small>5safgusdvfbdsvgh</small>
+                    </span>
+                    <i className="nav-complex-dropdown-radio"></i>
+                </li>
+                <li className="nav-complex-dropdown-item">
+                    <span>
+                        <strong>Bob</strong>
+                        <small>5safgusdvfbdsvgh</small>
+                    </span>
+                    <i className="nav-complex-dropdown-radio"></i>
+                </li>
+                <li className="nav-complex-dropdown-item">
+                    <span>
+                        <strong>John</strong>
+                        <small>5safgusdvfbdsvgh</small>
+                    </span>
+                    <i className="nav-complex-dropdown-radio"></i>
+                </li>
+            </ul>
+            {/* <button className="nav-complex-dropdown-button">Reset to Default</button> */}
+        </div>
     );
 }
 
-export default function Downdrop (props) {
-    const { api, keyring } = useSubstrateState()
-    return keyring.getPairs && api.query ? <Main {...props} /> : null
-};
+export default Downdrop;

@@ -1,14 +1,13 @@
 import React from "react";
 import "../styles/page-default.scss"
+import "../styles/less/component/footer.css";
 
 const Footer = () => {
     return (
-        <div className="foot">
-            <div className="foot-wrap">
-                <span className="foot-font">© 2022 Dora Factory</span>
-                <span className="foot-font">·</span>
-                <a className="foot-font">Feedback</a>
-            </div>
+        <div className="footer">
+            <nav className="footer-nav"></nav>
+            <a className="footer-nav-item">© 2022 Dora Factory</a>
+            <span className="footer-nav-item">Feedback</span>
         </div>
     );
 }

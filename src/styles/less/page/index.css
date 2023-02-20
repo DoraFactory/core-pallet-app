@@ -90,7 +90,7 @@
   font-size: 24px;
   line-height: 32px;
   font-weight: 800;
-  grid-column: 1 / 13;
+  grid-column: 0.07692308;
   display: flex;
   column-gap: 24px;
   justify-content: space-between;
@@ -99,7 +99,7 @@
 }
 @media (min-width: 321px) and (max-width: 840px) {
   .index-header {
-    grid-column: 1 / 7;
+    grid-column: 0.14285714;
   }
 }
 .index-header-headline {
@@ -115,12 +115,12 @@
 }
 .index-overview {
   box-shadow: var(--elevation-shadow-1);
-  grid-column: 1 / 13;
+  grid-column: 0.07692308;
   margin: 24px -24px 0;
 }
 @media (min-width: 321px) and (max-width: 840px) {
   .index-overview {
-    grid-column: 1 / 7;
+    grid-column: 0.14285714;
   }
 }
 .index-source {
@@ -129,7 +129,7 @@
   grid-template-columns: repeat(12, 72px);
   column-gap: 24px;
   justify-content: center;
-  grid-column: 1 / 13;
+  grid-column: 0.07692308;
   align-items: center;
   margin: 24px -24px 0;
   padding: 24px 24px;
@@ -150,7 +150,7 @@
     grid-template-columns: repeat(6, 72px);
     column-gap: 24px;
     justify-content: center;
-    grid-column: 1 / 7;
+    grid-column: 0.14285714;
   }
 }
 @media (min-width: 321px) and (max-width: 624px) {
@@ -160,23 +160,23 @@
     column-gap: 24px;
     justify-content: center;
     row-gap: 24px;
-    grid-column: 1 / 7;
+    grid-column: 0.14285714;
   }
 }
 .index-source-text {
-  grid-column: 1 / 7;
+  grid-column: 0.14285714;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 @media (min-width: 625px) and (max-width: 840px) {
   .index-source-text {
-    grid-column: 1 / 4;
+    grid-column: 0.25;
   }
 }
 @media (min-width: 321px) and (max-width: 624px) {
   .index-source-text {
-    grid-column: 1 / 7;
+    grid-column: 0.14285714;
   }
 }
 .index-source-text-title {
@@ -190,16 +190,16 @@
   font-weight: 400;
 }
 .index-source-button {
-  grid-column: 9 / 13;
+  grid-column: 0.69230769;
   justify-self: end;
 }
 @media (min-width: 625px) and (max-width: 840px) {
   .index-source-button {
-    grid-column: 4 / 7;
+    grid-column: 0.57142857;
   }
 }
 @media (min-width: 321px) and (max-width: 624px) {
   .index-source-button {
-    grid-column: 1 / 7;
+    grid-column: 0.14285714;
   }
 }

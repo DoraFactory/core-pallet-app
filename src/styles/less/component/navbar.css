@@ -162,6 +162,7 @@
   width: 12px;
   height: 12px;
   background: currentColor;
+  mask-image: url("../../../../public/assets/icon-chevron-sm.svg");
   mask-repeat: no-repeat;
   transform: rotateZ(90deg);
   will-change: background-color, transform;

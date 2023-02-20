@@ -1,51 +1,6 @@
 /*************************
  * Text styles
  *************************/
-/*************************
- * Webfonts
- *************************/
-/* @font-face {
-  font-family: "Public Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("PublicSans-Regular.woff2?v=2.001") format("woff2"), url("PublicSans-Regular.woff?v=2.001") format("woff");
-}
-@font-face {
-  font-family: "Public Sans";
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("PublicSans-SemiBold.woff2?v=2.001") format("woff2"), url("PublicSans-SemiBold.woff?v=2.001") format("woff");
-}
-@font-face {
-  font-family: "Public Sans";
-  font-style: normal;
-  font-weight: 800;
-  font-display: swap;
-  src: url("PublicSans-ExtraBold.woff2?v=2.001") format("woff2"), url("PublicSans-ExtraBold.woff?v=2.001") format("woff");
-}
-@font-face {
-  font-family: "Fira Code";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("FiraCode-Regular.woff2?v=6.2") format("woff2"), url("FiraCode-Regular.woff?v=6.2") format("woff");
-}
-@font-face {
-  font-family: "Fira Code";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("FiraCode-Medium.woff2?v=6.2") format("woff2"), url("FiraCode-Medium.woff?v=6.2") format("woff");
-}
-@font-face {
-  font-family: "Fira Code";
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("FiraCode-SemiBold.woff2?v=6.2") format("woff2"), url("FiraCode-SemiBold.woff?v=6.2") format("woff");
-} */
 /* Em sizes, aka font sizes, are the unit sizes of horizontal grids */
 /* Leading, aka line heights, are the unit sizes of vertical grids */
 /*************************
@@ -146,7 +101,7 @@
   height: 6px;
   margin: 0 0 10px 4px;
   background: currentColor;
-  /* mask-image: url("icon-external.svg"); */
+  mask-image: url("../../../../public/assets/icon-external.svg");
   mask-repeat: no-repeat;
 }
 .button-text-primary-md {
@@ -168,6 +123,7 @@
   height: 16px;
   margin: 0 0 0 4px;
   background: currentColor;
+  mask-image: url("../../../../public/assets/icon-chevron-md.svg");
   mask-repeat: no-repeat;
 }
 .ua-Pointer .button-text-primary-md:hover,
@@ -195,6 +151,7 @@
   height: 16px;
   margin: 0 0 0 4px;
   background: currentColor;
+  mask-image: url("../../../../public/assets/icon-chevron-md.svg");
   mask-repeat: no-repeat;
 }
 .ua-Pointer .button-text-primary-md[target="_blank"]:hover,
@@ -208,5 +165,5 @@
   width: 6px;
   height: 6px;
   margin: 0 0 10px 4px;
-  /* mask-image: url("icon-external.svg"); */
+  mask-image: url("../../../../public/assets/icon-external.svg");
 }

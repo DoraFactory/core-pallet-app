@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Network from '../../pages/network';
-import Rewards from '../../pages/rewards';
+import Rewards from '../../pages/rwd';
 import Assets from "../../pages/assets";
 import TabContent from "./tabContent";
 import TabNavItem from "./tabNavItem";
