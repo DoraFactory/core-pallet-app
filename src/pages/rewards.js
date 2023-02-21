@@ -82,31 +82,42 @@ const Reward = () => {
             let unsubscribeAll = null
             api.query.doraRewards.contributorsInfo(current_address, reward_info => {
                 if (reward_info.isSome) {
+                    console.log(`有奖励的`)
+                    console.log(contributor_status)
                     let reward = reward_info.unwrap();
-                    // let tr = formatBalance(reward.totalReward, { withSi: false, forceUnit: '-' }, chainDecimals);
-                    // let cr = formatBalance(reward.claimedReward, { withSi: false, forceUnit: '-' }, chainDecimals);
-                    let tr = reward.totalReward.toNumber();
-                    let cr = reward.claimedReward.toNumber();
+                    let tr = formatBalance(reward.totalReward, { withSi: false, forceUnit: '-' }, chainDecimals);
+                    let cr = formatBalance(reward.claimedReward, { withSi: false, forceUnit: '-' }, chainDecimals);
+                    // let tr = reward.totalReward.toNumber();
+                    // let cr = reward.claimedReward.toNumber();
                     // claimed reward ?= total reward
                     if (tr == cr) {
                         setClaimedAll(true)
                     } else {
                         let last_claimed = localStorage.getItem(current_address + "last-claim");
-                        if (cr != last_claimed) {
+
+                        console.log(`csj` + cr.toString().replace(",",""))
+                        console.log(`csj`+last_claimed)
+
+                        if (cr.toString().replace(",","") != last_claimed) {
                             // current_claimed = cr - last_claimed;
                             // localStorage.setItem(current_address + "last-claim", cr);
                             console.log(`last_claimed is ${last_claimed}`);
-                            current_claimed = reward.claimedReward.toNumber() - Number(last_claimed);
-                            localStorage.setItem(current_address + "last-claim", Number(cr));
+                            current_claimed = cr.toString().replace(",","") - last_claimed;
+                            console.log('当前已经claimed'+current_claimed)
+                            localStorage.setItem(current_address + "last-claim", cr.toString().replace(",",""));
                         }
+                        console.log(`上次`+localStorage.getItem(current_address + "last-claim"))
                         if (localStorage.getItem(current_address + "last-claim") == null) {
                             // localStorage.setItem(current_address + "last-claim", cr);
-                            localStorage.setItem(current_address + "last-claim", Number(cr));
+                            console.log(`我进来了`)
+                            localStorage.setItem(current_address + "last-claim", cr.toString().replace(",",""));
                         }
                         setClaimedAll(false)
                     }
                     setContributor_status(true);
                 } else {
+                    console.log(reward_info.isSome)
+                    console.log(`当前状态为不再列表`)
                     setContributor_status(false);
                     setClaimedAll(false)
                 }

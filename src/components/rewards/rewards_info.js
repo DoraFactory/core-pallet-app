@@ -32,8 +32,8 @@ const RewardInfo = () => {
                     let total_reward = formatBalance(reward.totalReward, { withSi: false, forceUnit: '-' }, chainDecimals);
                     let claimed_reward = formatBalance(reward.claimedReward, { withSi: false, forceUnit: '-' }, chainDecimals);
                     settotalReawrd(total_reward);
-                    setclaimable(Number(total_reward - claimed_reward).toFixed(4));
-                    setcontribution((total_reward / 3));
+                    setclaimable(Number(Number(total_reward.toString().replace(",","")) - Number(claimed_reward.toString().replace(",",""))).toFixed(4));
+                    setcontribution((total_reward.toString().replace(",","") / 3));
                     // get the reward history records
                     let history = localStorage.getItem(current_address + "history-reward");
                     rewardsHistory = JSON.parse(history);
@@ -113,7 +113,7 @@ const RewardInfo = () => {
                                     </Table.Cell>
                                     <Table.Cell>
                                         <div clasName="ba-content">
-                                            <span className="ba-content-token">{(Number(record.claimed) / 1000000000000).toFixed(12)}</span>
+                                            <span className="ba-content-token">{(Number(record.claimed)).toFixed(12)}</span>
                                         </div>
                                     </Table.Cell>
                                     <Table.Cell>
