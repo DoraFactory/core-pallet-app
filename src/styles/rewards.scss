@@ -25,6 +25,29 @@
     color: $basic-bg-primary;
 }
 
+.register-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content:   center;
+    align-items: center;
+    padding: 6px 18px;
+    position: absolute;
+    width: 150px;
+    height: 36px;
+    right: 0px;
+    top: calc(50% - 36px/2);
+    border:0px;
+    background: $accent-primary;
+    border-radius: 999px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: $basic-bg-primary;
+    margin-right: 33px;
+}
+
 .reward-stat{
     display: flex;
     flex-direction: column;
@@ -91,7 +114,7 @@
     width: 456px;
     height: 60px;
     left: -420px;
-    top: 665px;
+    top: 765px;
     @include regular-type-note;
     color: $basic-ink-secondary;
 }
@@ -102,11 +125,12 @@
 
 .no-history{
     position:absolute;
-    top: 400px;
+    top: 560px;
     left: 10px;
     width: 1000px;
     @include semibold-type-body-sb;
 }
+
 
 .tb-sty{
     display: flex;
@@ -116,7 +140,15 @@
     position: absolute;
     width: 1182px;
     left: calc(50% - 1083px/2);
-    top: 320px;
-    height: 315px;
+    top: 520px;
+    height: 225px;
     overflow: auto;
+}
+
+.ETHAddress{
+    margin-top: 6px;
+    width: 650px;
+    // box-shadow: 0px 2px 6px rgba(6, 119, 198, 0.4); /* 设置阴影 */
+    // background-color: $accent-primary; /* 设置背景颜色 */
+    // border-radius: 6px;
 }

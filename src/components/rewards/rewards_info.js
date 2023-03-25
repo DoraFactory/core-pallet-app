@@ -5,7 +5,6 @@ import { Icon, Table } from 'semantic-ui-react'
 import Icons from '../../resources'
 import localStorage from 'localStorage'
 import config from "../../context/config"
-import RegisterEthAddr from '../registerEthAddr';
 
 const styleLink = document.createElement("link");
 styleLink.rel = "stylesheet";
@@ -77,7 +76,6 @@ const RewardInfo = () => {
             {/* <RegisterEthAddr></RegisterEthAddr> */}
             {localStorage.getItem(currentAccount.address + "history-reward") == null || rewardsHistory == null ? (
                     <div className="no-history"> You have no claiming record history! </div>
-                    
             ) : (
                 <div className="tb-sty">
                     <Table singleLine>

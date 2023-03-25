@@ -29,6 +29,22 @@
 
 }
 
+.docbody-registerETH{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    position: absolute;
+    width: 1176px;
+    height: 164px;
+    left: calc(50% - 1080px/2);
+    top: 325px;
+    @include elevation-1;
+    background: $basic-bg-primary;
+
+}
+
 .doc-div{
     display: flex;
     flex-direction: column;

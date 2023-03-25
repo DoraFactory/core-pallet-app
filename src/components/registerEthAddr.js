@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import config from "../context/config"
 import { useSubstrateState } from '../context';
 import { web3FromSource } from '@polkadot/extension-dapp';
@@ -11,14 +11,40 @@ const RegisterEthAddr = () => {
 
     const { api, currentAccount, keyring } = useSubstrateState();
     const [unsub, setUnsub] = useState(null)
-    const [currEthAddr, setCurrEthAddr] = useState(String);
+    const [currEthAddr, setCurrEthAddr] = useState("null");
     const ethAddr = useRef();
     const { addToast } = useToasts()
 
+    useEffect(() => {
+        if (currentAccount) {
+            let current_address = currentAccount.address;
+            let unsubscribeAll = null
+            api.query.doraRewards.registerEthAddr(current_address, ethAddr => {
+                if (ethAddr.isSome) {
+                    let eth_address = ethAddr.unwrap();
+                    setCurrEthAddr(ethereumEncode(eth_address))
+                } else {
+                    setCurrEthAddr("null")
+                }
+            })
+                .then(unsub => {
+                    unsubscribeAll = unsub
+                })
+                .catch(console.error)
+
+            return () => unsubscribeAll && unsubscribeAll()
+        }
+    }, [api, currentAccount, setCurrEthAddr])
 
     const ErrorMsg = (content) => {
         addToast(content, {
             appearance: 'error', autoDismiss: true,
+        })
+    }
+
+    const Registering = (content) => {
+        addToast(content, {
+            appearance: 'info', autoDismiss: true,
         })
     }
 
@@ -67,34 +93,42 @@ const RegisterEthAddr = () => {
         console.log(toH160Addr(ethAddr.current.value))
 
         if (typeof toH160Addr(ethAddr.current.value) !== 'undefined') {
-            let txExecute = api.tx.doraRewards.registerEthAddress(toH160Addr(ethAddr.current.value));
-            const unsub = txExecute.signAndSend(...fromAcct, async result => {
-                if (result.status.isInBlock) {
-                    console.log(`Transaction included at blockHash ${result.status.asInBlock}`);
-                } else if (result.status.isFinalized) {
-                    console.log(`Transaction finalized at blockHash ${result.status.asFinalized}`);
-                    RegisterSuccess("Register ETH address successfully!")
-                }
-            })
-            setUnsub(() => unsub)
-            console.log(`end register...`)
+            if (ethAddr.current.value === currEthAddr) {
+                ErrorMsg("Please use a different ETH Address")
+            } else {
+                Registering("Start registering ETH Address, Wait a little time...")
+                let txExecute = api.tx.doraRewards.registerEthAddress(toH160Addr(ethAddr.current.value));
+                const unsub = txExecute.signAndSend(...fromAcct, async result => {
+                    if (result.status.isInBlock) {
+                        console.log(`Transaction included at blockHash ${result.status.asInBlock}`);
+                    } else if (result.status.isFinalized) {
+                        console.log(`Transaction finalized at blockHash ${result.status.asFinalized}`);
+                        RegisterSuccess("Register ETH address successfully!")
+                    }
+                })
+                setUnsub(() => unsub)
+                console.log(`end register...`)
+            }
         } else {
             ErrorMsg("Please enter a correct Ethereum address");
         }
     }
 
+
     return (
-        <div className="docbody-div">
+        <div className="docbody-registerETH">
             <div className="doc-div">
                 <span className="noacc-p"> Register ETH Address</span>
-                <span className="p2-register">You need to register an ETH adder so that we can distribute your Dora rewards to the ETH network</span>
+                <span className="p2-register">You need to register an ETH address so that we can distribute your Dora rewards to the ETH network</span>
                 <input className="register"
                     placeholder="please input your ETH address"
                     ref={ethAddr}
                 ></input>
-                <p>fsdafdsfsda</p>
+                <div className="ETHAddress">
+                    <strong>Your current ETH Address is : {currEthAddr}</strong>
+                </div>
             </div>
-            <button className="reg-but" onClick={() => handle_register()}>
+            <button className="register-btn" onClick={() => handle_register()}>
                 <strong>Register</strong>
             </button>
         </div>

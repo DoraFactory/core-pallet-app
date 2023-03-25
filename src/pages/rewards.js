@@ -14,6 +14,7 @@ import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import localStorage from 'localStorage'
 import { useToasts } from "react-toast-notifications"
+import RegisterEthAddr from  "../components/registerEthAddr"
 
 // get current time
 const thisTime = () => {
@@ -240,6 +241,11 @@ const Reward = () => {
                     <CircularProgress color="inherit" />
                 </Backdrop>
             </div>
+            {!contributor_status ? (
+                    null
+                ) : (
+                    <RegisterEthAddr></RegisterEthAddr>
+                )}
             <RewardInfo></RewardInfo>
         </div>
     );
