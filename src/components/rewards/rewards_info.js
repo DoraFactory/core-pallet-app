@@ -73,9 +73,9 @@ const RewardInfo = () => {
                     </div>
                 </div>
             </div>
+            {/* <RegisterEthAddr></RegisterEthAddr> */}
             {localStorage.getItem(currentAccount.address + "history-reward") == null || rewardsHistory == null ? (
                     <div className="no-history"> You have no claiming record history! </div>
-                    
             ) : (
                 <div className="tb-sty">
                     <Table singleLine>
