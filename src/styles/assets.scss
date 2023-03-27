@@ -37,7 +37,7 @@
     padding: 24px;
     position: absolute;
     width: 1176px;
-    height: 164px;
+    height: 204px;
     left: calc(50% - 1080px/2);
     top: 325px;
     @include elevation-1;
@@ -92,6 +92,7 @@
     border-radius: 4px;
     box-sizing: border-box;
     margin-top: 55px;
+    margin-top: 42px;
 }
 
 .reg-but{
