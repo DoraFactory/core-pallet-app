@@ -114,7 +114,7 @@
     width: 456px;
     height: 60px;
     left: -420px;
-    top: 765px;
+    top: 785px;
     @include regular-type-note;
     color: $basic-ink-secondary;
 }
@@ -140,13 +140,13 @@
     position: absolute;
     width: 1182px;
     left: calc(50% - 1083px/2);
-    top: 520px;
+    top: 550px;
     height: 225px;
     overflow: auto;
 }
 
 .ETHAddress{
-    margin-top: 6px;
+    margin-top: 13px;
     width: 650px;
     // box-shadow: 0px 2px 6px rgba(6, 119, 198, 0.4); /* 设置阴影 */
     // background-color: $accent-primary; /* 设置背景颜色 */
